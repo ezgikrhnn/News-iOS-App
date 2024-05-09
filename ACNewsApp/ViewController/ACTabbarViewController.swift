@@ -15,7 +15,7 @@ class ACTabbarViewController: UITabBarController {
         setUpTabs()
         customizeTabBar()
         self.tabBar.itemPositioning = .fill
-        ChangeOrientation(width: self.tabBar.bounds.width)
+       
         
     }
     
@@ -60,59 +60,7 @@ class ACTabbarViewController: UITabBarController {
       
     }
     
+  
     
-    override func viewWillTransition(to size: CGSize, with coordinator :UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        removeSeperator()
-        ChangeOrientation(width: size.width)
-    }
-    
-    func removeSeperator() {
-        if let items = self.tabBar.items {
-            for (index, _) in items.enumerated() {
-                //We don't want a separator on the left of the first item.
-                if index > 0 {
-                    if let viewWithTag = tabBar.viewWithTag(index) {
-                        //print("index for remove : \(index)")
-                        viewWithTag.removeFromSuperview()
-                    }
-                    else {
-                        print("tag not found")
-                    }
-                }
-            }
-        }
-    }
-    
-    func ChangeOrientation(width : CGFloat) {
-        if let items = self.tabBar.items {
-            //Get the height of the tab bar
-            let height = self.tabBar.bounds.height
-            //Calculate the size of the items
-            let numItems = CGFloat(items.count)
-            let itemSize = CGSize(
-                width: width / numItems,
-                height: tabBar.frame.height)
-            for (index, _) in items.enumerated() {
-                //We don't want a separator on the left of the first item.
-                if index > 0 {
-                    //Xposition of the item
-                    let xPosition = itemSize.width * CGFloat(index)
-                    /* Create UI view at the Xposition,
-                     with a width of 0.5 and height equal
-                     to the tab bar height, and give the
-                     view a background color
-                     */
-                    //print("index : \(index)")
-                    let separator = UIView(frame: CGRect(
-                        x: xPosition, y: 0, width: 0.8, height: height))
-                    separator.tag = index
-                    separator.backgroundColor = UIColor(named: "LightRed")
-                    tabBar.insertSubview(separator, at: 1)
-                }
-            }
-        }
-        
-        
-    }
+   
 }

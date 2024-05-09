@@ -7,6 +7,9 @@
 
 import UIKit
 
+protocol ACNewsViewDelegate: AnyObject {
+    func didSelectArticle(_ article: Article)
+}
 
 class ACNewsView: UIView {
 
@@ -16,14 +19,18 @@ class ACNewsView: UIView {
         ]
     */
 
+    weak var delegate: ACNewsViewDelegate?
+    var articles: [Article] = []
+    
     // TableView
     let tableView: UITableView = {
         let table = UITableView()
         table.register(ACNewsTableViewCell.self, forCellReuseIdentifier: ACNewsTableViewCell.cellIdentifier)
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = 100
-        table.separatorStyle = .none
-        table.backgroundColor = .black
+        table.separatorStyle = .singleLine
+        table.separatorColor = UIColor(named: "Light0Red")
+        table.backgroundColor = .systemBackground
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -34,6 +41,8 @@ class ACNewsView: UIView {
         super.init(frame: frame)
         addSubview(tableView)
         setupConstraints()
+        tableView.dataSource = self
+        tableView.delegate = self
         
     }
     
@@ -41,6 +50,16 @@ class ACNewsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    let newsImage : UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        //imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] ///bu satır sayesinde imageView'in sadece üst 2 köşesine cornerRadius uygulandı.
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()///closure
+    
+    
     // Constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -52,6 +71,37 @@ class ACNewsView: UIView {
     }
 }
 
+//viewcontrollerde tableview fonksiyonları olmasına ragmen yeniden yazıyorum bu, bu viewin baska bir controllerda da kullanılması durumunda o controllera fonksiyonunu bildirmesi için lazımdır.
+
+extension ACNewsView: UITableViewDelegate, UITableViewDataSource{
+   
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return articles.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ACNewsTableViewCell.cellIdentifier, for: indexPath) as? ACNewsTableViewCell else {
+            fatalError("Could not dequeue ACNewsTableViewCell")
+        }
+        let article = articles[indexPath.row]
+        cell.titleLabel.text = article.title
+        cell.descriptionLabel.text = article.description
+        cell.loadImage(from: article.urlToImage)
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row < articles.count {
+            let article = articles[indexPath.row]
+            delegate?.didSelectArticle(article)
+        }
+    }
+}
 /*
 extension ACNewsView: UITableViewDelegate, UITableViewDataSource{
     

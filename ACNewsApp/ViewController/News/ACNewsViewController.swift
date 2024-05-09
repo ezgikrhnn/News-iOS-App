@@ -7,17 +7,20 @@
 
 import UIKit
 
-class ACNewsViewController: UIViewController {
+class ACNewsViewController: UIViewController, ACNewsViewDelegate{
     
     var viewModel = ACNewsViewViewModel()
     public let newsView = ACNewsView() //view
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "AppCent News"
         view.backgroundColor = .systemBackground
         setupNewsView()
         bindViewModel()
         viewModel.fetchNews()
+        
+       
     }
     
     private func setupNewsView() {
@@ -34,8 +37,8 @@ class ACNewsViewController: UIViewController {
             newsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
         
-        newsView.tableView.dataSource = self
-        newsView.tableView.delegate = self
+        newsView.delegate = self
+        
     }
     
     
@@ -44,6 +47,7 @@ class ACNewsViewController: UIViewController {
             print("News was successfully fetched. Total articles: \(self.viewModel.articles.count)")
             // Burada UI güncellemeleri yapabilirsiniz, örneğin bir tableView güncellemesi
             DispatchQueue.main.async {
+                self.newsView.articles = self.viewModel.articles
                 self.newsView.tableView.reloadData() 
             }
         }
@@ -53,9 +57,19 @@ class ACNewsViewController: UIViewController {
             // Hata durumunda kullanıcıya bilgi verebilirsiniz
         }
     }
+    
+    //view delegate fonksiyonu
+    func didSelectArticle(_ article: Article) {
+           // Detay sayfasına geçiş yap
+        let detailVC = ACNewsDetailsViewController(article: article)
+        navigationController?.pushViewController(detailVC, animated: true)
+        print("Selected Article: \(article.title)")
+       }
 }
     
 
+
+/*
 extension ACNewsViewController: UITableViewDelegate, UITableViewDataSource {
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,12 +82,14 @@ extension ACNewsViewController: UITableViewDelegate, UITableViewDataSource {
             }
             let article = viewModel.articles[indexPath.row]
             cell.titleLabel.text = article.title
+            cell.descriptionLabel.text = article.description
             cell.loadImage(from: article.urlToImage)
+            
             return cell
         }
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 200
+            return 150
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -81,3 +97,4 @@ extension ACNewsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+*/

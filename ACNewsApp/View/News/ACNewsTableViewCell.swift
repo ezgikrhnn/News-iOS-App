@@ -17,8 +17,7 @@ final class ACNewsTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 20
-        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] ///bu satır sayesinde imageView'in sadece üst 2 köşesine cornerRadius uygulandı.
+        //imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] ///bu satır sayesinde imageView'in sadece üst 2 köşesine cornerRadius uygulandı.
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()///closure
@@ -29,17 +28,29 @@ final class ACNewsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.numberOfLines = 5
+        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    let descriptionLabel : UILabel = {
+       let label = UILabel()
+       label.textColor = .label
+       label.font = .systemFont(ofSize: 14, weight: .light)
+       label.numberOfLines = 5
+       label.textAlignment = .left
+       label.translatesAutoresizingMaskIntoConstraints = false
+       return label
+   }()
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
            super.init(style: style, reuseIdentifier: reuseIdentifier)
            contentView.backgroundColor = UIColor(named: "LigthBlack")
-           contentView.addSubviews(newsImage, titleLabel)
+           contentView.addSubviews(newsImage, titleLabel, descriptionLabel)
            addConstraints()
-           setUpLayer()
+           //setUpLayer()
        }
        
     required init?(coder: NSCoder) { ///storyboard ya da  xib başlatıcısı
@@ -56,24 +67,32 @@ final class ACNewsTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
            
-            newsImage.heightAnchor.constraint(equalToConstant: 150),
-                   newsImage.widthAnchor.constraint(equalToConstant: 150),
-                   newsImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-                   newsImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20), // Hücrenin sağ kenarından 20 puan uzaklıkta
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
+            newsImage.heightAnchor.constraint(equalToConstant: 80),
+            newsImage.widthAnchor.constraint(equalToConstant: 120),
+            newsImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+            newsImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            // Hücrenin sağ kenarından 20 puan uzaklıkta
+            
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+            titleLabel.heightAnchor.constraint(equalToConstant: 100),
+            titleLabel.widthAnchor.constraint(equalToConstant: 230),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -15),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 50),
+            descriptionLabel.widthAnchor.constraint(equalToConstant: 230),
+            descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
         ])
     }
     
-    private func setUpLayer(){
-        contentView.layer.cornerRadius = 20
-        contentView.layer.shadowColor = UIColor(named: "Light0Red")?.cgColor //backgroundcolour'un tersi oldu
-        contentView.layer.shadowOpacity = 1
+    /*private func setUpLayer(){
+        //contentView.layer.cornerRadius = 20
+        //contentView.layer.shadowColor = UIColor(named: "Light0Red")?.cgColor //backgroundcolour'un tersi oldu
+        //contentView.layer.shadowOpacity = 1
         contentView.layer.borderWidth = 0.9
         contentView.layer.borderColor = UIColor(named: "LightRed")?.cgColor
 
-    }
+    } */
     
     override func prepareForReuse() { ///hücre yeniden kullanılmak üzere hazırlandıgında çağrırlır.
         super.prepareForReuse() /// metod super.prepareForReuse() çağrısı yapmakta, reperareforreuse hücre yeniden kullanılmak için çağırıldıgında yazılır. ARAŞTIR YENİDEN !!!
@@ -85,7 +104,7 @@ final class ACNewsTableViewCell: UITableViewCell {
     override func layoutSubviews() {
             super.layoutSubviews()
             // contentView için iç boşluklar ayarlanıyor
-            contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+            contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
     
     //FUNC LOAD IMAGE
