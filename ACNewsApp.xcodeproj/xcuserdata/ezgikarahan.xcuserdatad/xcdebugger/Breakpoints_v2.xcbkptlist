@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5999F8AD-DC49-4039-A392-D61ACC0EBE75"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6999122A-66E7-427C-ACE1-0A76EBB1DC6B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ACNewsApp/View/ACNewsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "init(frame:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6999122A-66E7-427C-ACE1-0A76EBB1DC6B - e85cee925c2351ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACNewsApp.ACNewsView.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ACNewsApp.ACNewsView&gt;"
+                  moduleName = "ACNewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ezgikarahan/Desktop/Kas%C4%B1m%20Adalan%20Bootcamp/ACNewsApp/ACNewsApp/View/ACNewsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "6999122A-66E7-427C-ACE1-0A76EBB1DC6B - 78b8eea08b5997eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ACNewsApp.ACNewsView.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ACNewsApp.ACNewsView&gt;"
+                  moduleName = "ACNewsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ezgikarahan/Desktop/Kas%C4%B1m%20Adalan%20Bootcamp/ACNewsApp/ACNewsApp/View/ACNewsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
