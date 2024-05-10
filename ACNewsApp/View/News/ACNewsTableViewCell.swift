@@ -93,7 +93,6 @@ final class ACNewsTableViewCell: UITableViewCell {
         contentView.layer.borderColor = UIColor(named: "LightRed")?.cgColor
 
     } */
-    
     override func prepareForReuse() { ///hücre yeniden kullanılmak üzere hazırlandıgında çağrırlır.
         super.prepareForReuse() /// metod super.prepareForReuse() çağrısı yapmakta, reperareforreuse hücre yeniden kullanılmak için çağırıldıgında yazılır. ARAŞTIR YENİDEN !!!
         

@@ -15,8 +15,6 @@ class ACTabbarViewController: UITabBarController {
         setUpTabs()
         customizeTabBar()
         self.tabBar.itemPositioning = .fill
-       
-        
     }
     
     private func setUpTabs(){

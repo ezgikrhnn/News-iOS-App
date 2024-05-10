@@ -53,7 +53,6 @@ class ACNewsViewViewModel {
     }
 }
 
-
 // JSON yapıları
 struct NewsResponse: Codable {
     let status: String
