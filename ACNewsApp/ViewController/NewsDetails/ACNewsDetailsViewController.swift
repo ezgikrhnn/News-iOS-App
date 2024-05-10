@@ -9,13 +9,13 @@ import UIKit
 
 class ACNewsDetailsViewController: UIViewController {
 
-    
-    var article: Article
+    //MARK: - Properties
+    var viewModel: ACNewsDetailsViewModel!
     var newsView = ACNewsDetailsView()
     
-    init(article: Article) {
-        self.article = article
-        super.init(nibName: nil, bundle: nil)
+    init(viewModel: ACNewsDetailsViewModel) {
+            self.viewModel = viewModel
+            super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -26,26 +26,23 @@ class ACNewsDetailsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(newsView)
-        newsView.descriptionLabel.text = article.description
-        newsView.loadImage(from: article.urlToImage)
-        newsView.titleLabel.text = article.title
+        setUpNewsDetailsView()
         setupNavigationBar()
         addConstraints()
     }
     
-   
+    //MARK: -Functions
     private func setupNavigationBar() {
         
         let appearance = UINavigationBarAppearance()
-
         appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.red, // Başlık rengi kırmızı
-            .font: UIFont.boldSystemFont(ofSize: 20) // Font büyüklüğü ve kalınlığı
+            .foregroundColor: UIColor.red,
+            .font: UIFont.boldSystemFont(ofSize: 20)
         ]
         
         appearance.largeTitleTextAttributes = [
-            .foregroundColor: UIColor.red, // Large title rengi kırmızı
-            .font: UIFont.boldSystemFont(ofSize: 34) // Large title font büyüklüğü ve kalınlığı
+            .foregroundColor: UIColor.red,
+            .font: UIFont.boldSystemFont(ofSize: 34)
         ]
         // Navigation Bar'ın önceki ayarlarını güncelleme
         navigationController?.navigationBar.standardAppearance = appearance
@@ -55,19 +52,16 @@ class ACNewsDetailsViewController: UIViewController {
         // Like Button
         let likeButton = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(didTapLikeButton))
         // Download Button
-        let downloadButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(didTapShareButton))
+        let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(didTapShareButton))
         
-        navigationItem.rightBarButtonItems = [downloadButton, likeButton]
+        navigationItem.rightBarButtonItems = [shareButton, likeButton]
     }
     
-    
     @objc private func didTapLikeButton() {
-           // "Like" butonuna tıklandığında yapılacak işlemler
            print("Like button tapped")
        }
        
-       @objc private func didTapShareButton() {
-           // "Download" butonuna tıklandığında yapılacak işlemler
+    @objc private func didTapShareButton() {
            print("Download button tapped")
        }
     
@@ -81,6 +75,13 @@ class ACNewsDetailsViewController: UIViewController {
             newsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             newsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-
     }
+    
+    private func setUpNewsDetailsView(){
+        newsView.descriptionLabel.text = viewModel.description
+        newsView.loadImage(from: viewModel.imageUrl)
+        newsView.titleLabel.text = viewModel.title
+        newsView.authorNameLabel.text = viewModel.authorName
+        newsView.publishDateLabel.text = viewModel.formattedPublishDate
+       }
 }

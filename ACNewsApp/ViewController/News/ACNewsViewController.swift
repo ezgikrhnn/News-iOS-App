@@ -61,14 +61,12 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
     //view delegate fonksiyonu
     func didSelectArticle(_ article: Article) {
            // Detay sayfasına geçiş yap
-        let detailVC = ACNewsDetailsViewController(article: article)
+        let viewModel = ACNewsDetailsViewModel(article: article)
+        let detailVC = ACNewsDetailsViewController(viewModel: viewModel)
         navigationController?.pushViewController(detailVC, animated: true)
         print("Selected Article: \(article.title)")
        }
 }
-    
-
-
 /*
 extension ACNewsViewController: UITableViewDelegate, UITableViewDataSource {
         

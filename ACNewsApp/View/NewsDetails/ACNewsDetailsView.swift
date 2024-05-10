@@ -36,9 +36,8 @@ class ACNewsDetailsView: UIView {
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = .red
+        scrollView.backgroundColor = .systemBackground
         scrollView.contentSize = CGSize(width: 500, height: 1000)
-
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
         }()
@@ -136,12 +135,14 @@ class ACNewsDetailsView: UIView {
         var config = UIButton.Configuration.filled()
         config.title = "View Source"
         config.baseForegroundColor = .white // Yazı rengi
-
+        let backgroundColor = UIColor(named: "DarkRed") ?? .red
+        config.background = UIBackgroundConfiguration.clear()
+        config.background.backgroundColor = backgroundColor
+        config.background.cornerRadius = 10
         let button = UIButton(configuration: config, primaryAction: nil)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
     
     //MARK: -Functions
     func loadImage(from urlString: String?) {
@@ -219,7 +220,8 @@ class ACNewsDetailsView: UIView {
             */
             viewSourceButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30),
             viewSourceButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            viewSourceButton.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
+            viewSourceButton.widthAnchor.constraint(equalToConstant: 200),
+            viewSourceButton.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
             ])
     }
 }

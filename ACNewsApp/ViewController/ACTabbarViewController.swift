@@ -18,7 +18,6 @@ class ACTabbarViewController: UITabBarController {
     }
     
     private func setUpTabs(){
-        
         let newsPageVC =  ACNewsViewController()
         let favsPageVC = ACFavsViewController()
         let settingsPageVC = ACSettingsViewController()
@@ -46,7 +45,6 @@ class ACTabbarViewController: UITabBarController {
             animated: true)
     }
     
-    
     private func customizeTabBar() {
         // Tab Bar Background
         tabBar.barTintColor = .black
@@ -54,11 +52,6 @@ class ACTabbarViewController: UITabBarController {
         tabBar.unselectedItemTintColor = UIColor(named: "LightRed")
         tabBar.layer.masksToBounds = true
         
-        
-      
     }
-    
-  
-    
-   
+
 }
