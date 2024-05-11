@@ -30,7 +30,7 @@ class ACTabbarViewController: UITabBarController {
         let nav2 = UINavigationController(rootViewController: favsPageVC)
         let nav3 = UINavigationController(rootViewController: settingsPageVC)
         
-        nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house.fill"), tag: 1)
+        nav1.tabBarItem = UITabBarItem(title: "News", image: UIImage(systemName: "house.fill"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Favs", image: UIImage(systemName: "heart.fill"), tag: 1)
         
         nav3.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 1)

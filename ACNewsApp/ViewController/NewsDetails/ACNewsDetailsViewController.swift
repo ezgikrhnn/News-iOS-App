@@ -31,6 +31,12 @@ class ACNewsDetailsViewController: UIViewController {
         addConstraints()
     }
     
+    //sayfadan çıkınca kalp eski haline dönmesin güncel kalsın diye
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            updateLikeButtonAppearance()
+        }
+    
     //MARK: -Functions
     private func setupNavigationBar() {
         
@@ -58,13 +64,26 @@ class ACNewsDetailsViewController: UIViewController {
     }
     
     @objc private func didTapLikeButton() {
-           print("Like button tapped")
+        if FavoritesManager.shared.isFavorite(article: viewModel.article) {
+                FavoritesManager.shared.removeFavorite(article: viewModel.article)
+                print("Article removed from favorites")
+            } else {
+                FavoritesManager.shared.addFavorite(article: viewModel.article)
+                print("Article added to favorites")
+               
+            }
+            updateLikeButtonAppearance()
        }
        
     @objc private func didTapShareButton() {
            print("Download button tapped")
        }
     
+    private func updateLikeButtonAppearance() {
+        let isFavorite = FavoritesManager.shared.isFavorite(article: viewModel.article)
+        let imageName = isFavorite ? "heart.fill" : "heart"
+        navigationItem.rightBarButtonItems?[1].image = UIImage(systemName: imageName)
+    }
     
     func addConstraints(){
         newsView.translatesAutoresizingMaskIntoConstraints = false

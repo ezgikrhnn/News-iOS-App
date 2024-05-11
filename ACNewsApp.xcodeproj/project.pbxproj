@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC71444F2BEF68ED00FF52DF /* ACFavsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71444E2BEF68ED00FF52DF /* ACFavsView.swift */; };
+		EC7144542BEF694F00FF52DF /* ACFavsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7144532BEF694F00FF52DF /* ACFavsViewViewModel.swift */; };
+		EC7144572BEF6B5C00FF52DF /* ACFavsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7144562BEF6B5C00FF52DF /* ACFavsTableViewCell.swift */; };
+		EC71445A2BEF6D7A00FF52DF /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7144592BEF6D7A00FF52DF /* FavoritesManager.swift */; };
 		EC7667B12BECD91A003E2C86 /* ACNewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7667B02BECD91A003E2C86 /* ACNewsDetailsViewController.swift */; };
 		EC7667B32BECD939003E2C86 /* ACNewsDetailsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7667B22BECD939003E2C86 /* ACNewsDetailsViewViewModel.swift */; };
 		EC7667B52BECD959003E2C86 /* ACNewsDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7667B42BECD959003E2C86 /* ACNewsDetailsView.swift */; };
@@ -30,9 +34,17 @@
 		EC8808B62BEBAED700BCAC60 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B52BEBAED700BCAC60 /* Extensions.swift */; };
 		EC8808B82BEBE71B00BCAC60 /* NewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B72BEBE71B00BCAC60 /* NewsAPI.swift */; };
 		EC8808BA2BEBEA6D00BCAC60 /* ACRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B92BEBEA6D00BCAC60 /* ACRequest.swift */; };
+		ECCC28DD2BEEAE4000DB7E6F /* ACSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28DC2BEEAE4000DB7E6F /* ACSettingsView.swift */; };
+		ECCC28E02BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */; };
+		ECCC28E22BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28E12BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift */; };
+		ECCC28E42BEEAF1900DB7E6F /* ACSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28E32BEEAF1900DB7E6F /* ACSettingsOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC71444E2BEF68ED00FF52DF /* ACFavsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACFavsView.swift; sourceTree = "<group>"; };
+		EC7144532BEF694F00FF52DF /* ACFavsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACFavsViewViewModel.swift; sourceTree = "<group>"; };
+		EC7144562BEF6B5C00FF52DF /* ACFavsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACFavsTableViewCell.swift; sourceTree = "<group>"; };
+		EC7144592BEF6D7A00FF52DF /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		EC7667B02BECD91A003E2C86 /* ACNewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACNewsDetailsViewController.swift; sourceTree = "<group>"; };
 		EC7667B22BECD939003E2C86 /* ACNewsDetailsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACNewsDetailsViewViewModel.swift; sourceTree = "<group>"; };
 		EC7667B42BECD959003E2C86 /* ACNewsDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACNewsDetailsView.swift; sourceTree = "<group>"; };
@@ -58,6 +70,10 @@
 		EC8808B52BEBAED700BCAC60 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EC8808B72BEBE71B00BCAC60 /* NewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPI.swift; sourceTree = "<group>"; };
 		EC8808B92BEBEA6D00BCAC60 /* ACRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACRequest.swift; sourceTree = "<group>"; };
+		ECCC28DC2BEEAE4000DB7E6F /* ACSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsView.swift; sourceTree = "<group>"; };
+		ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsViewViewModel.swift; sourceTree = "<group>"; };
+		ECCC28E12BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsCellViewModel.swift; sourceTree = "<group>"; };
+		ECCC28E32BEEAF1900DB7E6F /* ACSettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC7144502BEF68F200FF52DF /* Favs */ = {
+			isa = PBXGroup;
+			children = (
+				EC71444E2BEF68ED00FF52DF /* ACFavsView.swift */,
+				EC7144562BEF6B5C00FF52DF /* ACFavsTableViewCell.swift */,
+			);
+			path = Favs;
+			sourceTree = "<group>";
+		};
+		EC7144512BEF691900FF52DF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ECCC28DC2BEEAE4000DB7E6F /* ACSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		EC7144522BEF693200FF52DF /* Favs */ = {
+			isa = PBXGroup;
+			children = (
+				EC7144532BEF694F00FF52DF /* ACFavsViewViewModel.swift */,
+			);
+			path = Favs;
+			sourceTree = "<group>";
+		};
+		EC7144552BEF69DF00FF52DF /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				EC88089F2BEB969600BCAC60 /* ACTabbarViewController.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		EC7144582BEF6D5800FF52DF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EC8808B52BEBAED700BCAC60 /* Extensions.swift */,
+				EC7144592BEF6D7A00FF52DF /* FavoritesManager.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EC7667B62BECECE3003E2C86 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +213,7 @@
 		EC8808852BEB953D00BCAC60 /* ACNewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				EC7144582BEF6D5800FF52DF /* Extensions */,
 				EC88089C2BEB95F900BCAC60 /* Models */,
 				EC88089B2BEB95D400BCAC60 /* View */,
 				EC88089A2BEB95C400BCAC60 /* ViewModel */,
@@ -167,7 +226,6 @@
 				EC88088F2BEB953F00BCAC60 /* Assets.xcassets */,
 				EC8808912BEB953F00BCAC60 /* LaunchScreen.storyboard */,
 				EC8808942BEB953F00BCAC60 /* Info.plist */,
-				EC8808B52BEBAED700BCAC60 /* Extensions.swift */,
 			);
 			path = ACNewsApp;
 			sourceTree = "<group>";
@@ -175,8 +233,10 @@
 		EC88089A2BEB95C400BCAC60 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EC7667B92BECED1E003E2C86 /* NewsDetails */,
 				EC7667B82BECED17003E2C86 /* News */,
+				EC7667B92BECED1E003E2C86 /* NewsDetails */,
+				EC7144522BEF693200FF52DF /* Favs */,
+				ECCC28DE2BEEAEA400DB7E6F /* Settings */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -184,8 +244,10 @@
 		EC88089B2BEB95D400BCAC60 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EC7667B72BECECF1003E2C86 /* NewsDetails */,
 				EC7667B62BECECE3003E2C86 /* News */,
+				EC7667B72BECECF1003E2C86 /* NewsDetails */,
+				EC7144502BEF68F200FF52DF /* Favs */,
+				EC7144512BEF691900FF52DF /* Settings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,13 +267,23 @@
 		EC88089E2BEB963E00BCAC60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EC88089F2BEB969600BCAC60 /* ACTabbarViewController.swift */,
-				EC7667BD2BECF353003E2C86 /* Settings */,
-				EC7667BC2BECF339003E2C86 /* Favs */,
-				EC7667BB2BECED43003E2C86 /* NewsDetails */,
+				EC7144552BEF69DF00FF52DF /* Tabbar */,
 				EC7667BA2BECED34003E2C86 /* News */,
+				EC7667BB2BECED43003E2C86 /* NewsDetails */,
+				EC7667BC2BECF339003E2C86 /* Favs */,
+				EC7667BD2BECF353003E2C86 /* Settings */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		ECCC28DE2BEEAEA400DB7E6F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */,
+				ECCC28E12BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift */,
+				ECCC28E32BEEAF1900DB7E6F /* ACSettingsOption.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,14 +361,22 @@
 				EC7667B32BECD939003E2C86 /* ACNewsDetailsViewViewModel.swift in Sources */,
 				EC8808AE2BEBAD0F00BCAC60 /* NewsService.swift in Sources */,
 				EC8808B02BEBAD9A00BCAC60 /* ACNewsView.swift in Sources */,
+				EC7144542BEF694F00FF52DF /* ACFavsViewViewModel.swift in Sources */,
 				EC7667B52BECD959003E2C86 /* ACNewsDetailsView.swift in Sources */,
+				ECCC28E42BEEAF1900DB7E6F /* ACSettingsOption.swift in Sources */,
 				EC8808B82BEBE71B00BCAC60 /* NewsAPI.swift in Sources */,
+				EC71445A2BEF6D7A00FF52DF /* FavoritesManager.swift in Sources */,
+				ECCC28E02BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift in Sources */,
+				ECCC28DD2BEEAE4000DB7E6F /* ACSettingsView.swift in Sources */,
 				EC8808A22BEB972400BCAC60 /* ACNewsViewController.swift in Sources */,
 				EC88088B2BEB953D00BCAC60 /* ViewController.swift in Sources */,
+				EC71444F2BEF68ED00FF52DF /* ACFavsView.swift in Sources */,
 				EC8808B22BEBADA800BCAC60 /* ACNewsViewViewModel.swift in Sources */,
 				EC8808A82BEB9F5900BCAC60 /* Article.swift in Sources */,
 				EC8808BA2BEBEA6D00BCAC60 /* ACRequest.swift in Sources */,
+				EC7144572BEF6B5C00FF52DF /* ACFavsTableViewCell.swift in Sources */,
 				EC8808AC2BEBA8D800BCAC60 /* NewsAPIResponse.swift in Sources */,
+				ECCC28E22BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift in Sources */,
 				EC8808872BEB953D00BCAC60 /* AppDelegate.swift in Sources */,
 				EC8808A02BEB969600BCAC60 /* ACTabbarViewController.swift in Sources */,
 				EC7667B12BECD91A003E2C86 /* ACNewsDetailsViewController.swift in Sources */,
