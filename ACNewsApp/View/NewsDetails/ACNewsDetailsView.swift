@@ -154,7 +154,7 @@ class ACNewsDetailsView: UIView {
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             guard let self = self, let data = data, error == nil else {
                 DispatchQueue.main.async {
-                    self?.newsImage.image = nil // Hata oluştuğunda varsayılan bir resim gösterilebilir.
+                    self?.newsImage.image = UIImage(named: "noImage") // Hata oluştuğunda varsayılan bir resim gösterilebilir.
                 }
                 return
             }

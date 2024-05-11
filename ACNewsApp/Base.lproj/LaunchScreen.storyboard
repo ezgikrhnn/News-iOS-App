@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,15 +13,54 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v915-techi-058-f" translatesAutoresizingMaskIntoConstraints="NO" id="og1-ov-Z46">
+                                <rect key="frame" x="-85" y="0.0" width="491" height="852"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Created by                     Appcent Mobile Development" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5C-4k-PHK">
+                                <rect key="frame" x="95" y="777" width="203" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="1G2-Y0-T5e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="AFT-ec-FuH">
+                                <rect key="frame" x="62" y="320" width="269" height="158"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="A5C-4k-PHK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="0Bs-s4-N3U"/>
+                            <constraint firstItem="og1-ov-Z46" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-85" id="0wW-tK-lJv"/>
+                            <constraint firstAttribute="bottom" secondItem="og1-ov-Z46" secondAttribute="bottom" id="3bH-9L-gqP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="og1-ov-Z46" secondAttribute="top" constant="59" id="6L5-cN-IKh"/>
+                            <constraint firstAttribute="trailing" secondItem="og1-ov-Z46" secondAttribute="trailing" constant="-13" id="9r6-gU-STL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="og1-ov-Z46" secondAttribute="leading" constant="85" id="OmU-I1-gco"/>
+                            <constraint firstItem="AFT-ec-FuH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="UUf-aG-iBG"/>
+                            <constraint firstItem="AFT-ec-FuH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VjC-eQ-Spf"/>
+                            <constraint firstItem="AFT-ec-FuH" firstAttribute="centerX" secondItem="A5C-4k-PHK" secondAttribute="centerX" id="W5h-MV-bHO"/>
+                            <constraint firstItem="AFT-ec-FuH" firstAttribute="top" secondItem="og1-ov-Z46" secondAttribute="top" id="YTO-j4-UnW"/>
+                            <constraint firstItem="og1-ov-Z46" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="f0L-V0-oPh"/>
+                            <constraint firstItem="og1-ov-Z46" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="13" id="g8V-9c-cQc"/>
+                            <constraint firstItem="og1-ov-Z46" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="orX-ga-vui"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launchScreenImage" width="900" height="600"/>
+        <image name="v915-techi-058-f" width="2814" height="5001"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

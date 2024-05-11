@@ -116,7 +116,7 @@ final class ACNewsTableViewCell: UITableViewCell {
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             guard let self = self, let data = data, error == nil else {
                 DispatchQueue.main.async {
-                    self?.newsImage.image = nil // Hata oluştuğunda varsayılan bir resim gösterebilirsiniz.
+                    self?.newsImage.image = UIImage(named: "noImage") // Hata oluştuğunda varsayılan bir resim gösterebilirsiniz.
                 }
                 return
             }
