@@ -5,7 +5,8 @@
 //  Created by Ezgi Karahan on 9.05.2024.
 //
 
-import Foundation
+import UIKit
+
 
 class ACNewsDetailsViewModel {
 
@@ -24,6 +25,13 @@ class ACNewsDetailsViewModel {
     var imageUrl: String? {
         return article.urlToImage
     }
+    var content: String? {
+        return article.content
+    }
+    var sourceUrl: String{
+        return article.url
+    }
+    
     var formattedPublishDate: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
@@ -34,4 +42,7 @@ class ACNewsDetailsViewModel {
     init(article: Article) {
         self.article = article
     }
+    
+    // İçerik açma işlevi
+    
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol ACNewsViewDelegate: AnyObject {
     func didSelectArticle(_ article: Article)
+    func didSearchForText(_ text: String)
 }
 
 class ACNewsView: UIView {
@@ -35,14 +36,22 @@ class ACNewsView: UIView {
         return table
     }()
 
+    // SearchBar
+        let searchBar: UISearchBar = {
+            let searchBar = UISearchBar()
+            searchBar.placeholder = "Search News"
+            searchBar.translatesAutoresizingMaskIntoConstraints = false
+            return searchBar
+        }()
     
-    // Initializer
+    //MARK: -Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(tableView)
+        addSubviews(tableView, searchBar)
         setupConstraints()
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
         
     }
     
@@ -63,7 +72,14 @@ class ACNewsView: UIView {
     // Constraints
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor),
+            
+            searchBar.topAnchor.constraint(equalTo: topAnchor),
+                        searchBar.leftAnchor.constraint(equalTo: leftAnchor),
+                       searchBar.rightAnchor.constraint(equalTo: rightAnchor),
+                       searchBar.heightAnchor.constraint(equalToConstant: 50),
+                       
+            
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
             tableView.leftAnchor.constraint(equalTo: leftAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             tableView.rightAnchor.constraint(equalTo: rightAnchor)
@@ -102,6 +118,14 @@ extension ACNewsView: UITableViewDelegate, UITableViewDataSource{
         }
     }
 }
+
+extension ACNewsView: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+           delegate?.didSearchForText(searchText)
+       }
+}
+
+
 /*
 extension ACNewsView: UITableViewDelegate, UITableViewDataSource{
     

@@ -22,6 +22,8 @@ class ACFavsViewController: UIViewController {
         reloadFavorites()
        
     }
+    
+    
     private func setupFavsView() {
         view.addSubview(favsView)
         favsView.translatesAutoresizingMaskIntoConstraints = false

@@ -37,6 +37,7 @@
 		ECCC28E02BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */; };
 		ECCC28E22BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28E12BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift */; };
 		ECCC28E42BEEAF1900DB7E6F /* ACSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28E32BEEAF1900DB7E6F /* ACSettingsOption.swift */; };
+		ECF399E12BEFED8800F2C20E /* ACSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF399E02BEFED8800F2C20E /* ACSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsViewViewModel.swift; sourceTree = "<group>"; };
 		ECCC28E12BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsCellViewModel.swift; sourceTree = "<group>"; };
 		ECCC28E32BEEAF1900DB7E6F /* ACSettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsOption.swift; sourceTree = "<group>"; };
+		ECF399E02BEFED8800F2C20E /* ACSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 		EC88089E2BEB963E00BCAC60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				ECF399DF2BEFED6900F2C20E /* Search */,
 				EC7144552BEF69DF00FF52DF /* Tabbar */,
 				EC7667BA2BECED34003E2C86 /* News */,
 				EC7667BB2BECED43003E2C86 /* NewsDetails */,
@@ -281,6 +284,14 @@
 				ECCC28E32BEEAF1900DB7E6F /* ACSettingsOption.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		ECF399DF2BEFED6900F2C20E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				ECF399E02BEFED8800F2C20E /* ACSearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +369,7 @@
 				EC7667B32BECD939003E2C86 /* ACNewsDetailsViewViewModel.swift in Sources */,
 				EC8808AE2BEBAD0F00BCAC60 /* NewsService.swift in Sources */,
 				EC8808B02BEBAD9A00BCAC60 /* ACNewsView.swift in Sources */,
+				ECF399E12BEFED8800F2C20E /* ACSearchViewController.swift in Sources */,
 				EC7144542BEF694F00FF52DF /* ACFavsViewViewModel.swift in Sources */,
 				EC7667B52BECD959003E2C86 /* ACNewsDetailsView.swift in Sources */,
 				ECCC28E42BEEAF1900DB7E6F /* ACSettingsOption.swift in Sources */,

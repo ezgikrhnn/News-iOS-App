@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ACNewsDetailsViewController: UIViewController {
 
@@ -13,6 +14,7 @@ class ACNewsDetailsViewController: UIViewController {
     var viewModel: ACNewsDetailsViewModel!
     var newsView = ACNewsDetailsView()
     
+    //MARK: -Init
     init(viewModel: ACNewsDetailsViewModel) {
             self.viewModel = viewModel
             super.init(nibName: nil, bundle: nil)
@@ -22,6 +24,12 @@ class ACNewsDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func openSourceURL() {
+        guard let url = URL(string: viewModel.sourceUrl) else { return }
+        let safariViewController = SFSafariViewController(url: url)
+        present(safariViewController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -29,7 +37,11 @@ class ACNewsDetailsViewController: UIViewController {
         setUpNewsDetailsView()
         setupNavigationBar()
         addConstraints()
+        setupButtonActions()
+        
     }
+    
+    
     
     //sayfadan çıkınca kalp eski haline dönmesin güncel kalsın diye
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +50,7 @@ class ACNewsDetailsViewController: UIViewController {
         }
     
     //MARK: -Functions
+    
     private func setupNavigationBar() {
         
         let appearance = UINavigationBarAppearance()
@@ -97,10 +110,18 @@ class ACNewsDetailsViewController: UIViewController {
     }
     
     private func setUpNewsDetailsView(){
-        newsView.descriptionLabel.text = viewModel.description
+        newsView.descriptionLabel.text = viewModel.content
         newsView.loadImage(from: viewModel.imageUrl)
         newsView.titleLabel.text = viewModel.title
         newsView.authorNameLabel.text = viewModel.authorName
         newsView.publishDateLabel.text = viewModel.formattedPublishDate
        }
+    
+    //buttona tıklama                                                                         
+    func setupButtonActions() {
+        newsView.viewSourceButton.addAction(UIAction { [weak self] _ in
+                self?.openSourceURL()
+            }, for: .touchUpInside)
+        }
+    
 }

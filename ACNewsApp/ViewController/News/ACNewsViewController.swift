@@ -9,18 +9,27 @@ import UIKit
 
 class ACNewsViewController: UIViewController, ACNewsViewDelegate{
     
+    
     var viewModel = ACNewsViewViewModel()
     public let newsView = ACNewsView() //view
+    let menuButton = UIBarButtonItem()
+    let sideMenuView = UIView()
+    let tableView = UITableView()
+    let countries = ["ae", "ar", "at", "au", "be", "bg", "br", "ca", "ch", "cn", "co", "cu", "cz", "de", "eg", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr", "lt", "lv", "ma", "mx", "my", "ng", "nl", "no", "nz", "ph","pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
+ // Ülke kodlarınız
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "AppCent News"
         view.backgroundColor = .systemBackground
-        setupNewsView()
-        bindViewModel()
+        navigationController?.navigationBar.prefersLargeTitles = false
         viewModel.fetchNews()
-        
-       
+        bindViewModel()
+        setupNewsView()
+      
+        //sayfa yüklendiğinde abd haberlerini göstersin
+        setupNavigationBar()
+        setupSideMenu()
     }
     
     private func setupNewsView() {
@@ -40,7 +49,6 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
         newsView.delegate = self
         
     }
-    
     
     func bindViewModel() {
         viewModel.onNewsUpdated = {
@@ -65,8 +73,67 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
         let detailVC = ACNewsDetailsViewController(viewModel: viewModel)
         navigationController?.pushViewController(detailVC, animated: true)
         print("Selected Article: \(article.title)")
-       }
+    }
+    
+    
+    // Search text change handling
+    func didSearchForText(_ text: String) {
+        print("Searching for: \(text)")
+        if text.isEmpty {
+            viewModel.fetchNews()
+        } else {
+            viewModel.searchNews(with: text)
+        }
+    }
+    
+    func setupNavigationBar() {
+        menuButton.title = "Countries"
+        menuButton.target = self
+        menuButton.tintColor = UIColor(named: "LightRed")
+        menuButton.action = #selector(toggleSideMenu)
+        navigationItem.leftBarButtonItem = menuButton
+    }
+
+    func setupSideMenu() {
+            sideMenuView.frame = CGRect(x: -200, y: 0, width: 200, height: self.view.frame.height)
+            sideMenuView.backgroundColor = .white
+            self.view.addSubview(sideMenuView)
+
+            tableView.frame = sideMenuView.bounds
+            tableView.delegate = self
+            tableView.dataSource = self
+            sideMenuView.addSubview(tableView)
+        }
+
+        @objc func toggleSideMenu() {
+            UIView.animate(withDuration: 0.3) {
+                self.sideMenuView.frame.origin.x = self.sideMenuView.frame.origin.x == 0 ? -200 : 0
+            }
+        }
 }
+
+extension ACNewsViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // TableView DataSource and Delegate
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return countries.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        cell.textLabel?.text = countries[indexPath.row].uppercased()
+        cell.backgroundColor = UIColor(named: "LightGray")
+        return cell
+    }
+    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCountry = countries[indexPath.row]
+        viewModel.fetchCountryNews(fromCountry: selectedCountry)
+        toggleSideMenu()
+    }
+}
+
 /*
 extension ACNewsViewController: UITableViewDelegate, UITableViewDataSource {
         

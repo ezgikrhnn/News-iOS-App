@@ -17,10 +17,9 @@ final class ACNewsTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        //imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] ///bu satır sayesinde imageView'in sadece üst 2 köşesine cornerRadius uygulandı.
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
-    }()///closure
+    }()
     
     
     //LABEL
@@ -110,7 +109,7 @@ final class ACNewsTableViewCell: UITableViewCell {
     func loadImage(from urlString: String?) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
             newsImage.image = nil // URL geçersiz ise veya yoksa varsayılan bir görüntü gösterebilirsiniz.
-            return
+            return newsImage.image = UIImage(named: "noImage")
         }
         
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
