@@ -4,8 +4,14 @@ Hello 🙋🏻‍♀️ here you can see a news app I created using https://news
 
 
 Some structures I use in my project:
+
 🌟 OOP
+
 🌟 SDWebImage
+
 🌟 MVVM-C 
+
 🌟 API Calls
+
 🌟 SafariServices
+
