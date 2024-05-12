@@ -17,6 +17,7 @@ extension UIView{
     }
 }
 
+//sdwebimagesiz loadImage fonksiyonu
 extension UIImageView {
     func loadImage(from urlString: String) {
         guard let url = URL(string: urlString) else { return }
@@ -28,6 +29,7 @@ extension UIImageView {
             }
         }.resume()
     }
+    
 }
 
 

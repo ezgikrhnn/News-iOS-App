@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 
 final class ACNewsTableViewCell: UITableViewCell {
     
@@ -84,16 +84,8 @@ final class ACNewsTableViewCell: UITableViewCell {
         ])
     }
     
-    /*private func setUpLayer(){
-        //contentView.layer.cornerRadius = 20
-        //contentView.layer.shadowColor = UIColor(named: "Light0Red")?.cgColor //backgroundcolour'un tersi oldu
-        //contentView.layer.shadowOpacity = 1
-        contentView.layer.borderWidth = 0.9
-        contentView.layer.borderColor = UIColor(named: "LightRed")?.cgColor
-
-    } */
     override func prepareForReuse() { ///hücre yeniden kullanılmak üzere hazırlandıgında çağrırlır.
-        super.prepareForReuse() /// metod super.prepareForReuse() çağrısı yapmakta, reperareforreuse hücre yeniden kullanılmak için çağırıldıgında yazılır. ARAŞTIR YENİDEN !!!
+        super.prepareForReuse() /// metod super.prepareForReuse() çağrısı yapmakta, prepareforreuse hücre yeniden kullanılmak için çağırıldıgında yazılır. ARAŞTIR YENİDEN !!!
         
         newsImage.image = nil
         titleLabel.text = nil
@@ -101,29 +93,17 @@ final class ACNewsTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
             super.layoutSubviews()
-            // contentView için iç boşluklar ayarlanıyor
+            // contentView için iç boşluklar
             contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         }
     
     //FUNC LOAD IMAGE
     func loadImage(from urlString: String?) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
-            newsImage.image = nil // URL geçersiz ise veya yoksa varsayılan bir görüntü gösterebilirsiniz.
+            newsImage.image = nil // url geçersizse varsaylan resim
             return newsImage.image = UIImage(named: "noImage")
         }
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let self = self, let data = data, error == nil else {
-                DispatchQueue.main.async {
-                    self?.newsImage.image = UIImage(named: "noImage") // Hata oluştuğunda varsayılan bir resim gösterebilirsiniz.
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.newsImage.image = UIImage(data: data)
-            }
-        }
-        task.resume()
+        newsImage.sd_setImage(with: url, placeholderImage: UIImage(named: "loadingImage"))
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ACNewsDetailsView: UIView {
 
@@ -137,20 +138,10 @@ class ACNewsDetailsView: UIView {
             newsImage.image = nil // URL geçersiz ise veya yoksa varsayılan bir görüntü gösterilebilir
             return
         }
+        newsImage.sd_setImage(with: url, placeholderImage: UIImage(named: "loadingImage"))
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let self = self, let data = data, error == nil else {
-                DispatchQueue.main.async {
-                    self?.newsImage.image = UIImage(named: "noImage") // Hata oluştuğunda varsayılan bir resim gösterilebilir.
-                }
-                return
-            }
-            DispatchQueue.main.async {
-                self.newsImage.image = UIImage(data: data)
-            }
-        }
-        task.resume()
     }
+    
     
     private func addConstraints(){
         NSLayoutConstraint.activate([
