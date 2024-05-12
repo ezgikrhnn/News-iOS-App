@@ -37,12 +37,9 @@ class ACNewsDetailsViewModel {
         dateFormatter.dateFormat = "dd.MM.yyyy"
         return dateFormatter.string(from: article.publishedAt)
     }
-    
     // Initializer
     init(article: Article) {
         self.article = article
     }
-    
-    // İçerik açma işlevi
     
 }

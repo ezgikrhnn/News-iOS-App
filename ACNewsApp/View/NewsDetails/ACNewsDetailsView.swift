@@ -16,27 +16,21 @@ class ACNewsDetailsView: UIView {
         backgroundColor = .systemBackground
         addSubview(scrollView)
          // ScrollView içine contentView ekleniyor.
-        contentView.addSubviews(newsImage, titleLabel, descriptionLabel, authorImage, authorNameLabel, dateImage, publishDateLabel, viewSourceButton)  // İçerik öğeleri contentView içine ekleniyor.
+        contentView.addSubviews(newsImage, titleLabel, contentLabel, authorImage, authorNameLabel, dateImage, publishDateLabel, viewSourceButton)  // İçerik öğeleri contentView içine ekleniyor.
             
         scrollView.addSubview(contentView)
         addConstraints()
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //MARK: - Properties
-    
     var viewModel: ACNewsDetailsViewModel? {
-            didSet {
-               
-            }
+            didSet {}
     }
 
-    
     lazy var contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemBackground
@@ -52,7 +46,6 @@ class ACNewsDetailsView: UIView {
         return scrollView
         }()
     
-    //IMAGEVIEW
     var newsImage : UIImageView = {
         let imageee = UIImage(named: "pencil")
         let imageView = UIImageView(image: imageee)
@@ -62,7 +55,7 @@ class ACNewsDetailsView: UIView {
         //imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] ///bu satır sayesinde imageView'in sadece üst 2 köşesine cornerRadius uygulandı.
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
-    }()///closure
+    }()
     
     var titleLabel : UILabel = {
        let label = UILabel()
@@ -80,8 +73,6 @@ class ACNewsDetailsView: UIView {
         imageView.contentMode = .scaleAspectFill
         imageView.tintColor = UIColor(named: "LightRed")
         imageView.clipsToBounds = true
-
-        //imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] ///bu satır sayesinde imageView'in sadece üst 2 köşesine cornerRadius uygulandı.
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -98,13 +89,11 @@ class ACNewsDetailsView: UIView {
    }()
     
     var dateImage : UIImageView = {
-        let newspaper = UIImage(systemName: "calendar")
-        let imageView = UIImageView(image: newspaper)
+        let calendar = UIImage(systemName: "calendar")
+        let imageView = UIImageView(image: calendar)
         imageView.tintColor = UIColor(named: "LightRed")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-
-        //imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] ///bu satır sayesinde imageView'in sadece üst 2 köşesine cornerRadius uygulandı.
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -120,7 +109,7 @@ class ACNewsDetailsView: UIView {
        return label
    }()
     
-    var descriptionLabel : UILabel = {
+    var contentLabel : UILabel = {
        let label = UILabel()
        label.textColor = .label
        label.font = .systemFont(ofSize: 16, weight: .light)
@@ -129,20 +118,6 @@ class ACNewsDetailsView: UIView {
        label.translatesAutoresizingMaskIntoConstraints = false
        return label
    }()
-    
-    /*
-    var contentLabel : UILabel = {
-       let label = UILabel()
-       label.textColor = .label
-        label.text = "Content Label"
-       label.font = .systemFont(ofSize: 14, weight: .light)
-       label.numberOfLines = 5
-       label.textAlignment = .left
-       label.translatesAutoresizingMaskIntoConstraints = false
-       return label
-   }()
-     */
-    
     public var viewSourceButton : UIButton = {
         var config = UIButton.Configuration.filled()
         config.title = "View Source"
@@ -157,8 +132,6 @@ class ACNewsDetailsView: UIView {
     }()
     
     //MARK: -Functions
-    
-    
     func loadImage(from urlString: String?) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
             newsImage.image = nil // URL geçersiz ise veya yoksa varsayılan bir görüntü gösterilebilir
@@ -194,9 +167,7 @@ class ACNewsDetailsView: UIView {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             // contentView için yükseklik kısıt ı
-            //contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor),
-
-            // Set up the rest of your constraints relative to contentView instead of self.
+            //contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor)
             newsImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             newsImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             newsImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -225,16 +196,11 @@ class ACNewsDetailsView: UIView {
             publishDateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 30),
             publishDateLabel.centerYAnchor.constraint(equalTo: dateImage.centerYAnchor),
                        
-            descriptionLabel.topAnchor.constraint(equalTo: authorImage.bottomAnchor, constant: 30),
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-                       
-           /* contentLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            contentLabel.topAnchor.constraint(equalTo: authorImage.bottomAnchor, constant: 30),
             contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),  // Important for scroll content size
-            */
-            viewSourceButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30),
+                       
+            viewSourceButton.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 30),
             viewSourceButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             viewSourceButton.widthAnchor.constraint(equalToConstant: 200),
             viewSourceButton.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),

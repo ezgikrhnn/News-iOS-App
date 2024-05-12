@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol ACFavsViewDelegate: AnyObject {
+    func didSelectArticle(_ article: Article)
+}
+
 class ACFavsView: UIView {
+    
+    weak var delegate: ACFavsViewDelegate?
     
     // TableView
     let tableView: UITableView = {

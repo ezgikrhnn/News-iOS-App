@@ -14,6 +14,7 @@ class ACNewsDetailsViewController: UIViewController {
     var viewModel: ACNewsDetailsViewModel!
     var newsView = ACNewsDetailsView()
     
+    
     //MARK: -Init
     init(viewModel: ACNewsDetailsViewModel) {
             self.viewModel = viewModel
@@ -41,9 +42,7 @@ class ACNewsDetailsViewController: UIViewController {
         
     }
     
-    
-    
-    //sayfadan çıkınca kalp eski haline dönmesin güncel kalsın diye
+    //Detay sayfadan çıkınca like button son halini korusun:
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             updateLikeButtonAppearance()
@@ -63,7 +62,8 @@ class ACNewsDetailsViewController: UIViewController {
             .foregroundColor: UIColor.red,
             .font: UIFont.boldSystemFont(ofSize: 34)
         ]
-        // Navigation Bar'ın önceki ayarlarını güncelleme
+        
+        // Navigation Bar'ı güncelleme
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
@@ -79,18 +79,29 @@ class ACNewsDetailsViewController: UIViewController {
     @objc private func didTapLikeButton() {
         if FavoritesManager.shared.isFavorite(article: viewModel.article) {
                 FavoritesManager.shared.removeFavorite(article: viewModel.article)
-                print("Article removed from favorites")
+                print("News removed from favorites")
             } else {
                 FavoritesManager.shared.addFavorite(article: viewModel.article)
-                print("Article added to favorites")
+                print("News added to favorites")
                
             }
             updateLikeButtonAppearance()
        }
        
     @objc private func didTapShareButton() {
-           print("Download button tapped")
+           print("Share button tapped")
+        guard let url = URL(string: viewModel.sourceUrl) else {
+                print("Invalid URL")
+                return
+            }
+        
+        let paylasilacakOgeler = [url]
+        // Aktivite görünüm kontrolörü
+        let activityViewController = UIActivityViewController(activityItems: paylasilacakOgeler, applicationActivities: nil)
+           // AGK'yi göster
+        present(activityViewController, animated: true)
        }
+    
     
     private func updateLikeButtonAppearance() {
         let isFavorite = FavoritesManager.shared.isFavorite(article: viewModel.article)
@@ -110,14 +121,14 @@ class ACNewsDetailsViewController: UIViewController {
     }
     
     private func setUpNewsDetailsView(){
-        newsView.descriptionLabel.text = viewModel.content
+        newsView.contentLabel.text = viewModel.content
         newsView.loadImage(from: viewModel.imageUrl)
         newsView.titleLabel.text = viewModel.title
         newsView.authorNameLabel.text = viewModel.authorName
         newsView.publishDateLabel.text = viewModel.formattedPublishDate
        }
     
-    //buttona tıklama                                                                         
+    //buttona tıklama
     func setupButtonActions() {
         newsView.viewSourceButton.addAction(UIAction { [weak self] _ in
                 self?.openSourceURL()
