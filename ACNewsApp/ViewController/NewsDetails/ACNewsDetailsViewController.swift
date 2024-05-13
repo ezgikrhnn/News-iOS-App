@@ -118,5 +118,4 @@ class ACNewsDetailsViewController: UIViewController {
                 self?.openSourceURL()
             }, for: .touchUpInside)
         }
-    
 }

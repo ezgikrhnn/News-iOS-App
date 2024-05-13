@@ -13,8 +13,4 @@ class ACSearchViewController: UIViewController {
         super.viewDidLoad()
 
     }
-    
-
-   
-
 }

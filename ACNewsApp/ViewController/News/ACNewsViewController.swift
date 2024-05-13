@@ -60,7 +60,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
     func bindViewModel() {
         viewModel.onNewsUpdated = {
             print("News was successfully fetched. Total articles: \(self.viewModel.articles.count)")
-            // Burada UI güncellemeleri yapabilirsiniz, örneğin bir tableView güncellemesi
+            // Burada UI güncellemeleri, tableView güncellemesi
             DispatchQueue.main.async {
                 self.newsView.articles = self.viewModel.articles
                 self.newsView.tableView.reloadData() 
@@ -69,7 +69,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
         
         viewModel.onErrorOccurred = { error in
             print("An error occurred: \(error)")
-            // Hata durumunda kullanıcıya bilgi verebilirsiniz
+            // Hata durumunda kullanıcıya bilgi
         }
     }
     
@@ -81,7 +81,6 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
         navigationController?.pushViewController(detailVC, animated: true)
         print("Selected Article: \(article.title)")
     }
-    
     
     // Search text change handling
     func didSearchForText(_ text: String) {
@@ -133,7 +132,6 @@ extension ACNewsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.backgroundColor = UIColor(named: "LightGray")
         return cell
     }
-    
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCountry = countries[indexPath.row]

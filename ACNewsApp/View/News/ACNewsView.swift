@@ -57,7 +57,6 @@ class ACNewsView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        //imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] ///bu satır sayesinde imageView'in sadece üst 2 köşesine cornerRadius uygulandı.
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()///closure
@@ -68,9 +67,9 @@ class ACNewsView: UIView {
         NSLayoutConstraint.activate([
             
             searchBar.topAnchor.constraint(equalTo: topAnchor),
-                        searchBar.leftAnchor.constraint(equalTo: leftAnchor),
-                       searchBar.rightAnchor.constraint(equalTo: rightAnchor),
-                       searchBar.heightAnchor.constraint(equalToConstant: 50),
+            searchBar.leftAnchor.constraint(equalTo: leftAnchor),
+            searchBar.rightAnchor.constraint(equalTo: rightAnchor),
+            searchBar.heightAnchor.constraint(equalToConstant: 50),
                        
             
             tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
@@ -114,5 +113,5 @@ extension ACNewsView: UITableViewDelegate, UITableViewDataSource{
 extension ACNewsView: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
            delegate?.didSearchForText(searchText)
-       }
+    }
 }

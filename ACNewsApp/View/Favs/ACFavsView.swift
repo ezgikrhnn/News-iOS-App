@@ -39,7 +39,6 @@ class ACFavsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func setupTableViewConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: topAnchor),

@@ -51,7 +51,7 @@ extension UIViewController{
         // Arka plan rengi belirleniyor
         appearance.backgroundColor = .systemBackground
         
-        // Tüm UINavigationBar örnekleri için bu appearance'ı ayarlıyoruz
+        // Tüm UINavigationBar örnekleri için appearance ayarı
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance // Opciyonel, daha küçük navigation barlar için
         UINavigationBar.appearance().scrollEdgeAppearance = appearance // Large Titles için

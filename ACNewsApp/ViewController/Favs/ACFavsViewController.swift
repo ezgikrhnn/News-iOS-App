@@ -40,6 +40,7 @@ class ACFavsViewController: UIViewController, ACFavsViewDelegate {
         ])
     
     }
+    
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             reloadFavorites()

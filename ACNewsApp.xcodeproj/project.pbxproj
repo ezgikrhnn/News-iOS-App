@@ -27,14 +27,11 @@
 		EC8808A82BEB9F5900BCAC60 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808A72BEB9F5900BCAC60 /* Article.swift */; };
 		EC8808AA2BEBA70B00BCAC60 /* news.json in Resources */ = {isa = PBXBuildFile; fileRef = EC8808A92BEBA70B00BCAC60 /* news.json */; };
 		EC8808AC2BEBA8D800BCAC60 /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808AB2BEBA8D800BCAC60 /* NewsResponse.swift */; };
-		EC8808AE2BEBAD0F00BCAC60 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808AD2BEBAD0F00BCAC60 /* NewsService.swift */; };
 		EC8808B02BEBAD9A00BCAC60 /* ACNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808AF2BEBAD9A00BCAC60 /* ACNewsView.swift */; };
 		EC8808B22BEBADA800BCAC60 /* ACNewsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B12BEBADA800BCAC60 /* ACNewsViewViewModel.swift */; };
 		EC8808B42BEBAE1000BCAC60 /* ACNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B32BEBAE1000BCAC60 /* ACNewsTableViewCell.swift */; };
 		EC8808B62BEBAED700BCAC60 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B52BEBAED700BCAC60 /* Extensions.swift */; };
 		EC8808BA2BEBEA6D00BCAC60 /* ACRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B92BEBEA6D00BCAC60 /* ACRequest.swift */; };
-		ECB4BECB2BF150FC00F1F2AA /* ACSideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4BECA2BF150FC00F1F2AA /* ACSideBarMenuView.swift */; };
-		ECB4BECE2BF1512700F1F2AA /* ACSideBarMenuViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB4BECD2BF1512700F1F2AA /* ACSideBarMenuViewViewModel.swift */; };
 		ECC0F7822BF1161C00D2DA1F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = ECC0F7812BF1161C00D2DA1F /* SDWebImage */; };
 		ECCC28DD2BEEAE4000DB7E6F /* ACSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28DC2BEEAE4000DB7E6F /* ACSettingsView.swift */; };
 		ECCC28E02BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */; };
@@ -66,14 +63,11 @@
 		EC8808A72BEB9F5900BCAC60 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		EC8808A92BEBA70B00BCAC60 /* news.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = news.json; sourceTree = "<group>"; };
 		EC8808AB2BEBA8D800BCAC60 /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
-		EC8808AD2BEBAD0F00BCAC60 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		EC8808AF2BEBAD9A00BCAC60 /* ACNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACNewsView.swift; sourceTree = "<group>"; };
 		EC8808B12BEBADA800BCAC60 /* ACNewsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACNewsViewViewModel.swift; sourceTree = "<group>"; };
 		EC8808B32BEBAE1000BCAC60 /* ACNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACNewsTableViewCell.swift; sourceTree = "<group>"; };
 		EC8808B52BEBAED700BCAC60 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EC8808B92BEBEA6D00BCAC60 /* ACRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACRequest.swift; sourceTree = "<group>"; };
-		ECB4BECA2BF150FC00F1F2AA /* ACSideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSideBarMenuView.swift; sourceTree = "<group>"; };
-		ECB4BECD2BF1512700F1F2AA /* ACSideBarMenuViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSideBarMenuViewViewModel.swift; sourceTree = "<group>"; };
 		ECCC28DC2BEEAE4000DB7E6F /* ACSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsView.swift; sourceTree = "<group>"; };
 		ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsViewViewModel.swift; sourceTree = "<group>"; };
 		ECCC28E12BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsCellViewModel.swift; sourceTree = "<group>"; };
@@ -239,7 +233,6 @@
 		EC88089A2BEB95C400BCAC60 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				ECB4BECC2BF1510600F1F2AA /* SideBarMenu */,
 				EC7667B82BECED17003E2C86 /* News */,
 				EC7667B92BECED1E003E2C86 /* NewsDetails */,
 				EC7144522BEF693200FF52DF /* Favs */,
@@ -251,7 +244,6 @@
 		EC88089B2BEB95D400BCAC60 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ECB4BEC92BF150CE00F1F2AA /* SideBarMenu */,
 				EC7667B62BECECE3003E2C86 /* News */,
 				EC7667B72BECECF1003E2C86 /* NewsDetails */,
 				EC7144502BEF68F200FF52DF /* Favs */,
@@ -265,7 +257,6 @@
 			children = (
 				EC8808A72BEB9F5900BCAC60 /* Article.swift */,
 				EC8808AB2BEBA8D800BCAC60 /* NewsResponse.swift */,
-				EC8808AD2BEBAD0F00BCAC60 /* NewsService.swift */,
 				EC8808B92BEBEA6D00BCAC60 /* ACRequest.swift */,
 			);
 			path = Models;
@@ -282,22 +273,6 @@
 				EC7667BD2BECF353003E2C86 /* Settings */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		ECB4BEC92BF150CE00F1F2AA /* SideBarMenu */ = {
-			isa = PBXGroup;
-			children = (
-				ECB4BECA2BF150FC00F1F2AA /* ACSideBarMenuView.swift */,
-			);
-			path = SideBarMenu;
-			sourceTree = "<group>";
-		};
-		ECB4BECC2BF1510600F1F2AA /* SideBarMenu */ = {
-			isa = PBXGroup;
-			children = (
-				ECB4BECD2BF1512700F1F2AA /* ACSideBarMenuViewViewModel.swift */,
-			);
-			path = SideBarMenu;
 			sourceTree = "<group>";
 		};
 		ECCC28DE2BEEAEA400DB7E6F /* Settings */ = {
@@ -397,15 +372,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC7667B32BECD939003E2C86 /* ACNewsDetailsViewViewModel.swift in Sources */,
-				EC8808AE2BEBAD0F00BCAC60 /* NewsService.swift in Sources */,
 				EC8808B02BEBAD9A00BCAC60 /* ACNewsView.swift in Sources */,
 				ECF399E12BEFED8800F2C20E /* ACSearchViewController.swift in Sources */,
-				ECB4BECB2BF150FC00F1F2AA /* ACSideBarMenuView.swift in Sources */,
 				EC7144542BEF694F00FF52DF /* ACFavsViewViewModel.swift in Sources */,
 				EC7667B52BECD959003E2C86 /* ACNewsDetailsView.swift in Sources */,
 				ECCC28E42BEEAF1900DB7E6F /* ACSettingsOption.swift in Sources */,
 				EC71445A2BEF6D7A00FF52DF /* FavoritesManager.swift in Sources */,
-				ECB4BECE2BF1512700F1F2AA /* ACSideBarMenuViewViewModel.swift in Sources */,
 				ECCC28E02BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift in Sources */,
 				ECCC28DD2BEEAE4000DB7E6F /* ACSettingsView.swift in Sources */,
 				EC8808A22BEB972400BCAC60 /* ACNewsViewController.swift in Sources */,

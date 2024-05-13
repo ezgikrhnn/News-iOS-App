@@ -51,8 +51,6 @@ class ACNewsDetailsView: UIView {
         let imageView = UIImageView(image: placeHolder)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-
-        //imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] ///bu satır sayesinde imageView'in sadece üst 2 köşesine cornerRadius uygulandı.
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -135,12 +133,11 @@ class ACNewsDetailsView: UIView {
     //MARK: -Functions
     func loadImage(from urlString: String?) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
-            newsImage.image = nil // URL geçersiz ise veya yoksa varsayılan bir görüntü gösterilebilir
+            newsImage.image = UIImage(named: "noImage") // URL geçersiz ise veya yoksa varsayılan bir görüntü
             return
         }
         newsImage.sd_setImage(with: url, placeholderImage: UIImage(named: "loadingImage"))
     }
-    
     
     private func addConstraints(){
         NSLayoutConstraint.activate([
@@ -156,7 +153,6 @@ class ACNewsDetailsView: UIView {
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            // contentView için yükseklik kısıt ı
             //contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor)
             newsImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             newsImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

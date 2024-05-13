@@ -16,7 +16,6 @@ class ACFavsTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        //imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner] ///bu satır sayesinde imageView'in sadece üst 2 köşesine cornerRadius uygulandı.
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()///closure
@@ -79,8 +78,8 @@ class ACFavsTableViewCell: UITableViewCell {
         ])
     }
     
-    override func prepareForReuse() { ///hücre yeniden kullanılmak üzere hazırlandıgında çağrırlır.
-        super.prepareForReuse() /// metod super.prepareForReuse() çağrısı yapmakta, reperareforreuse hücre yeniden kullanılmak için çağırıldıgında yazılır. ARAŞTIR YENİDEN !!!
+    override func prepareForReuse() { ///hücre yeniden kullanılmak üzere hazırlandıgında çağrılır.
+        super.prepareForReuse() /// metod super.prepareForReuse() çağrısı yapmakta, reperareforreuse hücre yeniden kullanılmak için çağırıldıgında yazılır.
         
         newsImage.image = nil
         titleLabel.text = nil
@@ -88,13 +87,13 @@ class ACFavsTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        // contentView için iç boşluklar ayarlanıyor
+        // contentView için iç boşluklar
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
     
     func loadImage(from urlString: String?) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
-            newsImage.image = UIImage(named: "noImage") // URL geçersiz ise veya yoksa varsayılan bir görüntü gösterdim
+            newsImage.image = UIImage(named: "noImage") // URL geçersiz ise veya yoksa varsayılan bir görüntü
             return
         }
         
@@ -102,7 +101,7 @@ class ACFavsTableViewCell: UITableViewCell {
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             guard let self = self, let data = data, error == nil else {
                 DispatchQueue.main.async {
-                    self?.newsImage.image = UIImage(named: "noImage") // Hata oluştuğunda varsayılan bir resim gösterdim
+                    self?.newsImage.image = UIImage(named: "noImage") // Hata oluştuğunda varsayılan bir görüntü
                 }
                 return
             }

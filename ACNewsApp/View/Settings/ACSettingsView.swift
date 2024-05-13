@@ -46,7 +46,6 @@ struct RMSettingsView_Previews: PreviewProvider {
     static var previews: some View {
         ACSettingsView(viewModel: .init(cellViewModels: ACSettingsOption.allCases.compactMap({ //her bir ayar seçeneği için
             return ACSettingsCellViewModel(type: $0) { option in //nesnesi oluşturulur.
-                
             }
         })))
     }
