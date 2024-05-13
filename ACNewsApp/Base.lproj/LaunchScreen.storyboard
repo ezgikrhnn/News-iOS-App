@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,38 +16,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v915-techi-058-f" translatesAutoresizingMaskIntoConstraints="NO" id="og1-ov-Z46">
-                                <rect key="frame" x="-85" y="0.0" width="491" height="852"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Created by                     Appcent Mobile Development" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5C-4k-PHK">
-                                <rect key="frame" x="95" y="777" width="203" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="1G2-Y0-T5e"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Created by                     Appcent Mobile Development" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoJ-Dz-0oL">
+                                <rect key="frame" x="92" y="745" width="209" height="36"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="LightBlack"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="AFT-ec-FuH">
-                                <rect key="frame" x="62" y="320" width="269" height="158"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="06S-3f-zue">
+                                <rect key="frame" x="67" y="320" width="259" height="171"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="znB-fH-ZIV">
+                                <rect key="frame" x="67" y="-152" width="401" height="285"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="DarkRed"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BZE-gL-5lQ">
+                                <rect key="frame" x="-39" y="79" width="168" height="195"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="DarkRed"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AEB-XN-qZS">
+                                <rect key="frame" x="-50" y="-91.333333333333343" width="316" height="307"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="DarkRed"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92367029671717171" green="0.92367029671717171" blue="0.92367029671717171" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="A5C-4k-PHK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="0Bs-s4-N3U"/>
-                            <constraint firstItem="og1-ov-Z46" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="-85" id="0wW-tK-lJv"/>
-                            <constraint firstAttribute="bottom" secondItem="og1-ov-Z46" secondAttribute="bottom" id="3bH-9L-gqP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="og1-ov-Z46" secondAttribute="top" constant="59" id="6L5-cN-IKh"/>
-                            <constraint firstAttribute="trailing" secondItem="og1-ov-Z46" secondAttribute="trailing" constant="-13" id="9r6-gU-STL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="og1-ov-Z46" secondAttribute="leading" constant="85" id="OmU-I1-gco"/>
-                            <constraint firstItem="AFT-ec-FuH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="62" id="UUf-aG-iBG"/>
-                            <constraint firstItem="AFT-ec-FuH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VjC-eQ-Spf"/>
-                            <constraint firstItem="AFT-ec-FuH" firstAttribute="centerX" secondItem="A5C-4k-PHK" secondAttribute="centerX" id="W5h-MV-bHO"/>
-                            <constraint firstItem="AFT-ec-FuH" firstAttribute="top" secondItem="og1-ov-Z46" secondAttribute="top" id="YTO-j4-UnW"/>
-                            <constraint firstItem="og1-ov-Z46" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="f0L-V0-oPh"/>
-                            <constraint firstItem="og1-ov-Z46" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="13" id="g8V-9c-cQc"/>
-                            <constraint firstItem="og1-ov-Z46" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="orX-ga-vui"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MoJ-Dz-0oL" secondAttribute="trailing" constant="92" id="2zG-gm-2fw"/>
+                            <constraint firstItem="MoJ-Dz-0oL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="92" id="LTV-bP-6V0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MoJ-Dz-0oL" secondAttribute="bottom" constant="26" id="zJ2-yp-5IU"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -58,9 +59,12 @@
     </scenes>
     <resources>
         <image name="launchScreenImage" width="900" height="600"/>
-        <image name="v915-techi-058-f" width="2814" height="5001"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="square.fill" catalog="system" width="128" height="114"/>
+        <namedColor name="DarkRed">
+            <color red="0.3843137254901961" green="0.047058823529411764" blue="0.050980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightBlack">
+            <color red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
