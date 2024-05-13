@@ -15,3 +15,7 @@ Some structures I use in my project:
 
 🌟 SafariServices
 
+
+
+https://github.com/ezgikrhnn/ACNewsApp/assets/109277079/7945088f-7b7f-4a1d-82db-e74e2a1b5f29
+
