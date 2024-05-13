@@ -7,18 +7,18 @@
 
 import UIKit
 
-enum ACSettingsOption: CaseIterable{
+enum ACSettingsOption: CaseIterable{ //case iterable enum içerisindeki tüm caseleri erişilebilir kılar.
     
     case rateApp
     case contactUs
     case terms
-    
     case apiReference
     case viewSeries
     case viewCode
     
     var targetUrl: URL? {
         
+        //her seçeneğin urli
         switch self {
         case .rateApp:
             return nil
@@ -36,7 +36,7 @@ enum ACSettingsOption: CaseIterable{
         }
     }
     
-    
+    //her case için kullanıcıya gösterilecek olan başlık.
     var displayTitle : String {
         switch self {
         case .rateApp:
@@ -54,6 +54,7 @@ enum ACSettingsOption: CaseIterable{
             return "View App Code"
         }
     }
+    //her secenegin icon arkaplan rengi
     var iconContainercolor: UIColor{
         switch self {
         case .rateApp:
@@ -70,6 +71,7 @@ enum ACSettingsOption: CaseIterable{
             return .systemOrange
         }
     }
+    //her seçeneğin icon resmi
     var iconImage: UIImage? {
         switch self {
         case .rateApp:

@@ -13,8 +13,7 @@ import UIKit
 final class ACSettingsViewController: UIViewController {
 
     ///controllerin settingsSwiftUIController isimli özelliği, UIHostingController'a referans tutar.
-    ///UIHostingControllerın jenerik parametresi RMSettingsView'dir. bu UIHostingCntrollerin içinde RMSettingsView tipinde vir swiftUI görünümü barındıracağı anlamına gelir.
-    ///
+    ///UIHostingControllerın jenerik parametresi ACSettingsView'dir. bu UIHostingCntrollerin içinde ACSettingsView tipinde vir swiftUI görünümü barındıracağı anlamına gelir.
     private var settingsSwiftUIController: UIHostingController <ACSettingsView>?
     
     override func viewDidLoad() {
@@ -25,8 +24,9 @@ final class ACSettingsViewController: UIViewController {
     }
     
     private func addSwiftUIController(){
-        
         //buradaki çağırmalar olduça önemli dikkat et!!!
+        //Bu metod, ACSettingsView'i içeren bir UIHostingController oluşturur ve ayarlar sayfasını bu SwiftUI görünümü ile doldurur.
+        /*UIHostingController'ın rootView olarak ACSettingsView atanır. ACSettingsView'in viewModel'i, ACSettingsOption enum türündeki tüm olası ayar seçenekleri ile birlikte başlatılır. Her bir ayar seçeneği için bir ACSettingsCellViewModel oluşturulur ve tıklama işlemi (handleTap) burada tanımlanır.**/
         let settingsSwiftUIController = UIHostingController(rootView: ACSettingsView(viewModel: ACSettingsViewViewModel(cellViewModels: ACSettingsOption.allCases.compactMap({
             
             return ACSettingsCellViewModel(type: $0) { [weak self] option in
@@ -35,7 +35,7 @@ final class ACSettingsViewController: UIViewController {
             })
         )))
         
-        
+        //adchild ve didmove viewcontrollera baska bir viewcontroller eklemek için kullanılır.
         addChild(settingsSwiftUIController)
         settingsSwiftUIController.didMove(toParent: self)
         
@@ -73,6 +73,5 @@ final class ACSettingsViewController: UIViewController {
             }
         }
     }
-
 }
 

@@ -9,7 +9,6 @@ import UIKit
 
 class ACFavsViewController: UIViewController, ACFavsViewDelegate {
 
-    
     let favsView = ACFavsView()
     var viewModel: ACFavsViewViewModel = ACFavsViewViewModel() //reload anında hata cıkarttıgı için bu şekilde belirttim.
     
@@ -18,10 +17,10 @@ class ACFavsViewController: UIViewController, ACFavsViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favs"
+        customizeNavigationBar()
         view.backgroundColor = .systemBackground
         setupFavsView()
         reloadFavorites()
-       
     }
     
     private func setupFavsView() {
@@ -44,7 +43,7 @@ class ACFavsViewController: UIViewController, ACFavsViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             reloadFavorites()
-        }
+    }
     
     func reloadFavorites() {
         favorites = FavoritesManager.shared.getAllFavorites()
@@ -86,6 +85,4 @@ extension ACFavsViewController: UITableViewDelegate, UITableViewDataSource{
             let selectedArticle = favorites[indexPath.row]
             didSelectArticle(selectedArticle)
     }
-    
-    
 }

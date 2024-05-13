@@ -14,12 +14,6 @@ protocol ACNewsViewDelegate: AnyObject {
 
 class ACNewsView: UIView {
 
-   /** // Example Data
-        var articles = [
-            Article(source: Source(id: "", name: "Test Source"), author: "Author Name", title: "DENEME", description: "This is a test description", url: "https://example.com", urlToImage: "https://www.example.com/image.jpg", publishedAt: Date())
-        ]
-    */
-
     weak var delegate: ACNewsViewDelegate?
     var articles: [Article] = []
     
@@ -87,8 +81,6 @@ class ACNewsView: UIView {
     }
 }
 
-//viewcontrollerde tableview fonksiyonları olmasına ragmen yeniden yazıyorum bu, bu viewin baska bir controllerda da kullanılması durumunda o controllera fonksiyonunu bildirmesi için lazımdır.
-
 extension ACNewsView: UITableViewDelegate, UITableViewDataSource{
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,58 +116,3 @@ extension ACNewsView: UISearchBarDelegate {
            delegate?.didSearchForText(searchText)
        }
 }
-
-
-/*
-extension ACNewsView: UITableViewDelegate, UITableViewDataSource{
-    
-    // MARK: UITableViewDataSource Methods
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 20
-        }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200 // veya diğer hesaplamalar
-    }
-
-    
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ACNewsTableViewCell.cellIdentifier, for: indexPath) as? ACNewsTableViewCell else {
-                fatalError("Could not dequeue ACNewsTableViewCell")
-            }
-        
-        // Dizi sınırlarını aşmamak için güvenli bir şekilde eleman alalım
-            if indexPath.row < articles.count {
-                let article = articles[indexPath.row]
-                cell.titleLabel.text = article.title
-                if let imageUrlString = article.urlToImage, let imageUrl = URL(string: imageUrlString) {
-                    // Resim yüklemek için URLSession kullanılabilir veya bir resim yükleme kütüphanesi (örn. SDWebImage)
-                    URLSession.shared.dataTask(with: imageUrl) { data, _, _ in
-                        if let data = data {
-                            DispatchQueue.main.async {
-                                cell.newsImage.image = UIImage(data: data)
-                            }
-                        }
-                    }.resume()
-                } else {
-                    cell.newsImage.image = UIImage(systemName: "magnifyingglass")  // Eğer resim URL'si yoksa varsayılan bir resim göster
-                }
-            }
-            
-            
-           // cell.titleLabel.text = "deneme"
-           // cell.newsImage.image = UIImage(systemName: "magnifyingglass") // For demonstration, using system image
-            return cell
-    }
-
-    // MARK: UITableViewDelegate Methods
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-}
-
-
-*/
-

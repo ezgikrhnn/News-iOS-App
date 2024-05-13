@@ -9,27 +9,36 @@ import UIKit
 
 class ACNewsViewController: UIViewController, ACNewsViewDelegate{
     
-    
     var viewModel = ACNewsViewViewModel()
+    var viewModelPro: ACNewsViewModelProtocol
     public let newsView = ACNewsView() //view
     let menuButton = UIBarButtonItem()
     let sideMenuView = UIView()
     let tableView = UITableView()
-    let countries = ["ae", "ar", "at", "au", "be", "bg", "br", "ca", "ch", "cn", "co", "cu", "cz", "de", "eg", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr", "lt", "lv", "ma", "mx", "my", "ng", "nl", "no", "nz", "ph","pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
- // Ülke kodlarınız
+    let countries = ["ae", "ar", "at", "au", "be", "br", "ca", "cn", "co", "cu", "cz", "de", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr","ma", "mx", "my", "ng", "nl", "no", "nz", "ph","pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
+ 
+    //Dependency Injection
+    init(viewModel: ACNewsViewModelProtocol) {
+        self.viewModelPro = viewModel
+        super.init(nibName: nil, bundle: nil)
+        }
+        
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+        }
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "AppCent News"
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = false
-        viewModel.fetchNews()
+        viewModel.fetchNews(fromCountry: "us") //sayfa yüklendiğinde abd haberlerini göstersin
         bindViewModel()
         setupNewsView()
-      
-        //sayfa yüklendiğinde abd haberlerini göstersin
         setupNavigationBar()
         setupSideMenu()
+        customizeNavigationBar()
     }
     
     private func setupNewsView() {
@@ -45,9 +54,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
             newsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             newsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
-        
         newsView.delegate = self
-        
     }
     
     func bindViewModel() {
@@ -80,16 +87,16 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
     func didSearchForText(_ text: String) {
         print("Searching for: \(text)")
         if text.isEmpty {
-            viewModel.fetchNews()
+            viewModel.fetchNews(fromCountry: "us")
         } else {
             viewModel.searchNews(with: text)
         }
     }
     
     func setupNavigationBar() {
-        menuButton.title = "Countries"
+        menuButton.title = "US"
         menuButton.target = self
-        menuButton.tintColor = UIColor(named: "LightRed")
+        //menuButton.tintColor = UIColor(named: "LightRed")
         menuButton.action = #selector(toggleSideMenu)
         navigationItem.leftBarButtonItem = menuButton
     }
@@ -105,15 +112,16 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
             sideMenuView.addSubview(tableView)
         }
 
-        @objc func toggleSideMenu() {
+    @objc func toggleSideMenu() {
             UIView.animate(withDuration: 0.3) {
                 self.sideMenuView.frame.origin.x = self.sideMenuView.frame.origin.x == 0 ? -200 : 0
             }
         }
 }
 
+
+//Side menu için table view
 extension ACNewsViewController: UITableViewDataSource, UITableViewDelegate {
-    
     // TableView DataSource and Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countries.count
@@ -129,38 +137,9 @@ extension ACNewsViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCountry = countries[indexPath.row]
-        viewModel.fetchCountryNews(fromCountry: selectedCountry)
+        viewModel.fetchNews(fromCountry: selectedCountry)
+        menuButton.title = selectedCountry
         toggleSideMenu()
     }
 }
 
-
-/*
-extension ACNewsViewController: UITableViewDelegate, UITableViewDataSource {
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return viewModel.articles.count
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ACNewsTableViewCell.cellIdentifier, for: indexPath) as? ACNewsTableViewCell else {
-                fatalError("Could not dequeue ACNewsTableViewCell")
-            }
-            let article = viewModel.articles[indexPath.row]
-            cell.titleLabel.text = article.title
-            cell.descriptionLabel.text = article.description
-            cell.loadImage(from: article.urlToImage)
-            
-            return cell
-        }
-        
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 150
-        }
-        
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-    }
-    
-*/

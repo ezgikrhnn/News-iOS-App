@@ -18,7 +18,8 @@ class ACTabbarViewController: UITabBarController {
     }
     
     private func setUpTabs(){
-        let newsPageVC =  ACNewsViewController()
+        let newsViewModel = ACNewsViewViewModel()
+        let newsPageVC =  ACNewsViewController(viewModel: newsViewModel )
         let favsPageVC = ACFavsViewController()
         let settingsPageVC = ACSettingsViewController()
         
@@ -44,14 +45,20 @@ class ACTabbarViewController: UITabBarController {
             [nav1, nav2, nav3],
             animated: true)
     }
-    
     private func customizeTabBar() {
-        // Tab Bar Background
-        tabBar.barTintColor = .black
-        tabBar.tintColor = UIColor(named: "Light0Red")
-        tabBar.unselectedItemTintColor = UIColor(named: "LightRed")
-        tabBar.layer.masksToBounds = true
-        
-    }
+            if #available(iOS 15.0, *) {
+                let appearance = UITabBarAppearance()
+                appearance.configureWithOpaqueBackground()
+                appearance.backgroundColor = .systemBackground  // Sabit arka plan rengi
 
+                tabBar.standardAppearance = appearance
+                tabBar.scrollEdgeAppearance = appearance
+            } else {
+                tabBar.barTintColor = .systemBackground
+            }
+
+            tabBar.tintColor = UIColor(named: "LightRed")
+            //tabBar.unselectedItemTintColor = UIColor(named: "LightRed")
+            tabBar.layer.masksToBounds = true
+        }
 }

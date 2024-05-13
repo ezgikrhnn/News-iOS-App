@@ -58,11 +58,6 @@ final class ACNewsTableViewCell: UITableViewCell {
     
     //CONSTRATINTS FUNC
     private func addConstraints() {
-            /*
-             | Image      |
-             | nameLabel  |
-             | statusLabel|
-             */
         
         NSLayoutConstraint.activate([
            

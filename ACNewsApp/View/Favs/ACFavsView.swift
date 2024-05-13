@@ -28,7 +28,7 @@ class ACFavsView: UIView {
         return table
     }()
     
-    // Initializer
+    //MARK: -Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(tableView)
@@ -49,30 +49,3 @@ class ACFavsView: UIView {
         ])
     }
 }
-
-
-    
-/*/
-extension ACFavsView: UITableViewDelegate, UITableViewDataSource{
-       
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 10
-        }
-
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ACFavsTableViewCell.cellIdentifier, for: indexPath) as? ACNewsTableViewCell else {
-                fatalError("Could not dequeue ACNewsTableViewCell")
-            }
-            return cell
-        }
-
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 150
-        }
-        
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
-        }
-    }
-
-*/

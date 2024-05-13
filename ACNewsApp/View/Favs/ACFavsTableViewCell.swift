@@ -56,13 +56,8 @@ class ACFavsTableViewCell: UITableViewCell {
         fatalError("Unsupported")    ///desteklenmediği için fatalError
     }
     
-    //CONSTRATINTS FUNC
+    
     private func addConstraints() {
-            /*
-             | Image      |
-             | nameLabel  |
-             | statusLabel|
-             */
         
         NSLayoutConstraint.activate([
            
@@ -84,14 +79,6 @@ class ACFavsTableViewCell: UITableViewCell {
         ])
     }
     
-    /*private func setUpLayer(){
-        //contentView.layer.cornerRadius = 20
-        //contentView.layer.shadowColor = UIColor(named: "Light0Red")?.cgColor //backgroundcolour'un tersi oldu
-        //contentView.layer.shadowOpacity = 1
-        contentView.layer.borderWidth = 0.9
-        contentView.layer.borderColor = UIColor(named: "LightRed")?.cgColor
-
-    } */
     override func prepareForReuse() { ///hücre yeniden kullanılmak üzere hazırlandıgında çağrırlır.
         super.prepareForReuse() /// metod super.prepareForReuse() çağrısı yapmakta, reperareforreuse hücre yeniden kullanılmak için çağırıldıgında yazılır. ARAŞTIR YENİDEN !!!
         
@@ -100,21 +87,22 @@ class ACFavsTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-            super.layoutSubviews()
-            // contentView için iç boşluklar ayarlanıyor
-            contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
-        }
+        super.layoutSubviews()
+        // contentView için iç boşluklar ayarlanıyor
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+    }
     
     func loadImage(from urlString: String?) {
         guard let urlString = urlString, let url = URL(string: urlString) else {
-            newsImage.image = nil // URL geçersiz ise veya yoksa varsayılan bir görüntü gösterilebilir
+            newsImage.image = UIImage(named: "noImage") // URL geçersiz ise veya yoksa varsayılan bir görüntü gösterdim
             return
         }
         
+        //SDWebImage kullanabilirsin!!!!!!!
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             guard let self = self, let data = data, error == nil else {
                 DispatchQueue.main.async {
-                    self?.newsImage.image = nil // Hata oluştuğunda varsayılan bir resim gösterilebilir.
+                    self?.newsImage.image = UIImage(named: "noImage") // Hata oluştuğunda varsayılan bir resim gösterdim
                 }
                 return
             }
@@ -125,5 +113,4 @@ class ACFavsTableViewCell: UITableViewCell {
         task.resume()
     }
     
-
 }

@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct ACSettingsView: View {
     let viewModel : ACSettingsViewViewModel
     
-    init(viewModel: ACSettingsViewViewModel){
+    init(viewModel: ACSettingsViewViewModel){ //dependency injection
         self.viewModel = viewModel
     }
   
@@ -38,7 +36,7 @@ struct ACSettingsView: View {
                     Spacer()
                 }.padding(5)
                     .onTapGesture {
-                        viewModel.onTapHandler(viewModel.type)
+                        viewModel.onTapHandler(viewModel.type) //hücreye dokununca onTapHandler() çalışır.
                     }
             }
     }
@@ -46,8 +44,8 @@ struct ACSettingsView: View {
 
 struct RMSettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        ACSettingsView(viewModel: .init(cellViewModels: ACSettingsOption.allCases.compactMap({
-            return ACSettingsCellViewModel(type: $0) { option in
+        ACSettingsView(viewModel: .init(cellViewModels: ACSettingsOption.allCases.compactMap({ //her bir ayar seçeneği için
+            return ACSettingsCellViewModel(type: $0) { option in //nesnesi oluşturulur.
                 
             }
         })))

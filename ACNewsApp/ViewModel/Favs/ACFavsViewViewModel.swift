@@ -13,7 +13,7 @@ class ACFavsViewViewModel {
         return FavoritesManager.shared.favorites
     }
     
-    var numberOfRows: Int {
+    var numberOfRows: Int { //fav listesinin eleman sayısı
         return favorites.count
     }
     

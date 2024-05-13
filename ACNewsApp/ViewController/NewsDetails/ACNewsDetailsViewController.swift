@@ -39,7 +39,7 @@ class ACNewsDetailsViewController: UIViewController {
         setupNavigationBar()
         addConstraints()
         setupButtonActions()
-        
+        customizeNavigationBar()
     }
     
     //Detay sayfadan çıkınca like button son halini korusun:
@@ -52,22 +52,6 @@ class ACNewsDetailsViewController: UIViewController {
     
     private func setupNavigationBar() {
         
-        let appearance = UINavigationBarAppearance()
-        appearance.titleTextAttributes = [
-            .foregroundColor: UIColor.red,
-            .font: UIFont.boldSystemFont(ofSize: 20)
-        ]
-        
-        appearance.largeTitleTextAttributes = [
-            .foregroundColor: UIColor.red,
-            .font: UIFont.boldSystemFont(ofSize: 34)
-        ]
-        
-        // Navigation Bar'ı güncelleme
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-
         // Like Button
         let likeButton = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(didTapLikeButton))
         // Download Button
@@ -98,7 +82,7 @@ class ACNewsDetailsViewController: UIViewController {
         let paylasilacakOgeler = [url]
         // Aktivite görünüm kontrolörü
         let activityViewController = UIActivityViewController(activityItems: paylasilacakOgeler, applicationActivities: nil)
-           // AGK'yi göster
+        // AGK'yi göster
         present(activityViewController, animated: true)
        }
     

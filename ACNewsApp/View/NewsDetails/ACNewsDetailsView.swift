@@ -10,7 +10,6 @@ import SDWebImage
 
 class ACNewsDetailsView: UIView {
 
-    
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,8 +47,8 @@ class ACNewsDetailsView: UIView {
         }()
     
     var newsImage : UIImageView = {
-        let imageee = UIImage(named: "pencil")
-        let imageView = UIImageView(image: imageee)
+        let placeHolder = UIImage(named: "loadingImage")
+        let imageView = UIImageView(image: placeHolder)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
 
@@ -61,7 +60,7 @@ class ACNewsDetailsView: UIView {
     var titleLabel : UILabel = {
        let label = UILabel()
        label.textColor = .label
-       label.font = .systemFont(ofSize: 25, weight: .medium)
+       label.font = .systemFont(ofSize: 20, weight: .medium)
        label.numberOfLines = 5
        label.textAlignment = .center
        label.translatesAutoresizingMaskIntoConstraints = false
@@ -82,7 +81,7 @@ class ACNewsDetailsView: UIView {
        let label = UILabel()
        label.textColor = .label
        label.text = "Author Name"
-       label.font = .systemFont(ofSize: 18, weight: .light)
+       label.font = .systemFont(ofSize: 16, weight: .light)
        label.numberOfLines = 0
        label.textAlignment = .left
        label.translatesAutoresizingMaskIntoConstraints = false
@@ -103,7 +102,7 @@ class ACNewsDetailsView: UIView {
        let label = UILabel()
        label.textColor = .label
        label.text = "Publish Date"
-       label.font = .systemFont(ofSize: 16, weight: .light)
+       label.font = .systemFont(ofSize: 14, weight: .light)
        label.numberOfLines = 2
        label.textAlignment = .left
        label.translatesAutoresizingMaskIntoConstraints = false
@@ -119,6 +118,7 @@ class ACNewsDetailsView: UIView {
        label.translatesAutoresizingMaskIntoConstraints = false
        return label
    }()
+    
     public var viewSourceButton : UIButton = {
         var config = UIButton.Configuration.filled()
         config.title = "View Source"
@@ -139,7 +139,6 @@ class ACNewsDetailsView: UIView {
             return
         }
         newsImage.sd_setImage(with: url, placeholderImage: UIImage(named: "loadingImage"))
-        
     }
     
     

@@ -5,6 +5,12 @@
 //  Created by Ezgi Karahan on 10.05.2024.
 //
 
+
+/*tableviewcell yapısı için kullanılan bir viewmodel:
+ 
+ id -> her viewmodel instance'i için unique id(genellikle swiftuıda kullanılır)
+ onTapHandler -> user menüye tıkladıgında tetiklenir
+ */
 import UIKit
 
 struct ACSettingsCellViewModel: Identifiable {
