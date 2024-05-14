@@ -20,3 +20,5 @@ Some structures I use in my project:
 
 https://github.com/ezgikrhnn/ACNewsApp/assets/109277079/7945088f-7b7f-4a1d-82db-e74e2a1b5f29
 
+
+![A (1)](https://github.com/ezgikrhnn/ACNewsApp/assets/109277079/6cacb83f-6661-48e3-9d42-f12a7e50dce9)
