@@ -14,6 +14,7 @@
  
  
  **/
+
 import Foundation
 
 class FavoritesManager {
@@ -38,5 +39,5 @@ class FavoritesManager {
     
     func getAllFavorites() -> [Article] {
            return favorites
-       }
+    }
 }
