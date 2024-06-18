@@ -16,6 +16,29 @@ class ACNewsView: UIView {
 
     weak var delegate: ACNewsViewDelegate?
     var articles: [Article] = []
+  
+    
+    let hotNewsImage : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "hotnews2")
+        imageView.layer.cornerRadius = 40
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let hotNewsButton: UIButton = {
+        let button = UIButton(type: .system)
+            button.setTitle("Read Now", for: .normal)
+            button.setTitleColor(UIColor(named: "LightRed"), for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+            button.backgroundColor = UIColor.white
+            button.layer.cornerRadius = 20
+            button.clipsToBounds = true
+            button.translatesAutoresizingMaskIntoConstraints = false
+            return button
+        }()
+        
     
     // TableView
     let tableView: UITableView = {
@@ -41,7 +64,7 @@ class ACNewsView: UIView {
     //MARK: -Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviews(tableView, searchBar)
+        addSubviews(tableView, searchBar, hotNewsImage, hotNewsButton)
         setupConstraints()
         tableView.dataSource = self
         tableView.delegate = self
@@ -71,8 +94,17 @@ class ACNewsView: UIView {
             searchBar.rightAnchor.constraint(equalTo: rightAnchor),
             searchBar.heightAnchor.constraint(equalToConstant: 50),
                        
+            hotNewsImage.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
+            hotNewsImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            hotNewsImage.widthAnchor.constraint(equalToConstant: 380), // Ekran genişliği kadar yap
+            hotNewsImage.heightAnchor.constraint(equalToConstant: 150),
             
-            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 10),
+            hotNewsButton.topAnchor.constraint(equalTo: hotNewsImage.topAnchor, constant: 85),
+            hotNewsButton.trailingAnchor.constraint(equalTo: hotNewsImage.trailingAnchor, constant: -30),
+            hotNewsButton.widthAnchor.constraint(equalTo: hotNewsImage.widthAnchor, multiplier: 0.3),
+            hotNewsButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            tableView.topAnchor.constraint(equalTo: hotNewsImage.bottomAnchor, constant: 10),
             tableView.leftAnchor.constraint(equalTo: leftAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             tableView.rightAnchor.constraint(equalTo: rightAnchor)

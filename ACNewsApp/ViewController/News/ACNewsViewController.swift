@@ -15,7 +15,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
     let menuButton = UIBarButtonItem()
     let sideMenuView = UIView()
     let tableView = UITableView()
-    let countries = ["ae", "ar", "at", "au", "be", "br", "ca", "cn", "co", "cu", "cz", "de", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr","ma", "mx", "my", "ng", "nl", "no", "nz", "ph","pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
+   // let countries = ["ae", "ar", "at", "au", "be", "br", "ca", "cn", "co", "cu", "cz", "de", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr","ma", "mx", "my", "ng", "nl", "no", "nz", "ph","pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
  
     //Dependency Injection
     init(viewModel: ACNewsViewModelProtocol) {
@@ -106,8 +106,8 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
             self.view.addSubview(sideMenuView)
 
             tableView.frame = sideMenuView.bounds
-            tableView.delegate = self
-            tableView.dataSource = self
+            //tableView.delegate = self
+            //tableView.dataSource = self
             sideMenuView.addSubview(tableView)
         }
 
@@ -116,28 +116,36 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
                 self.sideMenuView.frame.origin.x = self.sideMenuView.frame.origin.x == 0 ? -200 : 0
             }
         }
+    
+    func filterNewsByCategory(_ category: String) {
+            print("Filtering news by category: \(category)")
+            viewModel.searchNews(with: category)
+        }
 }
 
 
-//Side menu için table view
-extension ACNewsViewController: UITableViewDataSource, UITableViewDelegate {
-    // TableView DataSource and Delegate
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countries.count
-    }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = countries[indexPath.row].uppercased()
-        cell.backgroundColor = UIColor(named: "LightGray")
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCountry = countries[indexPath.row]
-        viewModel.fetchNews(fromCountry: selectedCountry)
-        menuButton.title = selectedCountry
-        toggleSideMenu()
-    }
-}
-
+/*
+ //Side menu için table view
+ extension ACNewsViewController: UITableViewDataSource, UITableViewDelegate {
+ // TableView DataSource and Delegate
+ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+ return countries.count
+ }
+ 
+ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+ cell.textLabel?.text = countries[indexPath.row].uppercased()
+ cell.backgroundColor = UIColor(named: "LightGray")
+ return cell
+ }
+ 
+ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+ let selectedCountry = countries[indexPath.row]
+ viewModel.fetchNews(fromCountry: selectedCountry)
+ menuButton.title = selectedCountry
+ toggleSideMenu()
+ }
+ }
+ 
+ */

@@ -38,6 +38,7 @@ final class CategorySelectionCollectionViewCell : UICollectionViewCell {
         contentView.addSubviews(categoryImage, titleLabel)
         addConstraints()
         
+        
         //setUpLayer()
        }
        

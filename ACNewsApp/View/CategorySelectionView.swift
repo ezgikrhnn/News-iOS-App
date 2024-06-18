@@ -8,8 +8,9 @@
 import UIKit
 
 protocol CategorySelectionViewDelegate: AnyObject {
-    func cellTapped()
+    func cellTapped(category: String)
 }
+
 class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
    
     weak var delegate : CategorySelectionViewDelegate?
@@ -41,7 +42,7 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
     //MARK: -Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviews(categoryCollectionView, welcomeLabel)
+        addSubviews(categoryCollectionView)
         addConstraints()
         backgroundColor = .systemBackground
         categoryCollectionView.dataSource = self
@@ -54,8 +55,8 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
     
     private func addConstraints(){
         NSLayoutConstraint.activate([
-            welcomeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 100),
-            welcomeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            //welcomeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 100),
+           // welcomeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             categoryCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
             categoryCollectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
             categoryCollectionView.heightAnchor.constraint(equalToConstant: 430),
@@ -93,8 +94,11 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
     // MARK: - CollectionView Delegate
         
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected category: \(categories[indexPath.item])")
-            // Seçilen kategoriye göre yapılacak işlemleri burada gerçekleştirebilirsiniz
+        
+        let selectedCategory = categories[indexPath.item]
+        print("Selected category: \(selectedCategory)")
+        delegate?.cellTapped(category: selectedCategory)
+    
     }
         
     // MARK: - CollectionView Flow Layout
@@ -106,13 +110,8 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
             let width = (collectionViewSize - 10) / 2 // 3 * 10 = (2 adet hücre arası + 1 adet hücre boşlugu)
             return CGSize(width: width, height: 100)
         } else { // Son sıradaki hücre
-            let width = collectionViewSize - 10 // 10 = (1 adet hücre boşlugu)
+            let width = collectionViewSize - 10
             return CGSize(width: width, height: 100)
         }
-    }
-  
-    //log in button
-    @objc private func cellPressed() {
-            delegate?.cellTapped()
     }
 }
