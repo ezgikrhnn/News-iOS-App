@@ -15,7 +15,7 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
    
     weak var delegate : CategorySelectionViewDelegate?
     
-    let categories = ["Technology","Business", "Entertainment", "Health", "Science", "Sport", "General"]
+    let categories = ["General","Business", "Sport", "Technology", "Science", "Health", "Entertainment"]
 
     let welcomeLabel : UILabel = {
         let label = UILabel()
@@ -28,7 +28,7 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
     
     let categoryCollectionView: UICollectionView = {
             let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .vertical
+            layout.scrollDirection = .horizontal
             layout.minimumLineSpacing = 10 // Satırlar arasındaki minimum boşluk
             layout.minimumInteritemSpacing = 10 // Aynı satır içindeki hücreler arasındaki minimum boşluk
         
@@ -59,8 +59,8 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
            // welcomeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             categoryCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
             categoryCollectionView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            categoryCollectionView.heightAnchor.constraint(equalToConstant: 430),
-            categoryCollectionView.widthAnchor.constraint(equalToConstant: 300)
+            categoryCollectionView.heightAnchor.constraint(equalToConstant: 90),
+            categoryCollectionView.widthAnchor.constraint(equalToConstant: 380)
         ])
     }
     
@@ -88,7 +88,6 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
         }
         // Hücrelerin sınırlarını belirginleştirmek için sınır ekleyin
         return cell
-        
     }
     
     // MARK: - CollectionView Delegate
@@ -104,14 +103,7 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
     // MARK: - CollectionView Flow Layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Her hücrenin boyutunu burada ayarlayabilirsiniz
-        
-        let collectionViewSize = collectionView.frame.size.width
-        if indexPath.row < 6 { // İlk iki sıradaki hücreler
-            let width = (collectionViewSize - 10) / 2 // 3 * 10 = (2 adet hücre arası + 1 adet hücre boşlugu)
-            return CGSize(width: width, height: 100)
-        } else { // Son sıradaki hücre
-            let width = collectionViewSize - 10
-            return CGSize(width: width, height: 100)
-        }
+        return CGSize(width: 90, height: 90)
+      
     }
 }

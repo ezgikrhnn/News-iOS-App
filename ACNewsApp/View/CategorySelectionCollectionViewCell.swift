@@ -23,8 +23,8 @@ final class CategorySelectionCollectionViewCell : UICollectionViewCell {
     //LABEL
      let titleLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 14, weight: .medium)
         label.numberOfLines = 5
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -37,8 +37,6 @@ final class CategorySelectionCollectionViewCell : UICollectionViewCell {
         contentView.backgroundColor = .darkGray
         contentView.addSubviews(categoryImage, titleLabel)
         addConstraints()
-        
-        
         //setUpLayer()
        }
        

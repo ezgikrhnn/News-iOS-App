@@ -16,8 +16,8 @@ class ACNewsView: UIView {
 
     weak var delegate: ACNewsViewDelegate?
     var articles: [Article] = []
-  
-    
+    let cateView = CategorySelectionView()
+
     let hotNewsImage : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "hotnews2")
@@ -39,19 +39,18 @@ class ACNewsView: UIView {
             return button
         }()
         
-    
-    // TableView
-    let tableView: UITableView = {
-        let table = UITableView()
-        table.register(ACNewsTableViewCell.self, forCellReuseIdentifier: ACNewsTableViewCell.cellIdentifier)
-        table.rowHeight = UITableView.automaticDimension
-        table.estimatedRowHeight = 100
-        table.separatorStyle = .singleLine
-        table.separatorColor = UIColor(named: "Light0Red")
-        table.backgroundColor = .systemBackground
-        table.translatesAutoresizingMaskIntoConstraints = false
-        return table
-    }()
+    let newsCollectionView: UICollectionView = {
+            let layout = UICollectionViewFlowLayout()
+            layout.scrollDirection = .horizontal
+            layout.minimumLineSpacing = 10 // Satırlar arasındaki minimum boşluk
+            layout.minimumInteritemSpacing = 10 // Aynı satır içindeki hücreler arasındaki minimum boşluk
+        
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            collectionView.register(ACNewsCollectionViewCell.self, forCellWithReuseIdentifier: ACNewsCollectionViewCell.cellIdentifier)
+            collectionView.backgroundColor = .systemBackground
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            return collectionView
+        }()
 
     // SearchBar
         let searchBar: UISearchBar = {
@@ -64,10 +63,10 @@ class ACNewsView: UIView {
     //MARK: -Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviews(tableView, searchBar, hotNewsImage, hotNewsButton)
+        addSubviews(newsCollectionView, searchBar, hotNewsImage, hotNewsButton, cateView.categoryCollectionView)
         setupConstraints()
-        tableView.dataSource = self
-        tableView.delegate = self
+        newsCollectionView.dataSource = self
+        newsCollectionView.delegate = self
         searchBar.delegate = self
         
     }
@@ -83,7 +82,6 @@ class ACNewsView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()///closure
-    
     
     // Constraints
     private func setupConstraints() {
@@ -104,41 +102,43 @@ class ACNewsView: UIView {
             hotNewsButton.widthAnchor.constraint(equalTo: hotNewsImage.widthAnchor, multiplier: 0.3),
             hotNewsButton.heightAnchor.constraint(equalToConstant: 40),
             
-            tableView.topAnchor.constraint(equalTo: hotNewsImage.bottomAnchor, constant: 10),
-            tableView.leftAnchor.constraint(equalTo: leftAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tableView.rightAnchor.constraint(equalTo: rightAnchor)
+            newsCollectionView.topAnchor.constraint(equalTo: hotNewsImage.bottomAnchor, constant: 10),
+            newsCollectionView.heightAnchor.constraint(equalToConstant: 260),
+            newsCollectionView.widthAnchor.constraint(equalToConstant: 380),
+            newsCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            cateView.categoryCollectionView.topAnchor.constraint(equalTo: newsCollectionView.bottomAnchor, constant: 20),
+            cateView.categoryCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
     }
 }
 
-extension ACNewsView: UITableViewDelegate, UITableViewDataSource{
-   
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ACNewsView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
     }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ACNewsTableViewCell.cellIdentifier, for: indexPath) as? ACNewsTableViewCell else {
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ACNewsCollectionViewCell.cellIdentifier, for: indexPath) as? ACNewsCollectionViewCell else {
             fatalError("Could not dequeue ACNewsTableViewCell")
         }
         let article = articles[indexPath.row]
         cell.titleLabel.text = article.title
-        cell.descriptionLabel.text = article.description
+        //cell.descriptionLabel.text = article.description
         cell.loadImage(from: article.urlToImage)
         return cell
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row < articles.count {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row < articles.count{
             let article = articles[indexPath.row]
             delegate?.didSelectArticle(article)
         }
+    }
+    // MARK: - CollectionView Flow Layout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 250) //hücre boyutu
     }
 }
 
@@ -147,3 +147,4 @@ extension ACNewsView: UISearchBarDelegate {
            delegate?.didSearchForText(searchText)
     }
 }
+

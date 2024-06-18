@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-final class ACNewsTableViewCell: UITableViewCell {
+final class ACNewsCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "ACNewsTableViewCell"
     
@@ -16,42 +16,55 @@ final class ACNewsTableViewCell: UITableViewCell {
     let newsImage : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    
     //LABEL
      let titleLabel : UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 14, weight: .medium)
         label.numberOfLines = 5
-        label.textAlignment = .left
+         label.textAlignment = .justified
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let descriptionLabel : UILabel = {
+    let saveButton: UIButton = {
+        let button = UIButton(type: .close)
+        let bookmarkImage = UIImage(systemName: "bookmark")
+        button.setImage(bookmarkImage, for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = UIColor.gray
+        button.layer.cornerRadius = 5
+        button.clipsToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+        }()
+
+  /*  let descriptionLabel : UILabel = {
        let label = UILabel()
        label.textColor = .label
        label.font = .systemFont(ofSize: 14, weight: .light)
        label.numberOfLines = 5
-       label.textAlignment = .left
+        label.textAlignment = .justified
        label.translatesAutoresizingMaskIntoConstraints = false
        return label
    }()
-    
+   */
     // MARK: - Init
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-           super.init(style: style, reuseIdentifier: reuseIdentifier)
-           contentView.backgroundColor = UIColor(named: "LigthBlack")
-           contentView.addSubviews(newsImage, titleLabel, descriptionLabel)
-           addConstraints()
-           //setUpLayer()
+    override init(frame: CGRect){
+        super.init(frame: frame)
+        contentView.backgroundColor = .systemGray6
+        
+        contentView.addSubviews(newsImage, titleLabel, saveButton)
+        addConstraints()
+        //setUpLayer()
        }
-       
+    
     required init?(coder: NSCoder) { ///storyboard ya da  xib başlatıcısı
         fatalError("Unsupported")    ///desteklenmediği için fatalError
     }
@@ -59,38 +72,47 @@ final class ACNewsTableViewCell: UITableViewCell {
     //CONSTRATINTS FUNC
     private func addConstraints() {
         
+        layer.cornerRadius = 20
+        layer.masksToBounds = true
+        layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        layer.shadowColor = UIColor.gray.cgColor
+        
         NSLayoutConstraint.activate([
            
-            newsImage.heightAnchor.constraint(equalToConstant: 80),
-            newsImage.widthAnchor.constraint(equalToConstant: 120),
-            newsImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            newsImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            newsImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            newsImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            newsImage.heightAnchor.constraint(equalToConstant: 100),
+            newsImage.widthAnchor.constraint(equalToConstant: 180),
+            
             // Hücrenin sağ kenarından 20 puan uzaklıkta
             
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: newsImage.bottomAnchor, constant: 10),
             titleLabel.heightAnchor.constraint(equalToConstant: 100),
-            titleLabel.widthAnchor.constraint(equalToConstant: 230),
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            titleLabel.widthAnchor.constraint(equalToConstant: 180),
             
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -15),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 50),
-            descriptionLabel.widthAnchor.constraint(equalToConstant: 230),
-            descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            saveButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+           /* descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -15),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 100),
+            descriptionLabel.widthAnchor.constraint(equalToConstant: 180),
+            descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor), */
         ])
     }
     
-    override func prepareForReuse() { ///hücre yeniden kullanılmak üzere hazırlandıgında çağrırlır.
+   /* override func prepareForReuse() { ///hücre yeniden kullanılmak üzere hazırlandıgında çağrırlır.
         super.prepareForReuse() /// metod super.prepareForReuse() çağrısı yapmakta, prepareforreuse hücre yeniden kullanılmak için çağırıldıgında yazılır. ARAŞTIR YENİDEN !!!
         
         newsImage.image = nil
         titleLabel.text = nil
     }
+    */
     
     override func layoutSubviews() {
             super.layoutSubviews()
             // contentView için iç boşluklar
             contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
-        }
+    }
     
     //FUNC LOAD IMAGE
     func loadImage(from urlString: String?) {

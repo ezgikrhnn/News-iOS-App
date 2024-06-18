@@ -63,7 +63,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
             // Burada UI güncellemeleri, tableView güncellemesi
             DispatchQueue.main.async {
                 self.newsView.articles = self.viewModel.articles
-                self.newsView.tableView.reloadData() 
+                self.newsView.newsCollectionView.reloadData() 
             }
         }
         
