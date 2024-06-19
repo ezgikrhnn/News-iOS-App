@@ -12,8 +12,10 @@ final class CategorySelectionCollectionViewCell : UICollectionViewCell {
     static let cellIdentifier = "CategoryCollectionViewCell"
     
     //IMAGEVIEW
-    let categoryImage : UIImageView = {
-        let imageView = UIImageView()
+    var categoryImage : UIImageView = {
+        
+        var imageView = UIImageView()
+        imageView.image = UIImage(named: "hotnews")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -51,6 +53,9 @@ final class CategorySelectionCollectionViewCell : UICollectionViewCell {
         layer.shadowColor = UIColor.gray.cgColor
         
         NSLayoutConstraint.activate([
+            categoryImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            categoryImage.heightAnchor.constraint(equalToConstant: 90),
+            categoryImage.widthAnchor.constraint(equalToConstant: 90),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             

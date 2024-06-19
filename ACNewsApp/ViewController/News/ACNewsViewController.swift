@@ -30,7 +30,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "AppCent News"
+        title = "News"
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = false
         viewModel.fetchNews(fromCountry: "us") //sayfa yüklendiğinde abd haberlerini göstersin

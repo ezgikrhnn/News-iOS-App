@@ -38,7 +38,6 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
         let bookmarkImage = UIImage(systemName: "bookmark")
         button.setImage(bookmarkImage, for: .normal)
         button.tintColor = .white
-        button.backgroundColor = UIColor.gray
         button.layer.cornerRadius = 5
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -92,11 +91,7 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
             titleLabel.widthAnchor.constraint(equalToConstant: 180),
             
             saveButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-           /* descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -15),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 100),
-            descriptionLabel.widthAnchor.constraint(equalToConstant: 180),
-            descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor), */
+            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
         ])
     }
     

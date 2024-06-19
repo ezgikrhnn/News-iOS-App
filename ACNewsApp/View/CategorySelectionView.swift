@@ -15,7 +15,7 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
    
     weak var delegate : CategorySelectionViewDelegate?
     
-    let categories = ["General","Business", "Sport", "Technology", "Science", "Health", "Entertainment"]
+    let categories = ["General","Business", "Sports", "Technology", "Science", "Health", "Entertainment"]
 
     let welcomeLabel : UILabel = {
         let label = UILabel()
@@ -25,6 +25,8 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    
     
     let categoryCollectionView: UICollectionView = {
             let layout = UICollectionViewFlowLayout()
@@ -77,16 +79,24 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
         
         let category = categories[indexPath.row]
         cell.titleLabel.text = category
-        cell.contentView.backgroundColor = .lightGray // Hücrenin arka plan rengini ayarlayarak ayırıcıları belirginleştirin
+        cell.contentView.backgroundColor = .lightGray
         
-        if indexPath.row % 3 == 0 && indexPath.row != 6 {
-            cell.contentView.backgroundColor = UIColor(named: "Mid1Red")
-        }else if indexPath.row % 3 == 2{
-            cell.contentView.backgroundColor = UIColor(named: "Light0Red")
-        }else{
-            cell.contentView.backgroundColor = UIColor(named: "Dark1Red")
+        if indexPath.row == 0 {
+            cell.categoryImage.image  = UIImage(named: "general")
+        } else if indexPath.row == 1 {
+            cell.categoryImage.image = UIImage(named: "business")
+        } else if indexPath.row == 2 {
+            cell.categoryImage.image = UIImage(named: "sports")
+        } else if indexPath.row == 3 {
+            cell.categoryImage.image = UIImage(named: "technology")
+        } else if indexPath.row == 4 {
+            cell.categoryImage.image = UIImage(named: "science")
+        } else if indexPath.row == 5 {
+            cell.categoryImage.image = UIImage(named: "health")
+        } else if indexPath.row == 6 {
+            cell.categoryImage.image = UIImage(named: "entertainment")
         }
-        // Hücrelerin sınırlarını belirginleştirmek için sınır ekleyin
+       
         return cell
     }
     
@@ -104,6 +114,5 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Her hücrenin boyutunu burada ayarlayabilirsiniz
         return CGSize(width: 90, height: 90)
-      
     }
 }

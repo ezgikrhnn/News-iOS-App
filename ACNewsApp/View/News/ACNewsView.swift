@@ -68,7 +68,6 @@ class ACNewsView: UIView {
         newsCollectionView.dataSource = self
         newsCollectionView.delegate = self
         searchBar.delegate = self
-        
     }
     
     required init?(coder: NSCoder) {
@@ -106,6 +105,7 @@ class ACNewsView: UIView {
             newsCollectionView.heightAnchor.constraint(equalToConstant: 260),
             newsCollectionView.widthAnchor.constraint(equalToConstant: 380),
             newsCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
+        
             
             cateView.categoryCollectionView.topAnchor.constraint(equalTo: newsCollectionView.bottomAnchor, constant: 20),
             cateView.categoryCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),

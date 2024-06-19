@@ -131,8 +131,8 @@
 		EC7144582BEF6D5800FF52DF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EC8808B52BEBAED700BCAC60 /* Extensions.swift */,
 				EC7144592BEF6D7A00FF52DF /* FavoritesManager.swift */,
+				EC8808B52BEBAED700BCAC60 /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -561,7 +561,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ACNewsApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Appcent News";
+				INFOPLIST_KEY_CFBundleDisplayName = News;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -590,7 +590,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ACNewsApp/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Appcent News";
+				INFOPLIST_KEY_CFBundleDisplayName = News;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
