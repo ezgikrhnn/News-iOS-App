@@ -13,6 +13,7 @@ protocol ACNewsViewDelegate: AnyObject {
 }
 
 class ACNewsView: UIView {
+    
 
     weak var delegate: ACNewsViewDelegate?
     var articles: [Article] = []
@@ -125,7 +126,9 @@ extension ACNewsView: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         }
         let article = articles[indexPath.row]
         cell.titleLabel.text = article.title
-        //cell.descriptionLabel.text = article.description
+        let vm = ACNewsDetailsViewModel(article: article) //formattedPublishDate acnewsdetail içinde ama istersen sonra duzenle cunku news viewcontrollera içinde de kullanıyorsun.
+        cell.publishDateLabel.text = vm.formattedPublishDate
+        
         cell.loadImage(from: article.urlToImage)
         return cell
     }

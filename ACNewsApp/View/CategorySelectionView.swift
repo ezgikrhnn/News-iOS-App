@@ -26,8 +26,6 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
         return label
     }()
     
-    
-    
     let categoryCollectionView: UICollectionView = {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal

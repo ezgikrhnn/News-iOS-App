@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ACNewsViewController: UIViewController, ACNewsViewDelegate{
-    
+class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelectionViewDelegate {
+ 
     var viewModel = ACNewsViewViewModel()
     var viewModelPro: ACNewsViewModelProtocol
     public let newsView = ACNewsView() //view
@@ -26,7 +26,6 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
         }
-        
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +38,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
         setupNavigationBar()
         setupSideMenu()
         customizeNavigationBar()
+        newsView.cateView.delegate = self 
     }
     
     private func setupNewsView() {
@@ -90,6 +90,15 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate{
         } else {
             viewModel.searchNews(with: text)
         }
+    }
+    
+    func cellTapped(category: String) {
+        print("fonksiyon içinde")
+        // Mevcut viewModelPro'yu kullanarak DiscoverViewController'a geçiş yap
+        viewModelPro.category = category // viewModelPro'ya seçilen kategori bilgisini iletebilirsiniz, isteğe bağlı olarak
+        let discoverVC = DiscoverViewController(viewModel: viewModelPro)
+        navigationController?.pushViewController(discoverVC, animated: true)
+        print("DiscoverViewController'a geçiş yapıldı. Seçilen kategori: \(category)")
     }
     
     func setupNavigationBar() {

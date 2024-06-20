@@ -44,6 +44,26 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
         return button
         }()
 
+    var dateImage : UIImageView = {
+        let calendar = UIImage(systemName: "calendar")
+        let imageView = UIImageView(image: calendar)
+        imageView.tintColor = UIColor(named: "LightRed")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    var publishDateLabel : UILabel = {
+       let label = UILabel()
+       label.textColor = .label
+       label.text = "Publish Date"
+       label.font = .systemFont(ofSize: 12, weight: .light)
+       label.numberOfLines = 2
+       label.textAlignment = .left
+       label.translatesAutoresizingMaskIntoConstraints = false
+       return label
+   }()
   /*  let descriptionLabel : UILabel = {
        let label = UILabel()
        label.textColor = .label
@@ -59,7 +79,7 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.backgroundColor = .systemGray6
         
-        contentView.addSubviews(newsImage, titleLabel, saveButton)
+        contentView.addSubviews(newsImage, titleLabel, saveButton, dateImage, publishDateLabel)
         addConstraints()
         //setUpLayer()
        }
@@ -89,6 +109,11 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
             titleLabel.heightAnchor.constraint(equalToConstant: 100),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             titleLabel.widthAnchor.constraint(equalToConstant: 180),
+            
+            dateImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            dateImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            publishDateLabel.leadingAnchor.constraint(equalTo: dateImage.trailingAnchor, constant: 5),
+            publishDateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12.5),
             
             saveButton.bottomAnchor.constraint(equalTo: bottomAnchor),
             saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),

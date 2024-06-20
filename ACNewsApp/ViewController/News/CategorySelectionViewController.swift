@@ -5,7 +5,8 @@
 //  Created by Ezgi Karahan on 16.06.2024.
 //
 
-import UIKit
+/*
+ import UIKit
 
 class CategorySelectionViewController: UIViewController, CategorySelectionViewDelegate {
 
@@ -45,3 +46,5 @@ class CategorySelectionViewController: UIViewController, CategorySelectionViewDe
     }
    
 }
+
+*/

@@ -60,7 +60,7 @@ class ACNewsDetailsView: UIView {
        label.textColor = .label
        label.font = .systemFont(ofSize: 20, weight: .medium)
        label.numberOfLines = 5
-       label.textAlignment = .center
+        label.textAlignment = .justified
        label.translatesAutoresizingMaskIntoConstraints = false
        return label
    }()
@@ -79,7 +79,7 @@ class ACNewsDetailsView: UIView {
        let label = UILabel()
        label.textColor = .label
        label.text = "Author Name"
-       label.font = .systemFont(ofSize: 16, weight: .light)
+       label.font = .systemFont(ofSize: 12, weight: .light)
        label.numberOfLines = 0
        label.textAlignment = .left
        label.translatesAutoresizingMaskIntoConstraints = false
@@ -100,7 +100,7 @@ class ACNewsDetailsView: UIView {
        let label = UILabel()
        label.textColor = .label
        label.text = "Publish Date"
-       label.font = .systemFont(ofSize: 14, weight: .light)
+       label.font = .systemFont(ofSize: 12, weight: .light)
        label.numberOfLines = 2
        label.textAlignment = .left
        label.translatesAutoresizingMaskIntoConstraints = false
@@ -159,30 +159,27 @@ class ACNewsDetailsView: UIView {
             newsImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             newsImage.heightAnchor.constraint(equalToConstant: 250),
                        
-            titleLabel.topAnchor.constraint(equalTo: newsImage.bottomAnchor, constant: 30),
+            titleLabel.topAnchor.constraint(equalTo: newsImage.bottomAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
             authorImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
-            authorImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-            authorImage.heightAnchor.constraint(equalToConstant: 30),
-            authorImage.widthAnchor.constraint(equalToConstant: 30),
+            authorImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            authorImage.heightAnchor.constraint(equalToConstant: 20),
+            authorImage.widthAnchor.constraint(equalToConstant: 20),
                        
             authorNameLabel.centerYAnchor.constraint(equalTo: authorImage.centerYAnchor),
-            authorNameLabel.leadingAnchor.constraint(equalTo: authorImage.trailingAnchor, constant: 15),
-            authorNameLabel.heightAnchor.constraint(equalToConstant: 70),
-            authorNameLabel.widthAnchor.constraint(equalToConstant: 100),
+            authorNameLabel.leadingAnchor.constraint(equalTo: authorImage.trailingAnchor, constant: 10),
               
-            dateImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
-            dateImage.leadingAnchor.constraint(equalTo: authorNameLabel.trailingAnchor, constant: 30),
-            dateImage.heightAnchor.constraint(equalToConstant: 30),
-            dateImage.widthAnchor.constraint(equalToConstant: 30),
+            dateImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            dateImage.trailingAnchor.constraint(equalTo: publishDateLabel.leadingAnchor, constant: -10),
+            dateImage.heightAnchor.constraint(equalToConstant: 20),
+            dateImage.widthAnchor.constraint(equalToConstant: 20),
              
-            publishDateLabel.leadingAnchor.constraint(equalTo: dateImage.trailingAnchor, constant: 10),
-            publishDateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 30),
+            publishDateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             publishDateLabel.centerYAnchor.constraint(equalTo: dateImage.centerYAnchor),
                        
-            contentLabel.topAnchor.constraint(equalTo: authorImage.bottomAnchor, constant: 30),
+            contentLabel.topAnchor.constraint(equalTo: authorImage.bottomAnchor, constant: 20),
             contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
                        

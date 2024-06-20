@@ -18,6 +18,9 @@
 		EC78D1482C1F7C6500DE156D /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1472C1F7C6500DE156D /* CategorySelectionViewController.swift */; };
 		EC78D14A2C1F7D4600DE156D /* CategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1492C1F7D4600DE156D /* CategorySelectionView.swift */; };
 		EC78D14C2C1F81FD00DE156D /* CategorySelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D14B2C1F81FD00DE156D /* CategorySelectionCollectionViewCell.swift */; };
+		EC78D1502C22E2A700DE156D /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D14F2C22E2A700DE156D /* DiscoverViewController.swift */; };
+		EC78D1552C22E3D100DE156D /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1542C22E3D100DE156D /* DiscoverView.swift */; };
+		EC78D1572C22E53900DE156D /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1562C22E53900DE156D /* DiscoverTableViewCell.swift */; };
 		EC8808872BEB953D00BCAC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808862BEB953D00BCAC60 /* AppDelegate.swift */; };
 		EC8808892BEB953D00BCAC60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808882BEB953D00BCAC60 /* SceneDelegate.swift */; };
 		EC88088B2BEB953D00BCAC60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88088A2BEB953D00BCAC60 /* ViewController.swift */; };
@@ -56,6 +59,9 @@
 		EC78D1472C1F7C6500DE156D /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
 		EC78D1492C1F7D4600DE156D /* CategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionView.swift; sourceTree = "<group>"; };
 		EC78D14B2C1F81FD00DE156D /* CategorySelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		EC78D14F2C22E2A700DE156D /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		EC78D1542C22E3D100DE156D /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		EC78D1562C22E53900DE156D /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
 		EC8808832BEB953D00BCAC60 /* ACNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8808862BEB953D00BCAC60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC8808882BEB953D00BCAC60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 		EC7667BA2BECED34003E2C86 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				EC78D1472C1F7C6500DE156D /* CategorySelectionViewController.swift */,
 				EC8808A12BEB972400BCAC60 /* ACNewsViewController.swift */,
 			);
 			path = News;
@@ -200,6 +207,30 @@
 				EC8808A52BEB978500BCAC60 /* ACSettingsViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		EC78D14D2C22E28A00DE156D /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		EC78D14E2C22E29000DE156D /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				EC78D14F2C22E2A700DE156D /* DiscoverViewController.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		EC78D1522C22E2BB00DE156D /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				EC78D1542C22E3D100DE156D /* DiscoverView.swift */,
+				EC78D1562C22E53900DE156D /* DiscoverTableViewCell.swift */,
+			);
+			path = Discover;
 			sourceTree = "<group>";
 		};
 		EC88087A2BEB953D00BCAC60 = {
@@ -241,6 +272,7 @@
 		EC88089A2BEB95C400BCAC60 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EC78D14D2C22E28A00DE156D /* Discover */,
 				EC7667B82BECED17003E2C86 /* News */,
 				EC7667B92BECED1E003E2C86 /* NewsDetails */,
 				EC7144522BEF693200FF52DF /* Favs */,
@@ -252,6 +284,7 @@
 		EC88089B2BEB95D400BCAC60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC78D1522C22E2BB00DE156D /* Discover */,
 				EC7667B62BECECE3003E2C86 /* News */,
 				EC7667B72BECECF1003E2C86 /* NewsDetails */,
 				EC7144502BEF68F200FF52DF /* Favs */,
@@ -276,13 +309,13 @@
 		EC88089E2BEB963E00BCAC60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EC78D14E2C22E29000DE156D /* Discover */,
 				ECF399DF2BEFED6900F2C20E /* Search */,
 				EC7144552BEF69DF00FF52DF /* Tabbar */,
 				EC7667BA2BECED34003E2C86 /* News */,
 				EC7667BB2BECED43003E2C86 /* NewsDetails */,
 				EC7667BC2BECF339003E2C86 /* Favs */,
 				EC7667BD2BECF353003E2C86 /* Settings */,
-				EC78D1472C1F7C6500DE156D /* CategorySelectionViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -390,6 +423,7 @@
 				EC7144542BEF694F00FF52DF /* ACFavsViewViewModel.swift in Sources */,
 				EC7667B52BECD959003E2C86 /* ACNewsDetailsView.swift in Sources */,
 				ECCC28E42BEEAF1900DB7E6F /* ACSettingsOption.swift in Sources */,
+				EC78D1552C22E3D100DE156D /* DiscoverView.swift in Sources */,
 				EC71445A2BEF6D7A00FF52DF /* FavoritesManager.swift in Sources */,
 				ECCC28E02BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift in Sources */,
 				ECCC28DD2BEEAE4000DB7E6F /* ACSettingsView.swift in Sources */,
@@ -409,7 +443,9 @@
 				EC7667B12BECD91A003E2C86 /* ACNewsDetailsViewController.swift in Sources */,
 				EC8808A42BEB973700BCAC60 /* ACFavsViewController.swift in Sources */,
 				EC8808892BEB953D00BCAC60 /* SceneDelegate.swift in Sources */,
+				EC78D1502C22E2A700DE156D /* DiscoverViewController.swift in Sources */,
 				EC8808A62BEB978500BCAC60 /* ACSettingsViewController.swift in Sources */,
+				EC78D1572C22E53900DE156D /* DiscoverTableViewCell.swift in Sources */,
 				EC78D14A2C1F7D4600DE156D /* CategorySelectionView.swift in Sources */,
 				EC8808B42BEBAE1000BCAC60 /* ACNewsCollectionViewCell.swift in Sources */,
 				EC8808B62BEBAED700BCAC60 /* Extensions.swift in Sources */,

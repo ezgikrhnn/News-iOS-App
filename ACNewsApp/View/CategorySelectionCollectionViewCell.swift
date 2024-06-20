@@ -40,7 +40,7 @@ final class CategorySelectionCollectionViewCell : UICollectionViewCell {
         contentView.addSubviews(categoryImage, titleLabel)
         addConstraints()
         //setUpLayer()
-       }
+    }
        
     required init?(coder: NSCoder) { ///storyboard ya da  xib başlatıcısı
         fatalError("Unsupported")    ///desteklenmediği için fatalError
