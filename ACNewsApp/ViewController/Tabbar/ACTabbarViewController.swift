@@ -19,9 +19,12 @@ class ACTabbarViewController: UITabBarController {
     
     private func setUpTabs(){
         let newsViewModel = ACNewsViewViewModel()
-        let discoverViewModel = ACNewsViewViewModel()
+        let discoverViewModel = DiscoverViewViewModel()
+        
+        let defaultCategory = String()
+        
         let newsPageVC =  ACNewsViewController(viewModel: newsViewModel )
-        let discoverPageVC = DiscoverViewController(viewModel: discoverViewModel)
+        let discoverPageVC = DiscoverViewController(viewModel: discoverViewModel, category: defaultCategory)
         let favsPageVC = ACFavsViewController()
         let settingsPageVC = ACSettingsViewController()
         

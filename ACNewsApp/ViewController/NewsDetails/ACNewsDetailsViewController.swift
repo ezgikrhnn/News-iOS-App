@@ -14,7 +14,6 @@ class ACNewsDetailsViewController: UIViewController {
     var viewModel: ACNewsDetailsViewModel!
     var newsView = ACNewsDetailsView()
     
-    
     //MARK: -Init
     init(viewModel: ACNewsDetailsViewModel) {
             self.viewModel = viewModel

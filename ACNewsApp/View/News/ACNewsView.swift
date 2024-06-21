@@ -139,12 +139,14 @@ extension ACNewsView: UICollectionViewDelegate, UICollectionViewDataSource, UICo
             delegate?.didSelectArticle(article)
         }
     }
+    
     // MARK: - CollectionView Flow Layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 250) //hücre boyutu
     }
 }
 
+//searchbara tıklandıgında protokolun didSearchForText fonk. calışacak
 extension ACNewsView: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
            delegate?.didSearchForText(searchText)

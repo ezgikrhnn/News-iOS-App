@@ -21,6 +21,7 @@
 		EC78D1502C22E2A700DE156D /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D14F2C22E2A700DE156D /* DiscoverViewController.swift */; };
 		EC78D1552C22E3D100DE156D /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1542C22E3D100DE156D /* DiscoverView.swift */; };
 		EC78D1572C22E53900DE156D /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1562C22E53900DE156D /* DiscoverTableViewCell.swift */; };
+		EC78D1592C25B43A00DE156D /* DiscoverViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1582C25B43A00DE156D /* DiscoverViewViewModel.swift */; };
 		EC8808872BEB953D00BCAC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808862BEB953D00BCAC60 /* AppDelegate.swift */; };
 		EC8808892BEB953D00BCAC60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808882BEB953D00BCAC60 /* SceneDelegate.swift */; };
 		EC88088B2BEB953D00BCAC60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88088A2BEB953D00BCAC60 /* ViewController.swift */; };
@@ -62,6 +63,7 @@
 		EC78D14F2C22E2A700DE156D /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		EC78D1542C22E3D100DE156D /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		EC78D1562C22E53900DE156D /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
+		EC78D1582C25B43A00DE156D /* DiscoverViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewViewModel.swift; sourceTree = "<group>"; };
 		EC8808832BEB953D00BCAC60 /* ACNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8808862BEB953D00BCAC60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC8808882BEB953D00BCAC60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		EC78D14D2C22E28A00DE156D /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				EC78D1582C25B43A00DE156D /* DiscoverViewViewModel.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				ECF399E12BEFED8800F2C20E /* ACSearchViewController.swift in Sources */,
 				EC7144542BEF694F00FF52DF /* ACFavsViewViewModel.swift in Sources */,
 				EC7667B52BECD959003E2C86 /* ACNewsDetailsView.swift in Sources */,
+				EC78D1592C25B43A00DE156D /* DiscoverViewViewModel.swift in Sources */,
 				ECCC28E42BEEAF1900DB7E6F /* ACSettingsOption.swift in Sources */,
 				EC78D1552C22E3D100DE156D /* DiscoverView.swift in Sources */,
 				EC71445A2BEF6D7A00FF52DF /* FavoritesManager.swift in Sources */,

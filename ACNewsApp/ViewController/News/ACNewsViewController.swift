@@ -9,17 +9,17 @@ import UIKit
 
 class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelectionViewDelegate {
  
-    var viewModel = ACNewsViewViewModel()
-    var viewModelPro: ACNewsViewModelProtocol
+    
+    var viewModel: ACNewsViewModelProtocol
     public let newsView = ACNewsView() //view
     let menuButton = UIBarButtonItem()
     let sideMenuView = UIView()
-    let tableView = UITableView()
+   
    // let countries = ["ae", "ar", "at", "au", "be", "br", "ca", "cn", "co", "cu", "cz", "de", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr","ma", "mx", "my", "ng", "nl", "no", "nz", "ph","pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
  
     //Dependency Injection
     init(viewModel: ACNewsViewModelProtocol) {
-        self.viewModelPro = viewModel
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         }
         
@@ -35,8 +35,6 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
         viewModel.fetchNews(fromCountry: "us") //sayfa yüklendiğinde abd haberlerini göstersin
         bindViewModel()
         setupNewsView()
-        setupNavigationBar()
-        setupSideMenu()
         customizeNavigationBar()
         newsView.cateView.delegate = self 
     }
@@ -92,40 +90,19 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
         }
     }
     
-    func cellTapped(category: String) {
+    //category hucresine tıklandıgında:
+    func didSelectCategory(category: String) { //string olarak tıklanan kategori ismi geldi : orneğin = sports
         print("fonksiyon içinde")
         // Mevcut viewModelPro'yu kullanarak DiscoverViewController'a geçiş yap
-        viewModelPro.category = category // viewModelPro'ya seçilen kategori bilgisini iletebilirsiniz, isteğe bağlı olarak
-        let discoverVC = DiscoverViewController(viewModel: viewModelPro)
+        viewModel.category = category
+        
+        let discoverViewModel = DiscoverViewViewModel()
+        discoverViewModel.category = category
+        let discoverVC = DiscoverViewController(viewModel: discoverViewModel, category: category)
         navigationController?.pushViewController(discoverVC, animated: true)
         print("DiscoverViewController'a geçiş yapıldı. Seçilen kategori: \(category)")
     }
-    
-    func setupNavigationBar() {
-        menuButton.title = "US"
-        menuButton.target = self
-        //menuButton.tintColor = UIColor(named: "LightRed")
-        menuButton.action = #selector(toggleSideMenu)
-        navigationItem.leftBarButtonItem = menuButton
-    }
 
-    func setupSideMenu() {
-            sideMenuView.frame = CGRect(x: -200, y: 0, width: 200, height: self.view.frame.height)
-            sideMenuView.backgroundColor = .white
-            self.view.addSubview(sideMenuView)
-
-            tableView.frame = sideMenuView.bounds
-            //tableView.delegate = self
-            //tableView.dataSource = self
-            sideMenuView.addSubview(tableView)
-        }
-
-    @objc func toggleSideMenu() {
-            UIView.animate(withDuration: 0.3) {
-                self.sideMenuView.frame.origin.x = self.sideMenuView.frame.origin.x == 0 ? -200 : 0
-            }
-        }
-    
     func filterNewsByCategory(_ category: String) {
             print("Filtering news by category: \(category)")
             viewModel.searchNews(with: category)

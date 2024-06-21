@@ -11,10 +11,11 @@ protocol ACNewsViewModelProtocol {
     var articles: [Article] { get set }
     var onNewsUpdated: (() -> Void)? { get set }
     var onErrorOccurred: ((String) -> Void)? { get set }
-    var category : String {get set}
+    var category : String { get set }
    
     func searchNews(with query: String)
     func fetchNews(fromCountry country: String)
+    func fetchNews(fromCountry country: String, category: String) // Yeni fonksiyon
 }
 
 class ACNewsViewViewModel: ACNewsViewModelProtocol {

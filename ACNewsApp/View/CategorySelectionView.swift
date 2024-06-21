@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CategorySelectionViewDelegate: AnyObject {
-    func cellTapped(category: String)
+    func didSelectCategory(category: String)
 }
 
 class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -94,7 +94,6 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
         } else if indexPath.row == 6 {
             cell.categoryImage.image = UIImage(named: "entertainment")
         }
-       
         return cell
     }
     
@@ -104,13 +103,11 @@ class CategorySelectionView: UIView, UICollectionViewDataSource, UICollectionVie
         
         let selectedCategory = categories[indexPath.item]
         print("Selected category: \(selectedCategory)")
-        delegate?.cellTapped(category: selectedCategory)
-    
+        delegate?.didSelectCategory(category: selectedCategory)
     }
         
     // MARK: - CollectionView Flow Layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // Her hücrenin boyutunu burada ayarlayabilirsiniz
         return CGSize(width: 90, height: 90)
     }
 }
