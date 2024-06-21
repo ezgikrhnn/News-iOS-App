@@ -7,18 +7,18 @@
 
 import UIKit
 
-protocol ACFavsViewDelegate: AnyObject {
+protocol SaveViewDelegate: AnyObject {
     func didSelectArticle(_ article: Article)
 }
 
-class ACFavsView: UIView {
+class SaveView: UIView {
     
-    weak var delegate: ACFavsViewDelegate?
+    weak var delegate: SaveViewDelegate?
     
     // TableView
     let tableView: UITableView = {
         let table = UITableView()
-        table.register(ACFavsTableViewCell.self, forCellReuseIdentifier: ACFavsTableViewCell.cellIdentifier)
+        table.register(SaveTableViewCell.self, forCellReuseIdentifier: SaveTableViewCell.cellIdentifier)
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = 100
         table.separatorStyle = .singleLine

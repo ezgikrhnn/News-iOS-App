@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ACFavsTableViewCell: UITableViewCell {
+class SaveTableViewCell : UITableViewCell {
 
-    static let cellIdentifier = "ACFavsTableViewCell"
+    static let cellIdentifier = "SaveTableViewCell"
     //IMAGEVIEW
     let newsImage : UIImageView = {
         let imageView = UIImageView()

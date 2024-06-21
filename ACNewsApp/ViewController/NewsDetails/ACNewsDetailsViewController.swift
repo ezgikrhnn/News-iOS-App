@@ -44,31 +44,31 @@ class ACNewsDetailsViewController: UIViewController {
     //Detay sayfadan çıkınca like button son halini korusun:
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-            updateLikeButtonAppearance()
-        }
+            updateSaveButtonAppearance()
+    }
     
     //MARK: -Functions
     
     private func setupNavigationBar() {
         
         // Like Button
-        let likeButton = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(didTapLikeButton))
+        let saveButton = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .plain, target: self, action: #selector(didTapSaveButton))
         // Download Button
         let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(didTapShareButton))
         
-        navigationItem.rightBarButtonItems = [shareButton, likeButton]
+        navigationItem.rightBarButtonItems = [shareButton, saveButton]
     }
     
-    @objc private func didTapLikeButton() {
-        if FavoritesManager.shared.isFavorite(article: viewModel.article) {
-                FavoritesManager.shared.removeFavorite(article: viewModel.article)
+    @objc private func didTapSaveButton() {
+        if SaveManager.shared.isSave(article: viewModel.article) {
+            SaveManager.shared.removeSave(article: viewModel.article)
                 print("News removed from favorites")
             } else {
-                FavoritesManager.shared.addFavorite(article: viewModel.article)
+                SaveManager.shared.addSave(article: viewModel.article)
                 print("News added to favorites")
                
             }
-            updateLikeButtonAppearance()
+            updateSaveButtonAppearance()
        }
        
     @objc private func didTapShareButton() {
@@ -85,10 +85,9 @@ class ACNewsDetailsViewController: UIViewController {
         present(activityViewController, animated: true)
        }
     
-    
-    private func updateLikeButtonAppearance() {
-        let isFavorite = FavoritesManager.shared.isFavorite(article: viewModel.article)
-        let imageName = isFavorite ? "heart.fill" : "heart"
+    private func updateSaveButtonAppearance() {
+        let isSave = SaveManager.shared.isSave(article: viewModel.article)
+        let imageName = isSave ? "bookmark.fill" : "bookmark"
         navigationItem.rightBarButtonItems?[1].image = UIImage(systemName: imageName)
     }
     

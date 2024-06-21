@@ -25,23 +25,23 @@ class ACTabbarViewController: UITabBarController {
         
         let newsPageVC =  ACNewsViewController(viewModel: newsViewModel )
         let discoverPageVC = DiscoverViewController(viewModel: discoverViewModel, category: defaultCategory)
-        let favsPageVC = ACFavsViewController()
+        let savePageVC = SaveViewController()
         let settingsPageVC = ACSettingsViewController()
         
         newsPageVC.title = "News"
         discoverPageVC.title = "Discover"
-        favsPageVC.title = "Favs"
+        savePageVC.title = "Favs"
         settingsPageVC.title = "Settings"
         
         let nav1 = UINavigationController(rootViewController: newsPageVC)
         let nav2 = UINavigationController(rootViewController: discoverPageVC)
 
-        let nav3 = UINavigationController(rootViewController: favsPageVC)
+        let nav3 = UINavigationController(rootViewController: savePageVC)
         let nav4 = UINavigationController(rootViewController: settingsPageVC)
         
         nav1.tabBarItem = UITabBarItem(title: "News", image: UIImage(systemName: "house.fill"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Discover", image: UIImage(systemName: "safari"), tag: 1)
-        nav3.tabBarItem = UITabBarItem(title: "Favs", image: UIImage(systemName: "heart.fill"), tag: 1)
+        nav3.tabBarItem = UITabBarItem(title: "Save", image: UIImage(systemName: "bookmark.fill"), tag: 1)
         nav4.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 1)
         
         

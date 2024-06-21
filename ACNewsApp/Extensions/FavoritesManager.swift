@@ -17,27 +17,27 @@
 
 import Foundation
 
-class FavoritesManager {
+class SaveManager {
     
-    static let shared = FavoritesManager()
-    private(set) var favorites: [Article] = []
+    static let shared = SaveManager()
+    private(set) var saves: [Article] = []
 
     //id ile değil url ile benzersiz bir id varmış gibi yaptım. çünkü article sınıfının doğrudan bir id özelliği yok
-    func addFavorite(article: Article) {
-        if !favorites.contains(where: { $0.url == article.url }) { //zaten listede mi diye kontrol et
-            favorites.append(article)
+    func addSave(article: Article) {
+        if !saves.contains(where: { $0.url == article.url }) { //zaten listede mi diye kontrol et
+            saves.append(article)
         }
     }
     
-    func removeFavorite(article: Article) {
-        favorites.removeAll(where: { $0.url == article.url })
+    func removeSave(article: Article) {
+        saves.removeAll(where: { $0.url == article.url })
     }
     
-    func isFavorite(article: Article) -> Bool {
-        return favorites.contains(where: { $0.url == article.url })
+    func isSave(article: Article) -> Bool {
+        return saves.contains(where: { $0.url == article.url })
     }
     
-    func getAllFavorites() -> [Article] {
-           return favorites
+    func getAllSaves() -> [Article] {
+           return saves
     }
 }

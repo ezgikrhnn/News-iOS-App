@@ -7,17 +7,17 @@
 
 import Foundation
 
-class ACFavsViewViewModel {
+class SaveViewViewModel {
     
-    private var favorites: [Article] {
-        return FavoritesManager.shared.favorites
+    private var saves: [Article] {
+        return SaveManager.shared.saves
     }
     
     var numberOfRows: Int { //fav listesinin eleman sayısı
-        return favorites.count
+        return saves.count
     }
     
     func article(at index: Int) -> Article {
-        return favorites[index]
+        return saves[index]
     }
 }
