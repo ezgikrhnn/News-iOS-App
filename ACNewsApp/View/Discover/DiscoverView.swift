@@ -39,7 +39,6 @@ class DiscoverView: UIView {
         tableView.dataSource = self
         tableView.delegate = self
         searchBar.delegate = self
-        
     }
     
     required init?(coder: NSCoder) {

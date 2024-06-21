@@ -10,7 +10,7 @@ import UIKit
 class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelectionViewDelegate {
  
     
-    var viewModel: ACNewsViewModelProtocol
+    var viewModel: viewModelProtocol
     public let newsView = ACNewsView() //view
     let menuButton = UIBarButtonItem()
     let sideMenuView = UIView()
@@ -18,7 +18,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
    // let countries = ["ae", "ar", "at", "au", "be", "br", "ca", "cn", "co", "cu", "cz", "de", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in", "it", "jp", "kr","ma", "mx", "my", "ng", "nl", "no", "nz", "ph","pl", "pt", "ro", "rs", "ru", "sa", "se", "sg", "si", "sk", "th", "tr", "tw", "ua", "us", "ve", "za"]
  
     //Dependency Injection
-    init(viewModel: ACNewsViewModelProtocol) {
+    init(viewModel: viewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         }
@@ -32,7 +32,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
         title = "News"
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = false
-        viewModel.fetchNews(fromCountry: "us") //sayfa yüklendiğinde abd haberlerini göstersin
+        viewModel.fetchNews(fromCountry: "us", category: viewModel.category, requestService: ACRequest()) //sayfa yüklendiğinde abd haberlerini göstersin
         bindViewModel()
         setupNewsView()
         customizeNavigationBar()
@@ -84,7 +84,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
     func didSearchForText(_ text: String) {
         print("Searching for: \(text)")
         if text.isEmpty {
-            viewModel.fetchNews(fromCountry: "us")
+            viewModel.fetchNews(fromCountry: "us", category: viewModel.category, requestService: ACRequest())
         } else {
             viewModel.searchNews(with: text)
         }

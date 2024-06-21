@@ -11,12 +11,12 @@
  
  class DiscoverViewController: UIViewController, DiscoverViewDelegate{
  
-    var viewModel: DiscoverViewModelProtocol
+    var viewModel: viewModelProtocol
     public let newsView = DiscoverView() //view
     var category: String
      
    //depedency Injection
-     init(viewModel: DiscoverViewModelProtocol, category: String) {
+     init(viewModel: viewModelProtocol, category: String) {
          self.viewModel = viewModel
          self.category = category
          super.init(nibName: nil, bundle: nil)

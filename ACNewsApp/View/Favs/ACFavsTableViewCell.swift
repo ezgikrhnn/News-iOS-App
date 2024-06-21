@@ -10,24 +10,24 @@ import UIKit
 class ACFavsTableViewCell: UITableViewCell {
 
     static let cellIdentifier = "ACFavsTableViewCell"
-    
     //IMAGEVIEW
     let newsImage : UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
-    }()///closure
+    }()
     
     
     //LABEL
      let titleLabel : UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 14, weight: .medium)
         label.numberOfLines = 5
-        label.textAlignment = .left
+        label.textAlignment = .justified
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -37,7 +37,7 @@ class ACFavsTableViewCell: UITableViewCell {
        label.textColor = .label
        label.font = .systemFont(ofSize: 14, weight: .light)
        label.numberOfLines = 5
-       label.textAlignment = .left
+       label.textAlignment = .justified
        label.translatesAutoresizingMaskIntoConstraints = false
        return label
    }()
@@ -59,22 +59,22 @@ class ACFavsTableViewCell: UITableViewCell {
     private func addConstraints() {
         
         NSLayoutConstraint.activate([
-           
-            newsImage.heightAnchor.constraint(equalToConstant: 80),
-            newsImage.widthAnchor.constraint(equalToConstant: 120),
-            newsImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            newsImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
-            // Hücrenin sağ kenarından 20 puan uzaklıkta
             
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
-            titleLabel.heightAnchor.constraint(equalToConstant: 100),
-            titleLabel.widthAnchor.constraint(equalToConstant: 230),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -15),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 50),
-            descriptionLabel.widthAnchor.constraint(equalToConstant: 230),
-            descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+             newsImage.heightAnchor.constraint(equalToConstant: 100),
+             newsImage.widthAnchor.constraint(equalToConstant: 120),
+             newsImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+             newsImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+             // Hücrenin sağ kenarından 20 puan uzaklıkta
+             
+             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+             titleLabel.heightAnchor.constraint(equalToConstant: 100),
+             titleLabel.widthAnchor.constraint(equalToConstant: 200),
+             
+             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -15),
+             descriptionLabel.heightAnchor.constraint(equalToConstant: 50),
+             descriptionLabel.widthAnchor.constraint(equalToConstant: 200),
+             descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
         ])
     }
     
