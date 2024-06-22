@@ -89,10 +89,14 @@ extension SaveViewController: UITableViewDelegate, UITableViewDataSource{
     
     //sola kaydırma ile silme işlemi:
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let article = saves[indexPath.row]
+        //kaydır savemanagerdan kaldır. -> bu işlem yapılmazsa sadece hücre silinir, detay sayfada hala save olarak kalacaktır.
+        SaveManager.shared.removeSave(article: article)
         //veri kaynağından veriyi kaldırıyorum
         saves.remove(at: indexPath.row)
         //tableviewden hucreyi siliyorum:
         tableView.deleteRows(at: [indexPath], with: .automatic)
+       
         
     }
 }
