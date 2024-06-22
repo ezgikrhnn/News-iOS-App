@@ -8,9 +8,16 @@
 import UIKit
 import SDWebImage
 
+protocol ACNewsCollectionViewCellDelegate: AnyObject {
+    func didTapSaveButton(on cell: ACNewsCollectionViewCell)
+}
+
 final class ACNewsCollectionViewCell: UICollectionViewCell {
     
+    weak var delegate : ACNewsCollectionViewCellDelegate?
     static let cellIdentifier = "ACNewsTableViewCell"
+    
+    var article: Article?
     
     //IMAGEVIEW
     let newsImage : UIImageView = {
@@ -40,6 +47,7 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
         button.tintColor = .white
         button.layer.cornerRadius = 5
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
         }()
@@ -64,22 +72,13 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
        label.translatesAutoresizingMaskIntoConstraints = false
        return label
    }()
-  /*  let descriptionLabel : UILabel = {
-       let label = UILabel()
-       label.textColor = .label
-       label.font = .systemFont(ofSize: 14, weight: .light)
-       label.numberOfLines = 5
-        label.textAlignment = .justified
-       label.translatesAutoresizingMaskIntoConstraints = false
-       return label
-   }()
-   */
+ 
     // MARK: - Init
     override init(frame: CGRect){
         super.init(frame: frame)
         contentView.backgroundColor = .systemGray6
-        
         contentView.addSubviews(newsImage, titleLabel, saveButton, dateImage, publishDateLabel)
+        // addTarget ile saveButtonTapped metodunu bağlama
         addConstraints()
         //setUpLayer()
        }
@@ -120,14 +119,6 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-   /* override func prepareForReuse() { ///hücre yeniden kullanılmak üzere hazırlandıgında çağrırlır.
-        super.prepareForReuse() /// metod super.prepareForReuse() çağrısı yapmakta, prepareforreuse hücre yeniden kullanılmak için çağırıldıgında yazılır. ARAŞTIR YENİDEN !!!
-        
-        newsImage.image = nil
-        titleLabel.text = nil
-    }
-    */
-    
     override func layoutSubviews() {
             super.layoutSubviews()
             // contentView için iç boşluklar
@@ -142,5 +133,11 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
         }
         
         newsImage.sd_setImage(with: url, placeholderImage: UIImage(named: "loadingImage"))
+    }
+    
+    @objc func saveButtonTapped() {
+        print("savebutton fonk calısıyor")
+            delegate?.didTapSaveButton(on: self)
+        print("delegate aştı")
     }
 }

@@ -11,6 +11,7 @@ class ACNewsViewViewModel: viewModelProtocol {
     var articles: [Article] = []
     var onNewsUpdated: (() -> Void)?
     var onErrorOccurred: ((String) -> Void)?
+   
     
     private let requestService = ACRequest()
 

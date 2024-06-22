@@ -17,7 +17,13 @@
 
 import Foundation
 
+/*extension Notification.Name {
+    static let didUpdateSavedArticles = Notification.Name("didUpdateSavedArticles")
+}
+ */
+
 class SaveManager {
+    
     
     static let shared = SaveManager()
     private(set) var saves: [Article] = []
@@ -26,18 +32,21 @@ class SaveManager {
     func addSave(article: Article) {
         if !saves.contains(where: { $0.url == article.url }) { //zaten listede mi diye kontrol et
             saves.append(article)
+            //NotificationCenter.default.post(name: .didUpdateSavedArticles, object: nil)
         }
     }
     
     func removeSave(article: Article) {
         saves.removeAll(where: { $0.url == article.url })
+       //NotificationCenter.default.post(name: .didUpdateSavedArticles, object: nil)
     }
     
-    func isSave(article: Article) -> Bool {
+    func isSave(article: Article) -> Bool { //url varsa true, yoksa false döner
         return saves.contains(where: { $0.url == article.url })
     }
     
     func getAllSaves() -> [Article] {
            return saves
     }
+    
 }

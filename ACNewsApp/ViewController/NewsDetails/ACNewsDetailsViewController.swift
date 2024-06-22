@@ -59,6 +59,7 @@ class ACNewsDetailsViewController: UIViewController {
         navigationItem.rightBarButtonItems = [shareButton, saveButton]
     }
     
+    //updateSaveButton() fonksiyonunu bookmarka tıklandıgında calışması için burada çağırıyorum:
     @objc private func didTapSaveButton() {
         if SaveManager.shared.isSave(article: viewModel.article) {
             SaveManager.shared.removeSave(article: viewModel.article)
@@ -85,11 +86,13 @@ class ACNewsDetailsViewController: UIViewController {
         present(activityViewController, animated: true)
        }
     
+    //SaveManagerin isSave değerine göre bookmark dolduran fonksiyon
     private func updateSaveButtonAppearance() {
-        let isSave = SaveManager.shared.isSave(article: viewModel.article)
-        let imageName = isSave ? "bookmark.fill" : "bookmark"
+        let isSave = SaveManager.shared.isSave(article: viewModel.article) //url değerine göre isSave true ya da false
+        let imageName = isSave ? "bookmark.fill" : "bookmark"  //true ise bookmark içi dolu
         navigationItem.rightBarButtonItems?[1].image = UIImage(systemName: imageName)
     }
+    
     
     func addConstraints(){
         newsView.translatesAutoresizingMaskIntoConstraints = false

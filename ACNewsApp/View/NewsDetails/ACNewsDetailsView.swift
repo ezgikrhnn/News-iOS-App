@@ -17,7 +17,6 @@ class ACNewsDetailsView: UIView {
         addSubview(scrollView)
          // ScrollView içine contentView ekleniyor.
         contentView.addSubviews(newsImage, titleLabel, contentLabel, authorImage, authorNameLabel, dateImage, publishDateLabel, viewSourceButton)  // İçerik öğeleri contentView içine ekleniyor.
-            
         scrollView.addSubview(contentView)
         addConstraints()
     }
@@ -25,6 +24,8 @@ class ACNewsDetailsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+  
     
     //MARK: - Properties
     var viewModel: ACNewsDetailsViewModel? {

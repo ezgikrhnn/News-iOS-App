@@ -12,12 +12,13 @@ protocol ACNewsViewDelegate: AnyObject {
     func didSearchForText(_ text: String)
 }
 
-class ACNewsView: UIView {
+class ACNewsView: UIView{
     
 
     weak var delegate: ACNewsViewDelegate?
     var articles: [Article] = []
     let cateView = CategorySelectionView()
+    let cell = ACNewsCollectionViewCell()
 
     let hotNewsImage : UIImageView = {
         let imageView = UIImageView()
@@ -69,6 +70,7 @@ class ACNewsView: UIView {
         newsCollectionView.dataSource = self
         newsCollectionView.delegate = self
         searchBar.delegate = self
+        cell.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -111,25 +113,54 @@ class ACNewsView: UIView {
             cateView.categoryCollectionView.topAnchor.constraint(equalTo: newsCollectionView.bottomAnchor, constant: 20),
             cateView.categoryCollectionView.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
+        newsCollectionView.dataSource = self
+        newsCollectionView.delegate = self
     }
 }
 
-extension ACNewsView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension ACNewsView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ACNewsCollectionViewCellDelegate{
     
+    func didTapSaveButton(on cell: ACNewsCollectionViewCell) {
+        print("didtapsave calısıyor")
+        guard let indexPath = newsCollectionView.indexPath(for: cell) else { return }
+        let article = articles[indexPath.row]
+        
+        if SaveManager.shared.isSave(article: article) {
+            SaveManager.shared.removeSave(article: article)
+            print("News removed from saves")
+        } else {
+            SaveManager.shared.addSave(article: article)
+            print("News added to saves")
+        }
+      
+        let isSaved = SaveManager.shared.isSave(article: article)
+        let imageName = isSaved ? "bookmark.fill" : "bookmark"
+        cell.saveButton.setImage(UIImage(systemName: imageName), for: .normal)
+        
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return articles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ACNewsCollectionViewCell.cellIdentifier, for: indexPath) as? ACNewsCollectionViewCell else {
             fatalError("Could not dequeue ACNewsTableViewCell")
         }
+        
         let article = articles[indexPath.row]
         cell.titleLabel.text = article.title
         let vm = ACNewsDetailsViewModel(article: article) //formattedPublishDate acnewsdetail içinde ama istersen sonra duzenle cunku news viewcontrollera içinde de kullanıyorsun.
         cell.publishDateLabel.text = vm.formattedPublishDate
-        
         cell.loadImage(from: article.urlToImage)
+        cell.delegate = self
+        
+        // Kaydetme butonunun görselini makale kaydedilmiş mi değil mi kontrol ederek güncelledim burada bu işlem yapılmadıgında detay sayfadan geri newse döndüğünde kayıtlı olsa bile kayıt dışı -> "bookmark" boş görünüyor.
+            let isSaved = SaveManager.shared.isSave(article: article)
+            let imageName = isSaved ? "bookmark.fill" : "bookmark"
+            cell.saveButton.setImage(UIImage(systemName: imageName), for: .normal)
+  
         return cell
     }
     
