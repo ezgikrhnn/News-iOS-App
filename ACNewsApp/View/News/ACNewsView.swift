@@ -22,7 +22,7 @@ class ACNewsView: UIView {
     let hotNewsImage : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "hotnews2")
-        imageView.layer.cornerRadius = 40
+        imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
