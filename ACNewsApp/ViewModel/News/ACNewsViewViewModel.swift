@@ -6,6 +6,8 @@
 //
 
 //protocols dosyasında oluşturdugum NewsViewModelProtocolden extend ediyorum:
+import Foundation
+
 class ACNewsViewViewModel: viewModelProtocol {
     var category: String = ""
     var articles: [Article] = []
@@ -22,4 +24,5 @@ class ACNewsViewViewModel: viewModelProtocol {
     func searchNews(with query: String) {
         searchNews(with: query, requestService: requestService)
     }
+    
 }

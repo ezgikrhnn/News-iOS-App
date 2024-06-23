@@ -5,6 +5,8 @@
 //  Created by Ezgi Karahan on 21.06.2024.
 //
 
+import Foundation
+
 class DiscoverViewViewModel: viewModelProtocol {
     
     var category: String = ""
@@ -13,12 +15,14 @@ class DiscoverViewViewModel: viewModelProtocol {
     var onErrorOccurred: ((String) -> Void)?
     
     private let requestService = ACRequest()
-
+    
     func fetchNews(fromCountry country: String, category: String) {
         fetchNews(fromCountry: country, category: category, requestService: requestService)
     }
-
+    
     func searchNews(with query: String) {
         searchNews(with: query, requestService: requestService)
     }
+    
+    
 }

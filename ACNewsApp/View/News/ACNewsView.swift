@@ -10,6 +10,7 @@ import UIKit
 protocol ACNewsViewDelegate: AnyObject {
     func didSelectArticle(_ article: Article)
     func didSearchForText(_ text: String)
+    func didTapHotNewsButton() // Yeni metod
 }
 
 class ACNewsView: UIView{
@@ -37,6 +38,7 @@ class ACNewsView: UIView{
             button.backgroundColor = UIColor.white
             button.layer.cornerRadius = 20
             button.clipsToBounds = true
+            button.addTarget(self, action: #selector(hotNewsButtonTapped), for: .touchUpInside)
             button.translatesAutoresizingMaskIntoConstraints = false
             return button
         }()
@@ -84,6 +86,12 @@ class ACNewsView: UIView{
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()///closure
+    
+    
+    @objc func hotNewsButtonTapped(){
+        print("hotNewsButton tapped")
+        delegate?.didTapHotNewsButton()
+    }
     
     // Constraints
     private func setupConstraints() {

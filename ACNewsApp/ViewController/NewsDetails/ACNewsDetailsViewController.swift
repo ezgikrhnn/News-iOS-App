@@ -93,7 +93,6 @@ class ACNewsDetailsViewController: UIViewController {
         navigationItem.rightBarButtonItems?[1].image = UIImage(systemName: imageName)
     }
     
-    
     func addConstraints(){
         newsView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

@@ -53,4 +53,22 @@ final class ACRequest {
         }
         task.resume() //ağ görevini başlat
     }
+    
+    func fetchNews(from date: Date, completion: @escaping (Result<[Article], Error>) -> Void) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let dateString = dateFormatter.string(from: date)
+            
+            let urlString = "https://newsapi.org/v2/everything?q=news&from=\(dateString)&sortBy=publishedAt&apiKey=aa866dd109b4435aa11ab4640bb06bf3"
+            
+            performRequest(with: urlString) { result in
+                switch result {
+                case .success(let newsResponse):
+                    let filteredArticles = newsResponse.articles.filter { !$0.title.lowercased().contains("removed") }
+                    completion(.success(filteredArticles))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
 }

@@ -10,10 +10,9 @@ import UIKit
 enum ACSettingsOption: CaseIterable{ //case iterable enum içerisindeki tüm caseleri erişilebilir kılar.
     
     case rateApp
-    case contactUs
+    case contactMe
     case terms
     case apiReference
-    case viewSeries
     case viewCode
     
     var targetUrl: URL? {
@@ -22,15 +21,12 @@ enum ACSettingsOption: CaseIterable{ //case iterable enum içerisindeki tüm cas
         switch self {
         case .rateApp:
             return nil
-        case .contactUs:
-            return URL(string: "https://www.appcent.mobi/contact")
+        case .contactMe:
+            return URL(string: "https://www.linkedin.com/in/ezgikrhnn/")
         case .terms:
-            return URL(string: "https://www.appcent.mobi/services")
-        
+            return URL(string: "")
         case .apiReference:
             return URL(string: "https://newsapi.org/")
-        case .viewSeries:
-            return URL(string: "https://www.youtube.com/@appcent_appcentakademi/featured")
         case .viewCode:
             return URL(string: "https://github.com/ezgikrhnn/ACNewsApp")
         }
@@ -41,32 +37,28 @@ enum ACSettingsOption: CaseIterable{ //case iterable enum içerisindeki tüm cas
         switch self {
         case .rateApp:
             return "Rate App"
-        case .contactUs:
-            return "Contact Us"
+        case .contactMe:
+            return "Contact Me"
         case .terms:
             return "Tersm of Service"
-        
         case .apiReference:
             return "API Reference"
-        case .viewSeries:
-            return "View Video Series"
         case .viewCode:
             return "View App Code"
         }
     }
+    
     //her secenegin icon arkaplan rengi
     var iconContainercolor: UIColor{
         switch self {
         case .rateApp:
             return .systemRed
-        case .contactUs:
+        case .contactMe:
             return .systemYellow
         case .terms:
             return .systemPurple
         case .apiReference:
             return .systemBrown
-        case .viewSeries:
-            return .systemGreen
         case .viewCode:
             return .systemOrange
         }
@@ -76,14 +68,12 @@ enum ACSettingsOption: CaseIterable{ //case iterable enum içerisindeki tüm cas
         switch self {
         case .rateApp:
             return UIImage(systemName: "star.fill")
-        case .contactUs:
+        case .contactMe:
             return UIImage(systemName: "paperplane")
         case .terms:
             return UIImage(systemName: "doc")
         case .apiReference:
             return UIImage(systemName: "list.clipboard")
-        case .viewSeries:
-            return UIImage(systemName: "tv.fill")
         case .viewCode:
             return UIImage(systemName: "hammer.fill")
         }

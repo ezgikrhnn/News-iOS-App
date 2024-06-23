@@ -8,7 +8,7 @@
 import UIKit
 
 class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelectionViewDelegate {
-   
+  
     var newsViewModel = ACNewsViewViewModel()
     var viewModel: viewModelProtocol
     public let newsView = ACNewsView() //view
@@ -100,6 +100,14 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
         }
     }
     
+    func didTapHotNewsButton() {
+        //discoverViewControllera geçiş
+        let discoverVM = DiscoverViewViewModel()
+        let vc = DiscoverViewController(viewModel: discoverVM, category: "")
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
     //category hucresine tıklandıgında:
     func didSelectCategory(category: String) { //string olarak tıklanan kategori ismi geldi : orneğin = sports
         print("fonksiyon içinde")
@@ -112,7 +120,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
         navigationController?.pushViewController(discoverVC, animated: true)
         print("DiscoverViewController'a geçiş yapıldı. Seçilen kategori: \(category)")
     }
-
+    
     func filterNewsByCategory(_ category: String) {
             print("Filtering news by category: \(category)")
             viewModel.searchNews(with: category)

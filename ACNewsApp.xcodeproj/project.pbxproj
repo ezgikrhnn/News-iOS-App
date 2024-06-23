@@ -326,8 +326,8 @@
 		ECCC28DE2BEEAEA400DB7E6F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */,
 				ECCC28E12BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift */,
+				ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */,
 				ECCC28E32BEEAF1900DB7E6F /* ACSettingsOption.swift */,
 			);
 			path = Settings;

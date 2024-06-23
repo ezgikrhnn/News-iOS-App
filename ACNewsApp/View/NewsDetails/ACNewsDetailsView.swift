@@ -25,7 +25,6 @@ class ACNewsDetailsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-  
     
     //MARK: - Properties
     var viewModel: ACNewsDetailsViewModel? {
@@ -113,7 +112,7 @@ class ACNewsDetailsView: UIView {
        label.textColor = .label
        label.font = .systemFont(ofSize: 16, weight: .light)
        label.numberOfLines = 5
-       label.textAlignment = .left
+       label.textAlignment = .justified
        label.translatesAutoresizingMaskIntoConstraints = false
        return label
    }()
