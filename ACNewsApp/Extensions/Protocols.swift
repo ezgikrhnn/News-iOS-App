@@ -61,6 +61,7 @@ extension viewModelProtocol {
         }
     }
    
+    //hotnewstoday için fetch fonksiyonu,"apıden haberler 1 gün sonra guncellendiği için en yeni haberler 1 gun oncesine ait"
     func fetchTodaysNews(requestService: ACRequest) {
             let today = Date() 
             let formatter = DateFormatter()
@@ -76,20 +77,17 @@ extension viewModelProtocol {
             let urlString = "https://newsapi.org/v2/everything?q=tesla&from=\(startOfDayString)&to=\(endOfDayString)&sortBy=publishedAt&apiKey=aa866dd109b4435aa11ab4640bb06bf3"
             
             requestService.performRequest(with: urlString) { [weak self] result in
-                switch result {
-                case .success(let newsResponse):
-                    DispatchQueue.main.async {
-                        self?.articles = newsResponse.articles
-                                       self?.onNewsUpdated?()
-                                       print("Fetched articles: \(newsResponse.articles)")
-                                       // Print the entire response for debugging
-                                       print("Full Response: \(newsResponse)")
-                    }
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self?.onErrorOccurred?("Failed to fetch today's news: \(error.localizedDescription)")
+            switch result {
+            case .success(let newsResponse):
+                DispatchQueue.main.async {
+                    self?.articles = newsResponse.articles
+                    self?.onNewsUpdated?()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.onErrorOccurred?("Failed to fetch today's news: \(error.localizedDescription)")
                     }
                 }
             }
-        }
+    }
 }

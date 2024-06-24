@@ -25,13 +25,23 @@ class HotNewsViewController: UIViewController, HotNewsViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = "Latest News"
+        navigationTitle()
+        
         bindViewModel()
         addConstraints()
         // Today's news fetch işlemi
             viewModel.fetchTodaysNews(requestService: ACRequest())
         // Do any additional setup after loading the view.
     }
+    
+    private func navigationTitle(){
+        let today = Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.dateFormat = "EEEE, d MMMM"
+        let dateString = formatter.string(from: today)
+        title = dateString
+        }
     
     private func addConstraints() {
         view.addSubview(hotNewsView)

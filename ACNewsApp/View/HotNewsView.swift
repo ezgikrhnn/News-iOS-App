@@ -4,6 +4,7 @@ protocol HotNewsViewDelegate: AnyObject {
     func didSelectArticle(_ article: Article)
 }
 
+
 class HotNewsView: UIView {
 
     weak var delegate: HotNewsViewDelegate?
@@ -34,6 +35,7 @@ class HotNewsView: UIView {
         tableView.delegate = self
     }
     
+   
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

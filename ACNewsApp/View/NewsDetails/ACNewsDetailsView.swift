@@ -50,6 +50,7 @@ class ACNewsDetailsView: UIView {
         let placeHolder = UIImage(named: "loadingImage")
         let imageView = UIImageView(image: placeHolder)
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -155,9 +156,10 @@ class ACNewsDetailsView: UIView {
             
             //contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor)
             newsImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-            newsImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            newsImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            newsImage.heightAnchor.constraint(equalToConstant: 250),
+            newsImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            newsImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            newsImage.heightAnchor.constraint(equalToConstant: 230),
+           
                        
             titleLabel.topAnchor.constraint(equalTo: newsImage.bottomAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),

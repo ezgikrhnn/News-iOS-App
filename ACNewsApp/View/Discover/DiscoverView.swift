@@ -11,6 +11,7 @@ class DiscoverView: UIView {
     weak var delegate: DiscoverViewDelegate?
     var articles: [Article] = []
     
+    
     // TableView
     let tableView: UITableView = {
         let table = UITableView()
