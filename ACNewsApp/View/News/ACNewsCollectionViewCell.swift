@@ -33,19 +33,33 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
      let titleLabel : UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 14, weight: .medium)
+         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.numberOfLines = 5
-         label.textAlignment = .justified
+        label.textAlignment = .justified
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+   
+    /*
+    let categoryLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Category"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 12, weight: .regular)
+        label.backgroundColor = UIColor(named: "DarkRed")
+        label.textAlignment = .center
+        label.layer.cornerRadius = 5
+        label.clipsToBounds = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }() */
     
     let saveButton: UIButton = {
         let button = UIButton(type: .close)
         let bookmarkImage = UIImage(systemName: "bookmark")
         button.setImage(bookmarkImage, for: .normal)
         button.tintColor = .white
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 30
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -99,15 +113,20 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
            
             newsImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             newsImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            newsImage.heightAnchor.constraint(equalToConstant: 100),
-            newsImage.widthAnchor.constraint(equalToConstant: 180),
+            newsImage.heightAnchor.constraint(equalToConstant: 120),
+            newsImage.widthAnchor.constraint(equalToConstant: 220),
+            
+           /* categoryLabel.topAnchor.constraint(equalTo: newsImage.topAnchor, constant: 10),
+            categoryLabel.leadingAnchor.constraint(equalTo: newsImage.leadingAnchor, constant: 10),
+            categoryLabel.widthAnchor.constraint(equalToConstant: 70), // Adjust width as needed
+            categoryLabel.heightAnchor.constraint(equalToConstant: 25), // Adjust */
             
             // Hücrenin sağ kenarından 20 puan uzaklıkta
             
             titleLabel.topAnchor.constraint(equalTo: newsImage.bottomAnchor, constant: 10),
-            titleLabel.heightAnchor.constraint(equalToConstant: 100),
+           
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.widthAnchor.constraint(equalToConstant: 180),
+            titleLabel.widthAnchor.constraint(equalToConstant: 220),
             
             dateImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             dateImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
@@ -140,4 +159,5 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
             delegate?.didTapSaveButton(on: self)
         print("delegate aştı")
     }
+    
 }

@@ -17,6 +17,8 @@ protocol viewModelProtocol: AnyObject{
 
     func fetchNews(fromCountry country: String, category: String)
     func searchNews(with query: String)
+    func fetchTodaysNews(requestService: ACRequest)
+    
 }
 
 extension viewModelProtocol {
@@ -59,34 +61,35 @@ extension viewModelProtocol {
         }
     }
    
-    /**
     func fetchTodaysNews(requestService: ACRequest) {
-        let urlString = "https://newsapi.org/v2/everything?apiKey=aa866dd109b4435aa11ab4640bb06bf3"
-        
-        requestService.performRequest(with: urlString) { [weak self] result in
-            switch result {
-            case .success(let newsResponse):
-                let today = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "yyyy-MM-dd"
-                let todayString = formatter.string(from: today)
-                
-                DispatchQueue.main.async {
-                    self?.articles = newsResponse.articles.filter { article in
-                        guard let publishedAtString = article.publishedAt else { return false }
-                        guard let publishedAtDate = ISO8601DateFormatter().date(from: publishedAtString) else { return false }
-                        let publishedAtFormatted = formatter.string(from: publishedAtDate)
-                        return publishedAtFormatted == todayString
+            let today = Date() 
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let dateString = formatter.string(from: today)
+            
+            let startOfDay = Calendar.current.startOfDay(for: today)
+            let endOfDay = Calendar.current.date(byAdding: .day, value: -1, to: startOfDay)!
+            
+            let startOfDayString = ISO8601DateFormatter().string(from: startOfDay)
+            let endOfDayString = ISO8601DateFormatter().string(from: endOfDay)
+            
+            let urlString = "https://newsapi.org/v2/everything?q=tesla&from=\(startOfDayString)&to=\(endOfDayString)&sortBy=publishedAt&apiKey=aa866dd109b4435aa11ab4640bb06bf3"
+            
+            requestService.performRequest(with: urlString) { [weak self] result in
+                switch result {
+                case .success(let newsResponse):
+                    DispatchQueue.main.async {
+                        self?.articles = newsResponse.articles
+                                       self?.onNewsUpdated?()
+                                       print("Fetched articles: \(newsResponse.articles)")
+                                       // Print the entire response for debugging
+                                       print("Full Response: \(newsResponse)")
                     }
-                    self?.onNewsUpdated?()
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self?.onErrorOccurred?("Failed to fetch today's news: \(error.localizedDescription)")
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self?.onErrorOccurred?("Failed to fetch today's news: \(error.localizedDescription)")
+                    }
                 }
             }
-            
         }
-    }
-     */
 }

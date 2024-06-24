@@ -15,11 +15,11 @@ protocol ACNewsViewDelegate: AnyObject {
 
 class ACNewsView: UIView{
     
-
     weak var delegate: ACNewsViewDelegate?
     var articles: [Article] = []
     let cateView = CategorySelectionView()
     let cell = ACNewsCollectionViewCell()
+    
 
     let hotNewsImage : UIImageView = {
         let imageView = UIImageView()
@@ -46,8 +46,8 @@ class ACNewsView: UIView{
     let newsCollectionView: UICollectionView = {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
-            layout.minimumLineSpacing = 10 // Satırlar arasındaki minimum boşluk
-            layout.minimumInteritemSpacing = 10 // Aynı satır içindeki hücreler arasındaki minimum boşluk
+            layout.minimumLineSpacing = 5 // Satırlar arasındaki minimum boşluk
+            layout.minimumInteritemSpacing = 5 // Aynı satır içindeki hücreler arasındaki minimum boşluk
         
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
             collectionView.register(ACNewsCollectionViewCell.self, forCellWithReuseIdentifier: ACNewsCollectionViewCell.cellIdentifier)
@@ -63,11 +63,11 @@ class ACNewsView: UIView{
             searchBar.translatesAutoresizingMaskIntoConstraints = false
             return searchBar
         }()
-    
+  
     //MARK: -Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubviews(newsCollectionView, searchBar, hotNewsImage, hotNewsButton, cateView.categoryCollectionView)
+            addSubviews(newsCollectionView, searchBar, hotNewsImage, hotNewsButton, cateView.categoryCollectionView)
         setupConstraints()
         newsCollectionView.dataSource = self
         newsCollectionView.delegate = self
@@ -144,7 +144,6 @@ extension ACNewsView: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let isSaved = SaveManager.shared.isSave(article: article)
         let imageName = isSaved ? "bookmark.fill" : "bookmark"
         cell.saveButton.setImage(UIImage(systemName: imageName), for: .normal)
-        
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -163,12 +162,13 @@ extension ACNewsView: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         cell.publishDateLabel.text = vm.formattedPublishDate
         cell.loadImage(from: article.urlToImage)
         cell.delegate = self
+
         
         // Kaydetme butonunun görselini makale kaydedilmiş mi değil mi kontrol ederek güncelledim burada bu işlem yapılmadıgında detay sayfadan geri newse döndüğünde kayıtlı olsa bile kayıt dışı -> "bookmark" boş görünüyor.
-            let isSaved = SaveManager.shared.isSave(article: article)
-            let imageName = isSaved ? "bookmark.fill" : "bookmark"
-            cell.saveButton.setImage(UIImage(systemName: imageName), for: .normal)
-  
+        let isSaved = SaveManager.shared.isSave(article: article)
+        let imageName = isSaved ? "bookmark.fill" : "bookmark"
+        cell.saveButton.setImage(UIImage(systemName: imageName), for: .normal)
+
         return cell
     }
     
@@ -181,7 +181,7 @@ extension ACNewsView: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     // MARK: - CollectionView Flow Layout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 250) //hücre boyutu
+        return CGSize(width: 250, height: 260) //hücre boyutu
     }
 }
 

@@ -9,6 +9,10 @@
 import Foundation
 
 class ACNewsViewViewModel: viewModelProtocol {
+    func fetchTodaysNews(fromCountry country: String, category: String, requestService: ACRequest) {
+        print("h")
+    }
+    
     var category: String = ""
     var articles: [Article] = []
     var onNewsUpdated: (() -> Void)?
@@ -24,5 +28,6 @@ class ACNewsViewViewModel: viewModelProtocol {
     func searchNews(with query: String) {
         searchNews(with: query, requestService: requestService)
     }
+    
     
 }

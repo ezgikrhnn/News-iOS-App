@@ -22,6 +22,9 @@
 		EC78D1572C22E53900DE156D /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1562C22E53900DE156D /* DiscoverTableViewCell.swift */; };
 		EC78D1592C25B43A00DE156D /* DiscoverViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1582C25B43A00DE156D /* DiscoverViewViewModel.swift */; };
 		EC78D15B2C260B8F00DE156D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D15A2C260B8F00DE156D /* Protocols.swift */; };
+		EC78D15F2C28C46A00DE156D /* HotNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D15E2C28C46A00DE156D /* HotNewsViewController.swift */; };
+		EC78D1612C28C4FC00DE156D /* HotNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1602C28C4FC00DE156D /* HotNewsView.swift */; };
+		EC78D1632C28F70D00DE156D /* HotNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1622C28F70D00DE156D /* HotNewsTableViewCell.swift */; };
 		EC8808872BEB953D00BCAC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808862BEB953D00BCAC60 /* AppDelegate.swift */; };
 		EC8808892BEB953D00BCAC60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808882BEB953D00BCAC60 /* SceneDelegate.swift */; };
 		EC88088B2BEB953D00BCAC60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88088A2BEB953D00BCAC60 /* ViewController.swift */; };
@@ -64,6 +67,9 @@
 		EC78D1562C22E53900DE156D /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
 		EC78D1582C25B43A00DE156D /* DiscoverViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewViewModel.swift; sourceTree = "<group>"; };
 		EC78D15A2C260B8F00DE156D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		EC78D15E2C28C46A00DE156D /* HotNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsViewController.swift; sourceTree = "<group>"; };
+		EC78D1602C28C4FC00DE156D /* HotNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsView.swift; sourceTree = "<group>"; };
+		EC78D1622C28F70D00DE156D /* HotNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsTableViewCell.swift; sourceTree = "<group>"; };
 		EC8808832BEB953D00BCAC60 /* ACNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8808862BEB953D00BCAC60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC8808882BEB953D00BCAC60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +300,8 @@
 				EC7667B72BECECF1003E2C86 /* NewsDetails */,
 				EC7144502BEF68F200FF52DF /* Save */,
 				EC7144512BEF691900FF52DF /* Settings */,
+				EC78D1602C28C4FC00DE156D /* HotNewsView.swift */,
+				EC78D1622C28F70D00DE156D /* HotNewsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -319,6 +327,7 @@
 				EC7667BB2BECED43003E2C86 /* NewsDetails */,
 				EC7667BC2BECF339003E2C86 /* Save */,
 				EC7667BD2BECF353003E2C86 /* Settings */,
+				EC78D15E2C28C46A00DE156D /* HotNewsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -429,6 +438,7 @@
 				ECCC28E42BEEAF1900DB7E6F /* ACSettingsOption.swift in Sources */,
 				EC78D1552C22E3D100DE156D /* DiscoverView.swift in Sources */,
 				EC71445A2BEF6D7A00FF52DF /* SaveManager.swift in Sources */,
+				EC78D1632C28F70D00DE156D /* HotNewsTableViewCell.swift in Sources */,
 				ECCC28E02BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift in Sources */,
 				ECCC28DD2BEEAE4000DB7E6F /* ACSettingsView.swift in Sources */,
 				EC8808A22BEB972400BCAC60 /* ACNewsViewController.swift in Sources */,
@@ -450,7 +460,9 @@
 				EC8808A62BEB978500BCAC60 /* ACSettingsViewController.swift in Sources */,
 				EC78D15B2C260B8F00DE156D /* Protocols.swift in Sources */,
 				EC78D1572C22E53900DE156D /* DiscoverTableViewCell.swift in Sources */,
+				EC78D1612C28C4FC00DE156D /* HotNewsView.swift in Sources */,
 				EC78D14A2C1F7D4600DE156D /* CategorySelectionView.swift in Sources */,
+				EC78D15F2C28C46A00DE156D /* HotNewsViewController.swift in Sources */,
 				EC8808B42BEBAE1000BCAC60 /* ACNewsCollectionViewCell.swift in Sources */,
 				EC8808B62BEBAED700BCAC60 /* Extensions.swift in Sources */,
 			);

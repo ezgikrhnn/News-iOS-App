@@ -33,6 +33,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = false
         viewModel.fetchNews(fromCountry: "us", category: viewModel.category, requestService: ACRequest()) //sayfa yüklendiğinde abd haberlerini göstersin
+        
         bindViewModel()
         setupNewsView()
         customizeNavigationBar()
@@ -44,7 +45,6 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             reloadSaves()
-       
     }
     
       func reloadSaves() {
@@ -57,8 +57,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
         newsView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            newsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            newsView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+          
             newsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             newsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             newsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -92,6 +91,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
     }
     
     func didSearchForText(_ text: String) {
+        
         print("Searching for: \(text)")
         if text.isEmpty {
             viewModel.fetchNews(fromCountry: "us", category: viewModel.category, requestService: ACRequest())
@@ -102,10 +102,10 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
     
     func didTapHotNewsButton() {
         //discoverViewControllera geçiş
-        let discoverVM = DiscoverViewViewModel()
-        let vc = DiscoverViewController(viewModel: discoverVM, category: "")
+       
+        let vc = HotNewsViewController(viewModel: viewModel)
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     //category hucresine tıklandıgında:

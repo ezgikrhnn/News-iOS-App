@@ -98,15 +98,15 @@ class SaveTableViewCell : UITableViewCell {
         }
         
         //SDWebImage kullanabilirsin!!!!!!!
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let self = self, let data = data, error == nil else {
-                DispatchQueue.main.async {
-                    self?.newsImage.image = UIImage(named: "noImage") // Hata oluştuğunda varsayılan bir görüntü
-                }
-                return
-            }
+    let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+        guard let self = self, let data = data, error == nil else {
             DispatchQueue.main.async {
-                self.newsImage.image = UIImage(data: data)
+                self?.newsImage.image = UIImage(named: "noImage") // Hata oluştuğunda varsayılan bir görüntü
+            }
+            return
+            }
+        DispatchQueue.main.async {
+            self.newsImage.image = UIImage(data: data)
             }
         }
         task.resume()
