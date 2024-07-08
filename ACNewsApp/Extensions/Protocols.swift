@@ -50,7 +50,7 @@ extension viewModelProtocol {
             switch result {
             case .success(let newsResponse):
                 DispatchQueue.main.async {
-                    self?.articles = newsResponse.articles
+                    self?.articles = newsResponse.articles.filter{$0.title.lowercased().contains("removed") == false} //içeriği removed olan haberler listelensin istemiyorum.
                     self?.onNewsUpdated?()
                 }
             case .failure(let error):
@@ -80,14 +80,14 @@ extension viewModelProtocol {
             switch result {
             case .success(let newsResponse):
                 DispatchQueue.main.async {
-                    self?.articles = newsResponse.articles
+                    self?.articles = newsResponse.articles.filter{$0.title.lowercased().contains("removed") == false} //içeriği removed olan haberler listelensin istemiyorum.
                     self?.onNewsUpdated?()
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
                     self?.onErrorOccurred?("Failed to fetch today's news: \(error.localizedDescription)")
-                    }
                 }
             }
+        }
     }
 }

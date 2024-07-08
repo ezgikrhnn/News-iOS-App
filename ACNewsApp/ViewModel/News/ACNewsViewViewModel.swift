@@ -3,7 +3,7 @@
 //  ACNewsApp
 //
 //  Created by Ezgi Karahan on 8.05.2024.
-//
+
 
 //protocols dosyasında oluşturdugum NewsViewModelProtocolden extend ediyorum:
 import Foundation
@@ -18,7 +18,6 @@ class ACNewsViewViewModel: viewModelProtocol {
     var onNewsUpdated: (() -> Void)?
     var onErrorOccurred: ((String) -> Void)?
    
-    
     private let requestService = ACRequest()
 
     func fetchNews(fromCountry country: String, category: String) {
@@ -28,6 +27,4 @@ class ACNewsViewViewModel: viewModelProtocol {
     func searchNews(with query: String) {
         searchNews(with: query, requestService: requestService)
     }
-    
-    
 }

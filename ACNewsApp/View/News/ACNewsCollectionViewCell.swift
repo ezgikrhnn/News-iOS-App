@@ -55,11 +55,11 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
     }() */
     
     let saveButton: UIButton = {
-        let button = UIButton(type: .close)
+        let button = UIButton(type: .system)
         let bookmarkImage = UIImage(systemName: "bookmark")
         button.setImage(bookmarkImage, for: .normal)
-        button.tintColor = .white
-        button.layer.cornerRadius = 30
+        button.tintColor = .systemGray
+        //button.layer.cornerRadius = 30
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -114,7 +114,7 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
             newsImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             newsImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             newsImage.heightAnchor.constraint(equalToConstant: 120),
-            newsImage.widthAnchor.constraint(equalToConstant: 220),
+            newsImage.widthAnchor.constraint(equalToConstant: 225),
             
            /* categoryLabel.topAnchor.constraint(equalTo: newsImage.topAnchor, constant: 10),
             categoryLabel.leadingAnchor.constraint(equalTo: newsImage.leadingAnchor, constant: 10),
@@ -129,12 +129,12 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
             titleLabel.widthAnchor.constraint(equalToConstant: 220),
             
             dateImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            dateImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            dateImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             publishDateLabel.leadingAnchor.constraint(equalTo: dateImage.trailingAnchor, constant: 5),
             publishDateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12.5),
             
             saveButton.bottomAnchor.constraint(equalTo: bottomAnchor),
-            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            saveButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
         ])
     }
     
@@ -159,5 +159,5 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
             delegate?.didTapSaveButton(on: self)
         print("delegate aştı")
     }
-    
 }
+

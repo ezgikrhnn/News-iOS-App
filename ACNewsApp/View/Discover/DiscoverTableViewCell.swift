@@ -5,7 +5,6 @@
 //  Created by Ezgi Karahan on 19.06.2024.
 //
 
-
 import UIKit
 import SDWebImage
 
@@ -22,7 +21,6 @@ final class DiscoverTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
     
     //LABEL
      let titleLabel : UILabel = {

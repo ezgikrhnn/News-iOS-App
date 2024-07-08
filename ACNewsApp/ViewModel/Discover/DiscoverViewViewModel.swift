@@ -8,6 +8,7 @@
 import Foundation
 
 class DiscoverViewViewModel: viewModelProtocol {
+    
     func fetchTodaysNews(fromCountry country: String, category: String, requestService: ACRequest) {
         print("j")
     }

@@ -1,0 +1,6 @@
+framework module Pods_ACNewsApp {
+  umbrella header "Pods-ACNewsApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

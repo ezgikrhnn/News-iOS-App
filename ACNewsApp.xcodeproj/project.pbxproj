@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E8938A704827C560FB1EBBA /* Pods_ACNewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF455A70578716806EB23E1 /* Pods_ACNewsApp.framework */; };
+		EC4C94742C3A05B500B51FE8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EC4C94732C3A05B500B51FE8 /* FirebaseAuth */; };
+		EC4C94762C3A05BD00B51FE8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EC4C94752C3A05BD00B51FE8 /* FirebaseFirestore */; };
+		EC4C94782C3A05C700B51FE8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EC4C94772C3A05C700B51FE8 /* FirebaseStorage */; };
+		EC4C947A2C3C80A200B51FE8 /* FirebaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C94792C3C80A200B51FE8 /* FirebaseProtocols.swift */; };
 		EC71444F2BEF68ED00FF52DF /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71444E2BEF68ED00FF52DF /* SaveView.swift */; };
 		EC7144542BEF694F00FF52DF /* SaveViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7144532BEF694F00FF52DF /* SaveViewViewModel.swift */; };
 		EC7144572BEF6B5C00FF52DF /* SaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7144562BEF6B5C00FF52DF /* SaveTableViewCell.swift */; };
@@ -25,6 +30,16 @@
 		EC78D15F2C28C46A00DE156D /* HotNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D15E2C28C46A00DE156D /* HotNewsViewController.swift */; };
 		EC78D1612C28C4FC00DE156D /* HotNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1602C28C4FC00DE156D /* HotNewsView.swift */; };
 		EC78D1632C28F70D00DE156D /* HotNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1622C28F70D00DE156D /* HotNewsTableViewCell.swift */; };
+		EC78D1662C36D3EA00DE156D /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1652C36D3EA00DE156D /* LogInView.swift */; };
+		EC78D1692C36D5A400DE156D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1682C36D5A400DE156D /* LogInViewController.swift */; };
+		EC78D16C2C36D6D200DE156D /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D16B2C36D6D200DE156D /* LogInViewModel.swift */; };
+		EC78D16E2C36EAEC00DE156D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D16D2C36EAEC00DE156D /* UserModel.swift */; };
+		EC78D1722C36FCB800DE156D /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1712C36FCB800DE156D /* CreateAccountViewController.swift */; };
+		EC78D1742C36FD0300DE156D /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1732C36FD0300DE156D /* CreateAccountView.swift */; };
+		EC78D1762C36FD6900DE156D /* CreateAccountViewModel .swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1752C36FD6900DE156D /* CreateAccountViewModel .swift */; };
+		EC78D1782C36FDA700DE156D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1772C36FDA700DE156D /* HomeViewModel.swift */; };
+		EC78D17A2C36FDFA00DE156D /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1792C36FDFA00DE156D /* HomePageView.swift */; };
+		EC7FD9C02C3A01D100BC2AE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC7FD9BF2C3A01D000BC2AE5 /* GoogleService-Info.plist */; };
 		EC8808872BEB953D00BCAC60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808862BEB953D00BCAC60 /* AppDelegate.swift */; };
 		EC8808892BEB953D00BCAC60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808882BEB953D00BCAC60 /* SceneDelegate.swift */; };
 		EC88088B2BEB953D00BCAC60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88088A2BEB953D00BCAC60 /* ViewController.swift */; };
@@ -43,6 +58,8 @@
 		EC8808B42BEBAE1000BCAC60 /* ACNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B32BEBAE1000BCAC60 /* ACNewsCollectionViewCell.swift */; };
 		EC8808B62BEBAED700BCAC60 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B52BEBAED700BCAC60 /* Extensions.swift */; };
 		EC8808BA2BEBEA6D00BCAC60 /* ACRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B92BEBEA6D00BCAC60 /* ACRequest.swift */; };
+		EC95CC392C389A6800F03DC8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95CC382C389A6800F03DC8 /* HomeViewController.swift */; };
+		EC95CC3B2C389A9F00F03DC8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95CC3A2C389A9F00F03DC8 /* HomeView.swift */; };
 		ECC0F7822BF1161C00D2DA1F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = ECC0F7812BF1161C00D2DA1F /* SDWebImage */; };
 		ECCC28DD2BEEAE4000DB7E6F /* ACSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28DC2BEEAE4000DB7E6F /* ACSettingsView.swift */; };
 		ECCC28E02BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */; };
@@ -52,6 +69,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4FF455A70578716806EB23E1 /* Pods_ACNewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACNewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ADD830111824C12A0B82717 /* Pods-ACNewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACNewsApp.debug.xcconfig"; path = "Target Support Files/Pods-ACNewsApp/Pods-ACNewsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		A397BBF87882866FAFF4CB54 /* Pods-ACNewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACNewsApp.release.xcconfig"; path = "Target Support Files/Pods-ACNewsApp/Pods-ACNewsApp.release.xcconfig"; sourceTree = "<group>"; };
+		EC4C94792C3C80A200B51FE8 /* FirebaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProtocols.swift; sourceTree = "<group>"; };
 		EC71444E2BEF68ED00FF52DF /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		EC7144532BEF694F00FF52DF /* SaveViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveViewViewModel.swift; sourceTree = "<group>"; };
 		EC7144562BEF6B5C00FF52DF /* SaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTableViewCell.swift; sourceTree = "<group>"; };
@@ -70,6 +91,16 @@
 		EC78D15E2C28C46A00DE156D /* HotNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsViewController.swift; sourceTree = "<group>"; };
 		EC78D1602C28C4FC00DE156D /* HotNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsView.swift; sourceTree = "<group>"; };
 		EC78D1622C28F70D00DE156D /* HotNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotNewsTableViewCell.swift; sourceTree = "<group>"; };
+		EC78D1652C36D3EA00DE156D /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		EC78D1682C36D5A400DE156D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		EC78D16B2C36D6D200DE156D /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		EC78D16D2C36EAEC00DE156D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		EC78D1712C36FCB800DE156D /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		EC78D1732C36FD0300DE156D /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		EC78D1752C36FD6900DE156D /* CreateAccountViewModel .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateAccountViewModel .swift"; sourceTree = "<group>"; };
+		EC78D1772C36FDA700DE156D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EC78D1792C36FDFA00DE156D /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		EC7FD9BF2C3A01D000BC2AE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC8808832BEB953D00BCAC60 /* ACNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8808862BEB953D00BCAC60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC8808882BEB953D00BCAC60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +121,8 @@
 		EC8808B32BEBAE1000BCAC60 /* ACNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACNewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC8808B52BEBAED700BCAC60 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EC8808B92BEBEA6D00BCAC60 /* ACRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACRequest.swift; sourceTree = "<group>"; };
+		EC95CC382C389A6800F03DC8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EC95CC3A2C389A9F00F03DC8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ECCC28DC2BEEAE4000DB7E6F /* ACSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsView.swift; sourceTree = "<group>"; };
 		ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsViewViewModel.swift; sourceTree = "<group>"; };
 		ECCC28E12BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsCellViewModel.swift; sourceTree = "<group>"; };
@@ -103,12 +136,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC0F7822BF1161C00D2DA1F /* SDWebImage in Frameworks */,
+				EC4C94762C3A05BD00B51FE8 /* FirebaseFirestore in Frameworks */,
+				EC4C94742C3A05B500B51FE8 /* FirebaseAuth in Frameworks */,
+				EC4C94782C3A05C700B51FE8 /* FirebaseStorage in Frameworks */,
+				3E8938A704827C560FB1EBBA /* Pods_ACNewsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23532EE61C9AA695E1C53105 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FF455A70578716806EB23E1 /* Pods_ACNewsApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2DCED11B5B957920D18BDD47 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8ADD830111824C12A0B82717 /* Pods-ACNewsApp.debug.xcconfig */,
+				A397BBF87882866FAFF4CB54 /* Pods-ACNewsApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		EC7144502BEF68F200FF52DF /* Save */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +202,7 @@
 				EC7144592BEF6D7A00FF52DF /* SaveManager.swift */,
 				EC8808B52BEBAED700BCAC60 /* Extensions.swift */,
 				EC78D15A2C260B8F00DE156D /* Protocols.swift */,
+				EC4C94792C3C80A200B51FE8 /* FirebaseProtocols.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -244,11 +299,41 @@
 			path = Discover;
 			sourceTree = "<group>";
 		};
+		EC78D1642C36D3B000DE156D /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				EC78D1652C36D3EA00DE156D /* LogInView.swift */,
+				EC78D1732C36FD0300DE156D /* CreateAccountView.swift */,
+				EC78D1792C36FDFA00DE156D /* HomePageView.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		EC78D1672C36D59200DE156D /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				EC78D1682C36D5A400DE156D /* LogInViewController.swift */,
+				EC78D1712C36FCB800DE156D /* CreateAccountViewController.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		EC78D16A2C36D6B700DE156D /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				EC78D16B2C36D6D200DE156D /* LogInViewModel.swift */,
+				EC78D1752C36FD6900DE156D /* CreateAccountViewModel .swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
 		EC88087A2BEB953D00BCAC60 = {
 			isa = PBXGroup;
 			children = (
 				EC8808852BEB953D00BCAC60 /* ACNewsApp */,
 				EC8808842BEB953D00BCAC60 /* Products */,
+				2DCED11B5B957920D18BDD47 /* Pods */,
+				23532EE61C9AA695E1C53105 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -271,11 +356,13 @@
 				EC8808862BEB953D00BCAC60 /* AppDelegate.swift */,
 				EC8808A92BEBA70B00BCAC60 /* news.json */,
 				EC8808882BEB953D00BCAC60 /* SceneDelegate.swift */,
+				EC78D14E2C22E29000DE156D /* Discover */,
 				EC88088A2BEB953D00BCAC60 /* ViewController.swift */,
 				EC88088C2BEB953D00BCAC60 /* Main.storyboard */,
 				EC88088F2BEB953F00BCAC60 /* Assets.xcassets */,
 				EC8808912BEB953F00BCAC60 /* LaunchScreen.storyboard */,
 				EC8808942BEB953F00BCAC60 /* Info.plist */,
+				EC7FD9BF2C3A01D000BC2AE5 /* GoogleService-Info.plist */,
 			);
 			path = ACNewsApp;
 			sourceTree = "<group>";
@@ -283,6 +370,8 @@
 		EC88089A2BEB95C400BCAC60 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				EC78D1772C36FDA700DE156D /* HomeViewModel.swift */,
+				EC78D16A2C36D6B700DE156D /* LogIn */,
 				EC78D14D2C22E28A00DE156D /* Discover */,
 				EC7667B82BECED17003E2C86 /* News */,
 				EC7667B92BECED1E003E2C86 /* NewsDetails */,
@@ -295,6 +384,7 @@
 		EC88089B2BEB95D400BCAC60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC78D1642C36D3B000DE156D /* LogIn */,
 				EC78D1522C22E2BB00DE156D /* Discover */,
 				EC7667B62BECECE3003E2C86 /* News */,
 				EC7667B72BECECF1003E2C86 /* NewsDetails */,
@@ -302,6 +392,7 @@
 				EC7144512BEF691900FF52DF /* Settings */,
 				EC78D1602C28C4FC00DE156D /* HotNewsView.swift */,
 				EC78D1622C28F70D00DE156D /* HotNewsTableViewCell.swift */,
+				EC95CC3A2C389A9F00F03DC8 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -313,6 +404,7 @@
 				EC8808AB2BEBA8D800BCAC60 /* NewsResponse.swift */,
 				EC8808B92BEBEA6D00BCAC60 /* ACRequest.swift */,
 				EC78D1452C1F678600DE156D /* Endpoint.swift */,
+				EC78D16D2C36EAEC00DE156D /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,7 +412,7 @@
 		EC88089E2BEB963E00BCAC60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EC78D14E2C22E29000DE156D /* Discover */,
+				EC78D1672C36D59200DE156D /* LogIn */,
 				ECF399DF2BEFED6900F2C20E /* Search */,
 				EC7144552BEF69DF00FF52DF /* Tabbar */,
 				EC7667BA2BECED34003E2C86 /* News */,
@@ -328,6 +420,7 @@
 				EC7667BC2BECF339003E2C86 /* Save */,
 				EC7667BD2BECF353003E2C86 /* Settings */,
 				EC78D15E2C28C46A00DE156D /* HotNewsViewController.swift */,
+				EC95CC382C389A6800F03DC8 /* HomeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -357,6 +450,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC8808972BEB953F00BCAC60 /* Build configuration list for PBXNativeTarget "ACNewsApp" */;
 			buildPhases = (
+				23196A72455B7220B6606981 /* [CP] Check Pods Manifest.lock */,
 				EC88087F2BEB953D00BCAC60 /* Sources */,
 				EC8808802BEB953D00BCAC60 /* Frameworks */,
 				EC8808812BEB953D00BCAC60 /* Resources */,
@@ -368,6 +462,9 @@
 			name = ACNewsApp;
 			packageProductDependencies = (
 				ECC0F7812BF1161C00D2DA1F /* SDWebImage */,
+				EC4C94732C3A05B500B51FE8 /* FirebaseAuth */,
+				EC4C94752C3A05BD00B51FE8 /* FirebaseFirestore */,
+				EC4C94772C3A05C700B51FE8 /* FirebaseStorage */,
 			);
 			productName = ACNewsApp;
 			productReference = EC8808832BEB953D00BCAC60 /* ACNewsApp.app */;
@@ -399,6 +496,7 @@
 			mainGroup = EC88087A2BEB953D00BCAC60;
 			packageReferences = (
 				ECC0F7802BF1161C00D2DA1F /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				EC7FD9C12C3A02DB00BC2AE5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = EC8808842BEB953D00BCAC60 /* Products */;
 			projectDirPath = "";
@@ -416,12 +514,38 @@
 			files = (
 				EC8808932BEB953F00BCAC60 /* LaunchScreen.storyboard in Resources */,
 				EC8808902BEB953F00BCAC60 /* Assets.xcassets in Resources */,
+				EC7FD9C02C3A01D100BC2AE5 /* GoogleService-Info.plist in Resources */,
 				EC8808AA2BEBA70B00BCAC60 /* news.json in Resources */,
 				EC88088E2BEB953D00BCAC60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23196A72455B7220B6606981 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ACNewsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC88087F2BEB953D00BCAC60 /* Sources */ = {
@@ -431,6 +555,7 @@
 				EC7667B32BECD939003E2C86 /* ACNewsDetailsViewViewModel.swift in Sources */,
 				EC78D1462C1F678600DE156D /* Endpoint.swift in Sources */,
 				EC8808B02BEBAD9A00BCAC60 /* ACNewsView.swift in Sources */,
+				EC78D1742C36FD0300DE156D /* CreateAccountView.swift in Sources */,
 				ECF399E12BEFED8800F2C20E /* ACSearchViewController.swift in Sources */,
 				EC7144542BEF694F00FF52DF /* SaveViewViewModel.swift in Sources */,
 				EC7667B52BECD959003E2C86 /* ACNewsDetailsView.swift in Sources */,
@@ -438,10 +563,15 @@
 				ECCC28E42BEEAF1900DB7E6F /* ACSettingsOption.swift in Sources */,
 				EC78D1552C22E3D100DE156D /* DiscoverView.swift in Sources */,
 				EC71445A2BEF6D7A00FF52DF /* SaveManager.swift in Sources */,
+				EC78D16E2C36EAEC00DE156D /* UserModel.swift in Sources */,
+				EC78D17A2C36FDFA00DE156D /* HomePageView.swift in Sources */,
+				EC78D1662C36D3EA00DE156D /* LogInView.swift in Sources */,
+				EC78D1762C36FD6900DE156D /* CreateAccountViewModel .swift in Sources */,
 				EC78D1632C28F70D00DE156D /* HotNewsTableViewCell.swift in Sources */,
 				ECCC28E02BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift in Sources */,
 				ECCC28DD2BEEAE4000DB7E6F /* ACSettingsView.swift in Sources */,
 				EC8808A22BEB972400BCAC60 /* ACNewsViewController.swift in Sources */,
+				EC95CC392C389A6800F03DC8 /* HomeViewController.swift in Sources */,
 				EC78D14C2C1F81FD00DE156D /* CategorySelectionCollectionViewCell.swift in Sources */,
 				EC88088B2BEB953D00BCAC60 /* ViewController.swift in Sources */,
 				EC71444F2BEF68ED00FF52DF /* SaveView.swift in Sources */,
@@ -453,16 +583,22 @@
 				ECCC28E22BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift in Sources */,
 				EC8808872BEB953D00BCAC60 /* AppDelegate.swift in Sources */,
 				EC8808A02BEB969600BCAC60 /* ACTabbarViewController.swift in Sources */,
+				EC78D1782C36FDA700DE156D /* HomeViewModel.swift in Sources */,
+				EC78D1722C36FCB800DE156D /* CreateAccountViewController.swift in Sources */,
 				EC7667B12BECD91A003E2C86 /* ACNewsDetailsViewController.swift in Sources */,
 				EC8808A42BEB973700BCAC60 /* SaveViewController.swift in Sources */,
 				EC8808892BEB953D00BCAC60 /* SceneDelegate.swift in Sources */,
 				EC78D1502C22E2A700DE156D /* DiscoverViewController.swift in Sources */,
 				EC8808A62BEB978500BCAC60 /* ACSettingsViewController.swift in Sources */,
 				EC78D15B2C260B8F00DE156D /* Protocols.swift in Sources */,
+				EC78D1692C36D5A400DE156D /* LogInViewController.swift in Sources */,
 				EC78D1572C22E53900DE156D /* DiscoverTableViewCell.swift in Sources */,
 				EC78D1612C28C4FC00DE156D /* HotNewsView.swift in Sources */,
 				EC78D14A2C1F7D4600DE156D /* CategorySelectionView.swift in Sources */,
+				EC78D16C2C36D6D200DE156D /* LogInViewModel.swift in Sources */,
+				EC4C947A2C3C80A200B51FE8 /* FirebaseProtocols.swift in Sources */,
 				EC78D15F2C28C46A00DE156D /* HotNewsViewController.swift in Sources */,
+				EC95CC3B2C389A9F00F03DC8 /* HomeView.swift in Sources */,
 				EC8808B42BEBAE1000BCAC60 /* ACNewsCollectionViewCell.swift in Sources */,
 				EC8808B62BEBAED700BCAC60 /* Extensions.swift in Sources */,
 			);
@@ -606,6 +742,7 @@
 		};
 		EC8808982BEB953F00BCAC60 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ADD830111824C12A0B82717 /* Pods-ACNewsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -635,6 +772,7 @@
 		};
 		EC8808992BEB953F00BCAC60 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A397BBF87882866FAFF4CB54 /* Pods-ACNewsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -686,6 +824,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EC7FD9C12C3A02DB00BC2AE5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		ECC0F7802BF1161C00D2DA1F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -697,6 +843,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EC4C94732C3A05B500B51FE8 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC7FD9C12C3A02DB00BC2AE5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		EC4C94752C3A05BD00B51FE8 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC7FD9C12C3A02DB00BC2AE5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		EC4C94772C3A05C700B51FE8 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC7FD9C12C3A02DB00BC2AE5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		ECC0F7812BF1161C00D2DA1F /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ECC0F7802BF1161C00D2DA1F /* XCRemoteSwiftPackageReference "SDWebImage" */;
