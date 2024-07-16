@@ -17,7 +17,7 @@ class SaveViewController: UIViewController, SaveViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Saved News"
-        customizeNavigationBar()
+       
         view.backgroundColor = .systemBackground
         setupFavsView()
         reloadFavorites()

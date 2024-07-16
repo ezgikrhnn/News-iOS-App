@@ -56,35 +56,29 @@ class CreateAccountViewController: UIViewController, CreateAccountViewDelegate {
     }
     
     func createAccountButtonTapped() {
-        // Kullanıcının e-posta, şifre, ad ve soyadı bilgilerini alıyorum
         guard let email = CAview.emailTextField.text?.lowercased(),
-                 let password = CAview.passwordTextField.text,
-                 let name = CAview.nameTextField.text,
-                 let surname = CAview.surnameTextField.text else {
-               return
-           }
-        //email boşluklu oluşturulursa hata alıyor:gmail
+              let password = CAview.passwordTextField.text,
+              let name = CAview.nameTextField.text,
+              let surname = CAview.surnameTextField.text else {
+            return
+        }
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        // UserModel oluşturma
-               let userModel = UserModel(name: name, surname: surname, email: trimmedEmail, uid: "")
-               
-               // ViewModel üzerinden hesap oluşturma işlemi
-               viewModel.createAccount(with: userModel, password: password) { [weak self] (result: Result<UserModel, Error>) in
-                   switch result {
-                   case .success(let userModel):
-                       // Başarılı bir şekilde hesap oluştu, ana ekrana geçiş yap
-                       DispatchQueue.main.async {
-                        
-                            let vc = HomeViewController(userModel: userModel)
-                           vc.modalPresentationStyle = .fullScreen
-                           self?.present(vc, animated: true, completion: nil)
-                       }
-                   case .failure(let error):
-                       // Hata oluştuğunda kullanıcıya bilgi ver
-                       print("Kullanıcı oluşturma hatası: \(error.localizedDescription)")
-                      
-                   }
+        let userModel = UserModel(name: name, surname: surname, email: trimmedEmail, uid: "")
+        
+        viewModel.createAccount(with: userModel, password: password) { [weak self] (result: Result<UserModel, Error>) in
+            switch result {
+            case .success(let userModel):
+                print("başarılı")
+                DispatchQueue.main.async {
+                    let vc = HomeViewController(userModel: userModel, authService: Auth.auth())
+                    vc.modalPresentationStyle = .fullScreen
+                    self?.present(vc, animated: true, completion: nil)
+                    print("Veri homepagee geçiş yaptı")
+                }
+            case .failure(let error):
+                print("Kullanıcı oluşturma hatası: \(error.localizedDescription)")
+            }
         }
     }
 }

@@ -59,7 +59,6 @@
 		EC8808B62BEBAED700BCAC60 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B52BEBAED700BCAC60 /* Extensions.swift */; };
 		EC8808BA2BEBEA6D00BCAC60 /* ACRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8808B92BEBEA6D00BCAC60 /* ACRequest.swift */; };
 		EC95CC392C389A6800F03DC8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95CC382C389A6800F03DC8 /* HomeViewController.swift */; };
-		EC95CC3B2C389A9F00F03DC8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC95CC3A2C389A9F00F03DC8 /* HomeView.swift */; };
 		ECC0F7822BF1161C00D2DA1F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = ECC0F7812BF1161C00D2DA1F /* SDWebImage */; };
 		ECCC28DD2BEEAE4000DB7E6F /* ACSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28DC2BEEAE4000DB7E6F /* ACSettingsView.swift */; };
 		ECCC28E02BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */; };
@@ -122,7 +121,6 @@
 		EC8808B52BEBAED700BCAC60 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EC8808B92BEBEA6D00BCAC60 /* ACRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACRequest.swift; sourceTree = "<group>"; };
 		EC95CC382C389A6800F03DC8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		EC95CC3A2C389A9F00F03DC8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ECCC28DC2BEEAE4000DB7E6F /* ACSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsView.swift; sourceTree = "<group>"; };
 		ECCC28DF2BEEAEC400DB7E6F /* ACSettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsViewViewModel.swift; sourceTree = "<group>"; };
 		ECCC28E12BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACSettingsCellViewModel.swift; sourceTree = "<group>"; };
@@ -163,9 +161,18 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EC4C947B2C3D45AA00B51FE8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EC95CC382C389A6800F03DC8 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		EC7144502BEF68F200FF52DF /* Save */ = {
 			isa = PBXGroup;
 			children = (
+				EC78D1562C22E53900DE156D /* DiscoverTableViewCell.swift */,
 				EC71444E2BEF68ED00FF52DF /* SaveView.swift */,
 				EC7144562BEF6B5C00FF52DF /* SaveTableViewCell.swift */,
 			);
@@ -245,6 +252,7 @@
 		EC7667BA2BECED34003E2C86 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				EC78D15E2C28C46A00DE156D /* HotNewsViewController.swift */,
 				EC8808A12BEB972400BCAC60 /* ACNewsViewController.swift */,
 			);
 			path = News;
@@ -294,7 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				EC78D1542C22E3D100DE156D /* DiscoverView.swift */,
-				EC78D1562C22E53900DE156D /* DiscoverTableViewCell.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -392,7 +399,6 @@
 				EC7144512BEF691900FF52DF /* Settings */,
 				EC78D1602C28C4FC00DE156D /* HotNewsView.swift */,
 				EC78D1622C28F70D00DE156D /* HotNewsTableViewCell.swift */,
-				EC95CC3A2C389A9F00F03DC8 /* HomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 		EC88089E2BEB963E00BCAC60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EC4C947B2C3D45AA00B51FE8 /* Home */,
 				EC78D1672C36D59200DE156D /* LogIn */,
 				ECF399DF2BEFED6900F2C20E /* Search */,
 				EC7144552BEF69DF00FF52DF /* Tabbar */,
@@ -419,8 +426,6 @@
 				EC7667BB2BECED43003E2C86 /* NewsDetails */,
 				EC7667BC2BECF339003E2C86 /* Save */,
 				EC7667BD2BECF353003E2C86 /* Settings */,
-				EC78D15E2C28C46A00DE156D /* HotNewsViewController.swift */,
-				EC95CC382C389A6800F03DC8 /* HomeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -598,7 +603,6 @@
 				EC78D16C2C36D6D200DE156D /* LogInViewModel.swift in Sources */,
 				EC4C947A2C3C80A200B51FE8 /* FirebaseProtocols.swift in Sources */,
 				EC78D15F2C28C46A00DE156D /* HotNewsViewController.swift in Sources */,
-				EC95CC3B2C389A9F00F03DC8 /* HomeView.swift in Sources */,
 				EC8808B42BEBAE1000BCAC60 /* ACNewsCollectionViewCell.swift in Sources */,
 				EC8808B62BEBAED700BCAC60 /* Extensions.swift in Sources */,
 			);

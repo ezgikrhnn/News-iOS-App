@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class ACTabbarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+               
+               
         
         setUpTabs()
         customizeTabBar()
@@ -26,23 +32,44 @@ class ACTabbarViewController: UITabBarController {
         let newsPageVC =  ACNewsViewController(viewModel: newsViewModel )
         let discoverPageVC = DiscoverViewController(viewModel: discoverViewModel, category: defaultCategory)
         let savePageVC = SaveViewController()
-        let settingsPageVC = ACSettingsViewController()
+        
+       /* // LogInViewModel oluşturma
+        let auth = Auth.auth()
+        let firestore = Firestore.firestore()
+        let logInViewModel = LogInViewModel(auth: auth, firestore: firestore)
+        let profilePageVC = LogInViewController(viewModel: logInViewModel) // ViewModel ile ViewController'ı initialize edin
+           */
+        
+        // Kullanıcı bilgilerini Firebase'den al
+        guard let currentUser = Auth.auth().currentUser else {
+            // Kullanıcı oturum açmamışsa veya hata varsa, gerekli işlemleri yapın
+            print("No user is logged in")
+            return
+        }
+        
+        // UserModel nesnesini oluşturun
+        let usermodel = UserModel(name: currentUser.displayName ?? "",
+                                  surname: "", // Soyadı Firebase'den gelmiyorsa sabit bir değer ya da boş bırakabilirsiniz
+                                  email: currentUser.email ?? "",
+                                  uid: currentUser.uid)
+        
+        let profilePageVC = HomeViewController(userModel: usermodel, authService: Auth.auth())
         
         newsPageVC.title = "News"
         discoverPageVC.title = "Discover"
         savePageVC.title = "Favs"
-        settingsPageVC.title = "Settings"
+        profilePageVC.title = "Profile"
         
         let nav1 = UINavigationController(rootViewController: newsPageVC)
         let nav2 = UINavigationController(rootViewController: discoverPageVC)
 
         let nav3 = UINavigationController(rootViewController: savePageVC)
-        let nav4 = UINavigationController(rootViewController: settingsPageVC)
+        let nav4 = UINavigationController(rootViewController: profilePageVC)
         
         nav1.tabBarItem = UITabBarItem(title: "News", image: UIImage(systemName: "house.fill"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Discover", image: UIImage(systemName: "safari"), tag: 1)
         nav3.tabBarItem = UITabBarItem(title: "Save", image: UIImage(systemName: "bookmark.fill"), tag: 1)
-        nav4.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 1)
+        nav4.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.crop.circle"), tag: 1)
         
         
         //setViewController = tab bar'ın içeriklerini yönetmek için kullanılır.

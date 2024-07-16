@@ -36,7 +36,7 @@ class ACNewsViewController: UIViewController, ACNewsViewDelegate, CategorySelect
         
         bindViewModel()
         setupNewsView()
-        customizeNavigationBar()
+     
         newsView.cateView.delegate = self
         
         //NotificationCenter.default.addObserver(self, selector: #selector(handleSaveManagerUpdate), name: .didUpdateSavedArticles, object: nil)

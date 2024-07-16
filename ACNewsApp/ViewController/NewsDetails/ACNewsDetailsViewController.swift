@@ -38,7 +38,7 @@ class ACNewsDetailsViewController: UIViewController {
         setupNavigationBar()
         addConstraints()
         setupButtonActions()
-        customizeNavigationBar()
+        
     }
     
     //Detay sayfadan çıkınca like button son halini korusun:

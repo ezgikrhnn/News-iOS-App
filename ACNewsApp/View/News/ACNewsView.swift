@@ -38,7 +38,7 @@ class ACNewsView: UIView{
             button.backgroundColor = UIColor.white
             button.layer.cornerRadius = 20
             button.clipsToBounds = true
-            button.addTarget(self, action: #selector(hotNewsButtonTapped), for: .touchUpInside)
+        button.addTarget(ACNewsView.self, action: #selector(hotNewsButtonTapped), for: .touchUpInside)
             button.translatesAutoresizingMaskIntoConstraints = false
             return button
         }()

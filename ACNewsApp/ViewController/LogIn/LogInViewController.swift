@@ -60,7 +60,7 @@ class LogInViewController: UIViewController, LogInViewDelegate {
             switch result {
             case .success(let userModel):
                 DispatchQueue.main.async {
-                    let vc = HomeViewController(userModel: userModel)
+                    let vc = HomeViewController(userModel: userModel, authService: Auth.auth())
                     vc.modalPresentationStyle = .fullScreen
                     self?.present(vc, animated: true, completion: nil)
                 }

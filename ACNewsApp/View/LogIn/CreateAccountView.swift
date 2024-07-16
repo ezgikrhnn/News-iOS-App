@@ -85,7 +85,7 @@ class CreateAccountView: UIView {
     let createAccountButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Create Account", for: .normal)
-        button.backgroundColor = UIColor(named: "yellowColor")
+        button.backgroundColor = .gray
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 15
         button.translatesAutoresizingMaskIntoConstraints = false

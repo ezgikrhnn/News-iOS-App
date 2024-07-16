@@ -18,6 +18,17 @@ class LogInView: UIView {
     
     //MARK: - Properties
    
+    let welcomeBackLabel : UILabel = {
+       let label = UILabel()
+       label.text = "Welcome Back"
+       label.textColor = UIColor(named: "yellowColor")
+       label.font = .systemFont(ofSize: 25, weight: .heavy)
+       label.numberOfLines = 1
+       label.textAlignment = .center
+       label.translatesAutoresizingMaskIntoConstraints = false
+       return label
+   }()
+    
     let emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Email Address"
@@ -116,8 +127,8 @@ class LogInView: UIView {
     //MARK: -Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .red
-        addSubviews( emailTextField, passwordTextField, rememberLabel, forgotPasswordLabel, logInButton, accountStackView)
+        backgroundColor = .systemBackground
+        addSubviews(welcomeBackLabel, emailTextField, passwordTextField, rememberLabel, forgotPasswordLabel, logInButton, accountStackView)
         addConstraints()
     }
     
@@ -129,15 +140,17 @@ class LogInView: UIView {
     private func addConstraints(){
         NSLayoutConstraint.activate([
             
+            welcomeBackLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            welcomeBackLabel.topAnchor.constraint(equalTo: topAnchor, constant: 100),
             // Email text alanının konumu ve boyutu
             emailTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            emailTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 120),
+            emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: 180),
             emailTextField.widthAnchor.constraint(equalToConstant: 350),
             emailTextField.heightAnchor.constraint(equalToConstant: 50),
                         
             // Şifre text alanının konumu ve boyutu
             passwordTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            passwordTextField.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 180),
+            passwordTextField.topAnchor.constraint(equalTo: topAnchor, constant: 240),
             passwordTextField.widthAnchor.constraint(equalToConstant: 350),
             passwordTextField.heightAnchor.constraint(equalToConstant: 50),
             
@@ -152,7 +165,7 @@ class LogInView: UIView {
             logInButton.heightAnchor.constraint(equalToConstant: 50),
             logInButton.widthAnchor.constraint(equalToConstant: 350),
             
-            accountStackView.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 30),
+            accountStackView.topAnchor.constraint(equalTo: bottomAnchor, constant: -150),
             accountStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             
         ])

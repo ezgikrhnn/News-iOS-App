@@ -31,6 +31,8 @@ extension UIImageView {
     }
 }
 
+/*
+
 extension UIViewController{
     
     
@@ -69,4 +71,5 @@ extension UIViewController{
     }
      
 }
+ */
 

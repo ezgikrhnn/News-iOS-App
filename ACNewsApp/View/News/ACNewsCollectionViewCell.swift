@@ -61,7 +61,7 @@ final class ACNewsCollectionViewCell: UICollectionViewCell {
         button.tintColor = .systemGray
         //button.layer.cornerRadius = 30
         button.clipsToBounds = true
-        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        button.addTarget(ACNewsCollectionViewCell.self, action: #selector(saveButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
         }()
