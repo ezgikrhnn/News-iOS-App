@@ -60,9 +60,10 @@ class LogInViewController: UIViewController, LogInViewDelegate {
             switch result {
             case .success(let userModel):
                 DispatchQueue.main.async {
-                    let vc = HomeViewController(userModel: userModel, authService: Auth.auth())
-                    vc.modalPresentationStyle = .fullScreen
-                    self?.present(vc, animated: true, completion: nil)
+                    // Show tab bar controller with user model
+                    print("isim geldi mi: \(userModel.name)")
+                    print("şifre geldi mi: \(userModel.email)")
+                    self?.showTabBarController(with: userModel)
                 }
             case .failure(let error):
                 print("Oturum açma Hatası: \(error.localizedDescription)")
@@ -70,6 +71,12 @@ class LogInViewController: UIViewController, LogInViewDelegate {
             }
         }
     }
+    
+    private func showTabBarController(with userModel: UserModel) {
+            let tabBarController = ACTabbarViewController(userModel: userModel)
+            tabBarController.modalPresentationStyle = .fullScreen
+            self.present(tabBarController, animated: true, completion: nil)
+        }
     
     func createOneButtonTapped() {
         let viewModel = CreateAccountViewModel(auth: Auth.auth(), firestore: Firestore.firestore())

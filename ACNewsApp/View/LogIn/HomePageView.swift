@@ -74,6 +74,18 @@ class HomePageView: UIView {
         return label
     }()
     
+    let editProfileButton: UIButton = {
+        let button = UIButton(type: .system)
+        let image = UIImage(systemName: "square.and.pencil")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
+        button.setImage(image, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.addTarget(self, action: #selector(editProfileImageButtonPressed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     let logOutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log Out", for: .normal)
@@ -104,7 +116,6 @@ class HomePageView: UIView {
         return button
     }()
     
-    
     let locationImage : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "location")
@@ -115,7 +126,6 @@ class HomePageView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
     
     let emailImage : UIImageView = {
         let imageView = UIImageView()
@@ -144,7 +154,7 @@ class HomePageView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
-        addSubviews(profileImage, titleLabel, locationLabel,locationImage, logOutButton, iconPeopleImage, sendNewsButton, newsLabel, emailImage, emailLabel)
+        addSubviews(profileImage, titleLabel, editProfileButton, locationLabel,locationImage, logOutButton, iconPeopleImage, sendNewsButton, newsLabel, emailImage, emailLabel)
         addConstraints()
       
         
@@ -175,7 +185,8 @@ class HomePageView: UIView {
             profileImage.heightAnchor.constraint(equalToConstant: 130),
             profileImage.widthAnchor.constraint(equalToConstant: 130),
             profileImage.topAnchor.constraint(equalTo: topAnchor, constant: 100),
-           
+            editProfileButton.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: -30),
+            editProfileButton.trailingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: -25),
             titleLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 20),
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 120),
            

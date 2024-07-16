@@ -20,18 +20,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let firestore: FirestoreProtocol = Firestore.firestore()
 
         // Kullanıcı oturum açmış mı kontrol et
-        if let _ = Auth.auth().currentUser {
-            // Kullanıcı oturum açmış tabbar göster
-            print("oturum açık")
-            let tabbarvc = ACTabbarViewController()
-            window.rootViewController = tabbarvc
-        } else {
-            print("oturum kapalı")
-            let viewModel = LogInViewModel(auth: auth, firestore: firestore)
-            let loginvc = LogInViewController(viewModel: viewModel)
-            window.rootViewController = loginvc
-        }
-
+        if let currentUser = Auth.auth().currentUser {
+                    // Kullanıcı oturum açmışsa tabbar göster
+                    let userModel = UserModel(name: currentUser.displayName ?? "", surname: "", email: currentUser.email ?? "", uid: currentUser.uid)
+                    let tabbarvc = ACTabbarViewController(userModel: userModel)
+                    window.rootViewController = tabbarvc
+                } else {
+                    // Kullanıcı oturum açmamışsa giriş ekranını göster
+                    let viewModel = LogInViewModel(auth: auth, firestore: firestore)
+                    let loginvc = LogInViewController(viewModel: viewModel)
+                    window.rootViewController = loginvc
+                }
         self.window = window
         window.makeKeyAndVisible()
     }

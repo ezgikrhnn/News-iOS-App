@@ -71,14 +71,19 @@ class CreateAccountViewController: UIViewController, CreateAccountViewDelegate {
             case .success(let userModel):
                 print("başarılı")
                 DispatchQueue.main.async {
-                    let vc = HomeViewController(userModel: userModel, authService: Auth.auth())
-                    vc.modalPresentationStyle = .fullScreen
-                    self?.present(vc, animated: true, completion: nil)
-                    print("Veri homepagee geçiş yaptı")
+                    // ACTabbarViewController'ı doğrudan başlat
+                    let tabBarController = ACTabbarViewController(userModel: userModel)
+                    tabBarController.modalPresentationStyle = .fullScreen
+                    self?.present(tabBarController, animated: true, completion: nil)
                 }
             case .failure(let error):
                 print("Kullanıcı oluşturma hatası: \(error.localizedDescription)")
             }
         }
     }
+    private func showTabBarController(with userModel: UserModel) {
+            let tabBarController = ACTabbarViewController(userModel: userModel)
+            tabBarController.modalPresentationStyle = .fullScreen
+            self.present(tabBarController, animated: true, completion: nil)
+        }
 }

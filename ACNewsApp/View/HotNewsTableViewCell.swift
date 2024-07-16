@@ -3,11 +3,6 @@
 //  ACNewsApp
 //
 //  Created by Ezgi Karahan on 24.06.2024.
-//
-//
-//  Created by Ezgi Karahan on 19.06.2024.
-//
-
 
 import UIKit
 import SDWebImage
