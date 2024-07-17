@@ -14,6 +14,7 @@ class LogInViewController: UIViewController, LogInViewDelegate {
     //MARK: -Properties
     let logInView = LogInView()
     let viewModel : LogInViewModelProtocol
+    var userModel : UserModel?
     
     //MARK: -Init
     //dependency Injection için constructor
@@ -46,24 +47,33 @@ class LogInViewController: UIViewController, LogInViewDelegate {
         ])
     }
     
+  
+
+    private func showTabBarController(with userModel: UserModel) {
+        DispatchQueue.main.async {
+            let tabBarController = ACTabbarViewController(userModel: userModel)
+            tabBarController.modalPresentationStyle = .fullScreen
+            self.present(tabBarController, animated: true, completion: nil)
+        }
+    }
+
     func logInButtonTapped() {
         guard let email = logInView.emailTextField.text?.lowercased(),
-                  let password = logInView.passwordTextField.text else {
-                //kullanıcıdan bilgileri alamadım, uyarı göster:
+              let password = logInView.passwordTextField.text else {
             showAlert(title: "Error", message: "Invalid user name or password")
             return
-            }
+        }
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        //viewmodel üzerinden oturum açma işlemi
         viewModel.loginUser(email: trimmedEmail, password: password) { [weak self] result in
             switch result {
             case .success(let userModel):
                 DispatchQueue.main.async {
-                    // Show tab bar controller with user model
-                    print("isim geldi mi: \(userModel.name)")
-                    print("şifre geldi mi: \(userModel.email)")
-                    self?.showTabBarController(with: userModel)
+                    self?.userModel = userModel // Store the userModel temporarily
+                    print("UserModel in HomeViewController:")
+                    print("Name: \(userModel.name)")
+                    print("Surname: \(userModel.surname)")
+                    print("Email: \(userModel.email)")
                 }
             case .failure(let error):
                 print("Oturum açma Hatası: \(error.localizedDescription)")
@@ -71,13 +81,7 @@ class LogInViewController: UIViewController, LogInViewDelegate {
             }
         }
     }
-    
-    private func showTabBarController(with userModel: UserModel) {
-            let tabBarController = ACTabbarViewController(userModel: userModel)
-            tabBarController.modalPresentationStyle = .fullScreen
-            self.present(tabBarController, animated: true, completion: nil)
-        }
-    
+
     func createOneButtonTapped() {
         let viewModel = CreateAccountViewModel(auth: Auth.auth(), firestore: Firestore.firestore())
         let vc = CreateAccountViewController(viewModel: viewModel)

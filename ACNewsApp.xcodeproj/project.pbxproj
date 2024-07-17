@@ -12,6 +12,8 @@
 		EC4C94762C3A05BD00B51FE8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EC4C94752C3A05BD00B51FE8 /* FirebaseFirestore */; };
 		EC4C94782C3A05C700B51FE8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EC4C94772C3A05C700B51FE8 /* FirebaseStorage */; };
 		EC4C947A2C3C80A200B51FE8 /* FirebaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4C94792C3C80A200B51FE8 /* FirebaseProtocols.swift */; };
+		EC5A39532C48633A00435744 /* SendNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5A39522C48633A00435744 /* SendNewsViewController.swift */; };
+		EC5A39572C4864EA00435744 /* SendNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5A39562C4864EA00435744 /* SendNewsView.swift */; };
 		EC71444F2BEF68ED00FF52DF /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC71444E2BEF68ED00FF52DF /* SaveView.swift */; };
 		EC7144542BEF694F00FF52DF /* SaveViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7144532BEF694F00FF52DF /* SaveViewViewModel.swift */; };
 		EC7144572BEF6B5C00FF52DF /* SaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7144562BEF6B5C00FF52DF /* SaveTableViewCell.swift */; };
@@ -72,6 +74,8 @@
 		8ADD830111824C12A0B82717 /* Pods-ACNewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACNewsApp.debug.xcconfig"; path = "Target Support Files/Pods-ACNewsApp/Pods-ACNewsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		A397BBF87882866FAFF4CB54 /* Pods-ACNewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACNewsApp.release.xcconfig"; path = "Target Support Files/Pods-ACNewsApp/Pods-ACNewsApp.release.xcconfig"; sourceTree = "<group>"; };
 		EC4C94792C3C80A200B51FE8 /* FirebaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProtocols.swift; sourceTree = "<group>"; };
+		EC5A39522C48633A00435744 /* SendNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNewsViewController.swift; sourceTree = "<group>"; };
+		EC5A39562C4864EA00435744 /* SendNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendNewsView.swift; sourceTree = "<group>"; };
 		EC71444E2BEF68ED00FF52DF /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		EC7144532BEF694F00FF52DF /* SaveViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveViewViewModel.swift; sourceTree = "<group>"; };
 		EC7144562BEF6B5C00FF52DF /* SaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTableViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +171,22 @@
 				EC95CC382C389A6800F03DC8 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		EC5A39542C48636B00435744 /* SendNews */ = {
+			isa = PBXGroup;
+			children = (
+				EC5A39522C48633A00435744 /* SendNewsViewController.swift */,
+			);
+			path = SendNews;
+			sourceTree = "<group>";
+		};
+		EC5A39552C4864D300435744 /* SendNews */ = {
+			isa = PBXGroup;
+			children = (
+				EC5A39562C4864EA00435744 /* SendNewsView.swift */,
+			);
+			path = SendNews;
 			sourceTree = "<group>";
 		};
 		EC7144502BEF68F200FF52DF /* Save */ = {
@@ -391,6 +411,7 @@
 		EC88089B2BEB95D400BCAC60 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC5A39552C4864D300435744 /* SendNews */,
 				EC78D1642C36D3B000DE156D /* LogIn */,
 				EC78D1522C22E2BB00DE156D /* Discover */,
 				EC7667B62BECECE3003E2C86 /* News */,
@@ -418,6 +439,7 @@
 		EC88089E2BEB963E00BCAC60 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EC5A39542C48636B00435744 /* SendNews */,
 				EC4C947B2C3D45AA00B51FE8 /* Home */,
 				EC78D1672C36D59200DE156D /* LogIn */,
 				ECF399DF2BEFED6900F2C20E /* Search */,
@@ -582,7 +604,9 @@
 				EC71444F2BEF68ED00FF52DF /* SaveView.swift in Sources */,
 				EC8808B22BEBADA800BCAC60 /* ACNewsViewViewModel.swift in Sources */,
 				EC8808A82BEB9F5900BCAC60 /* Article.swift in Sources */,
+				EC5A39572C4864EA00435744 /* SendNewsView.swift in Sources */,
 				EC8808BA2BEBEA6D00BCAC60 /* ACRequest.swift in Sources */,
+				EC5A39532C48633A00435744 /* SendNewsViewController.swift in Sources */,
 				EC7144572BEF6B5C00FF52DF /* SaveTableViewCell.swift in Sources */,
 				EC8808AC2BEBA8D800BCAC60 /* NewsResponse.swift in Sources */,
 				ECCC28E22BEEAEF000DB7E6F /* ACSettingsCellViewModel.swift in Sources */,

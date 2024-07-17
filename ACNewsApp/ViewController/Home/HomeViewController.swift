@@ -35,23 +35,23 @@ class HomeViewController: UIViewController, HomePageViewDelegate, UIImagePickerC
         view.addSubview(homeView)
         addCostraints()
         setupNavigationBar()
-        
-       updateUserInfo()
+        updateUserInfo()
     }
     
     func updateUserInfo() {
             if let userModel = userModel {
-                // Update UI with user info
+                print("UserModel in HomeViewController:")
+                       print("Name: \(userModel.name)")
+                       print("Surname: \(userModel.surname)")
+                       print("Email: \(userModel.email)")
                 homeView.titleLabel.text = "\(userModel.name) \(userModel.surname)"
                 homeView.emailLabel.text = userModel.email
-                print("isim soyisim geldi: \(userModel.name)")
             } else {
                 // Fallback if userModel is nil (should not happen if properly initialized)
                 homeView.titleLabel.text = "Profile Name"
             }
         }
 
-    
     func addCostraints(){
         homeView.delegate = self
         homeView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,10 +64,9 @@ class HomeViewController: UIViewController, HomePageViewDelegate, UIImagePickerC
         ])
     }
     
-    
-    
     func sendNewsButtonTapped() {
-        
+        let vc = SendNewsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func changeRootViewController(_ vc: UIViewController, animated: Bool = true){
