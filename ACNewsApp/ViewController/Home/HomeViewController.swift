@@ -108,13 +108,21 @@ class HomeViewController: UIViewController, HomePageViewDelegate, UIImagePickerC
     
     func editProfileImageButtonTapped() {
         
-        let alert = UIAlertController(title: "Profile Image", message: "Pick a option", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
             self.showImagePicker(sourceType: .camera)
         }
         let galleryAction = UIAlertAction(title: "Select from gallery", style: .default) { _ in
             self.showImagePicker(sourceType: .photoLibrary)
+        }
+        
+        let removeAction = UIAlertAction(title: "Remove image", style: .default) { _ in
+            self.homeView.profileImage.image = UIImage(named: "profileImage")
+        }
+        
+        if homeView.profileImage.image != UIImage(named: "profileImage"){
+            alert.addAction(removeAction)
         }
         
         let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
@@ -146,9 +154,9 @@ class HomeViewController: UIViewController, HomePageViewDelegate, UIImagePickerC
         present(imagePicker, animated: true, completion: nil)
     }
         
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editedImage = info[.editedImage] as? UIImage {
+            homeView.profileImage.image = editedImage
             print("Görsel seçildi: \(editedImage)")
         } else if let originalImage = info[.originalImage] as? UIImage {
             print("Görsel seçildi: \(originalImage)")
@@ -161,18 +169,10 @@ class HomeViewController: UIViewController, HomePageViewDelegate, UIImagePickerC
     }
     
     private func setupNavigationBar() {
-        
-        // Like Button
-        let editProfileButton = UIBarButtonItem(image: UIImage(systemName: "pencil.line"), style: .plain, target: self, action: #selector(didTapEditProfileButton))
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(didTapSettingsButton))
-        navigationItem.rightBarButtonItems = [settingsButton, editProfileButton]
+        navigationItem.rightBarButtonItems = [settingsButton]
     }
-    
-    @objc func didTapEditProfileButton(){
-        let vc = ACSettingsViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
+        
     @objc func didTapSettingsButton(){
         let vc = ACSettingsViewController()
         navigationController?.pushViewController(vc, animated: true)

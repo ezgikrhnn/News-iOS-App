@@ -18,13 +18,15 @@ class HomePageView: UIView {
     //MARK: -Properties
     weak var delegate : HomePageViewDelegate?
     
-    let profileImage : UIImageView = {
+    let profileImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person.crop.circle")
-        imageView.tintColor = UIColor(named: "LightRed")
+        imageView.image = UIImage(named: "profileImage")
+        imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = 65 // Yükseklik ve genişliğin yarısı kadar yaparak çember şekline getiriyoruz
         imageView.clipsToBounds = true
+        imageView.layer.borderColor = UIColor(named: "Light0Red")?.cgColor
+        imageView.layer.borderWidth = 3.0
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -73,19 +75,22 @@ class HomePageView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     let editProfileButton: UIButton = {
         let button = UIButton(type: .system)
-        let image = UIImage(systemName: "square.and.pencil")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
+        let image = UIImage(systemName: "camera.fill")?.withTintColor(UIColor(named: "Light0Red") ?? .red , renderingMode: .alwaysOriginal)
         button.setImage(image, for: .normal)
-        button.setTitleColor(.white, for: .normal)
         button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+            button.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+            button.layer.shadowOpacity = 0.4
+            button.layer.shadowRadius = 3.0
+
+        
+       
+       
         button.addTarget(self, action: #selector(editProfileImageButtonPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
     let logOutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log Out", for: .normal)
@@ -185,8 +190,12 @@ class HomePageView: UIView {
             profileImage.heightAnchor.constraint(equalToConstant: 130),
             profileImage.widthAnchor.constraint(equalToConstant: 130),
             profileImage.topAnchor.constraint(equalTo: topAnchor, constant: 100),
-            editProfileButton.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: -30),
-            editProfileButton.trailingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: -25),
+           
+            editProfileButton.bottomAnchor.constraint(equalTo: profileImage.bottomAnchor),
+                editProfileButton.trailingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: -15),
+                editProfileButton.heightAnchor.constraint(equalToConstant: 30),
+                editProfileButton.widthAnchor.constraint(equalToConstant: 30),
+                
             titleLabel.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 20),
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 120),
            
@@ -200,7 +209,7 @@ class HomePageView: UIView {
             emailLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 12),
             emailLabel.leadingAnchor.constraint(equalTo: emailImage.trailingAnchor, constant: 8),
             
-            newsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 250),
+            newsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 400),
             newsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
             sendNewsButton.topAnchor.constraint(equalTo: newsLabel.bottomAnchor, constant: 20),
