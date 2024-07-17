@@ -64,17 +64,7 @@ class HomeViewController: UIViewController, HomePageViewDelegate, UIImagePickerC
         ])
     }
     
-    func logOutButtonTapped() {
-        do {
-            try authService.logOut()
-            // Kullanıcıyı giriş ekranına yönlendir
-            if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate {
-                sceneDelegate.setRootViewControllerToLogIn()
-            }
-        } catch {
-            print("Logout failed: \(error)")
-        }
-    }
+    
     
     func sendNewsButtonTapped() {
         
@@ -168,9 +158,12 @@ class HomeViewController: UIViewController, HomePageViewDelegate, UIImagePickerC
         picker.dismiss(animated: true, completion: nil)
     }
     
+    
     private func setupNavigationBar() {
         let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(didTapSettingsButton))
-        navigationItem.rightBarButtonItems = [settingsButton]
+        
+        let logOutButton = UIBarButtonItem(image: UIImage(systemName: "power.circle"), style: .plain, target: self, action: #selector(didTapLogOutButton))
+        navigationItem.rightBarButtonItems = [settingsButton, logOutButton]
     }
         
     @objc func didTapSettingsButton(){
@@ -178,4 +171,16 @@ class HomeViewController: UIViewController, HomePageViewDelegate, UIImagePickerC
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc func didTapLogOutButton(){
+        do {
+            try authService.logOut()
+            //kullanıcıyı giriş ekranına yönlendir:
+            if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate {
+                sceneDelegate.setRootViewControllerToLogIn()
+            }
+        } catch {
+            print("Logout failed: \(error)")
+        }
+    }
+   
 }

@@ -8,7 +8,6 @@
 import UIKit
 
 protocol HomePageViewDelegate: AnyObject {
-    func logOutButtonTapped()
     func sendNewsButtonTapped()
     func editProfileImageButtonTapped()
 }
@@ -75,6 +74,8 @@ class HomePageView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    //MARK: Buttons
     let editProfileButton: UIButton = {
         let button = UIButton(type: .system)
         let image = UIImage(systemName: "camera.fill")?.withTintColor(UIColor(named: "Light0Red") ?? .red , renderingMode: .alwaysOriginal)
@@ -84,23 +85,10 @@ class HomePageView: UIView {
             button.layer.shadowOpacity = 0.4
             button.layer.shadowRadius = 3.0
 
-        
-       
-       
         button.addTarget(self, action: #selector(editProfileImageButtonPressed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    let logOutButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Log Out", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.layer.cornerRadius = 25
-        button.addTarget(self, action: #selector(logOutButtonPressed), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-        }()
-  
     
     let sendNewsButton: UIButton = {
         let button = UIButton(type: .roundedRect)
@@ -159,7 +147,7 @@ class HomePageView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
-        addSubviews(profileImage, titleLabel, editProfileButton, locationLabel,locationImage, logOutButton, iconPeopleImage, sendNewsButton, newsLabel, emailImage, emailLabel)
+        addSubviews(profileImage, titleLabel, editProfileButton, locationLabel,locationImage, iconPeopleImage, sendNewsButton, newsLabel, emailImage, emailLabel)
         addConstraints()
       
         
@@ -170,10 +158,6 @@ class HomePageView: UIView {
     }
     
     //MARK: -Functions
-    @objc private func logOutButtonPressed(){
-        delegate?.logOutButtonTapped()
-    }
-    
     @objc private func sendNewsButtonPressed(){
         delegate?.sendNewsButtonTapped()
     }
@@ -220,10 +204,6 @@ class HomePageView: UIView {
             iconPeopleImage.heightAnchor.constraint(equalToConstant: 200),
             iconPeopleImage.widthAnchor.constraint(equalToConstant: 200),
             
-            logOutButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -150),
-            logOutButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            logOutButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
-            logOutButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 
